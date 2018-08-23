@@ -23,3 +23,22 @@ Para executar:
 bin/rake spec
 
 ## Configurando o Cucumber
+
+Adicionar a dependência a gem cucumber-rails
+
+group :test do
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'chromedriver-helper'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+end
+
+Instalar a gem
+bin/bundle install
+
+Configura uma versão inicial do cucumber para o projeto
+
+rails generate cucumber:install
