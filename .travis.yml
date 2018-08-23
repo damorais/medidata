@@ -1,0 +1,6 @@
+language: ruby
+rvm:
+  - 2.5
+script:
+  - bin/rake spec
+  - bin/rake features

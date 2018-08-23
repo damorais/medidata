@@ -1,4 +1,6 @@
-# README
+# Configuração do RSpec e Cucumber em um projeto Rails
+
+Aqui, o passo-a-passo para a configuração básica do RSpec e do Cucumber em um projeto Rails. Esta é uma versão preliminar, então pode ser que tenha algum passo necessário que não foi coberto ou que seja melhor quando feito de outra forma (isto foi feito com base em tutoriais das respectivas ferramentas).
 
 ## Configurando o RSpec
 
