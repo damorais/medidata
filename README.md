@@ -2,43 +2,71 @@
 
 ## Configurando o RSpec
 
-Instalar o rpec:
+1. Instalar o *RSpec*:
 
-gem install rspec
+    ```bash
+    gem install rspec
+    ```
 
-Incluir no Gemfile:
+2. Incluir no *Gemfile* as dependências para o contexto de desenvolvimento e testes:
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.8'
-end
+    ```ruby
+    group :development, :test do
+        gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+        gem 'rspec-rails', '~> 3.8'
+    end
+    ```
 
-e, depois, na linha de comando, para configurar no projeto:
+3. Configurar a estrutura do *RSpec* no projeto:
 
-rspec --init
+    ```bash
+    rspec --init
+    ```
 
 Para executar:
 
+```bash
 bin/rake spec
+```
 
 ## Configurando o Cucumber
 
-Adicionar a dependência a gem cucumber-rails
+1. Adicionar a dependência da gem *cucumber-rails* no *Gemfile*:
 
-group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-end
+    ```ruby
+    group :test do
+        # Adds support for Capybara system testing and selenium driver
+        gem 'capybara', '>= 2.15'
+        gem 'selenium-webdriver'
+        # Easy installation and use of chromedriver to run system tests with Chrome
+        gem 'chromedriver-helper'
+        gem 'cucumber-rails', require: false
+        gem 'database_cleaner'
+    end
+    ```
 
-Instalar a gem
-bin/bundle install
+2. Instalar a gem
 
-Configura uma versão inicial do cucumber para o projeto
+    ```bash
+    bin/bundle install
+    ```
 
-rails generate cucumber:install
+3. Configurar a estrutura do Cucumber no projeto:
+
+```bash
+bin/rails generate cucumber:install
+```
+
+Para executar:
+
+```bash
+bin/rake features
+```
+
+OBS: As modificações do *Gemfile* estão levando em conta o Gemfile gerado pelo *Rails*.
+
+OBS2: O comando *features* é executado, mas dispara um aviso informando que a versão atual requer a execução com comando (e suas variações):
+
+```bash
+bin/rake cucumber
+```
