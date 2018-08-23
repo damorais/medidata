@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Configurando o RSpec
 
-Things you may want to cover:
+Instalar o rpec:
 
-* Ruby version
+gem install rspec
 
-* System dependencies
+Incluir no Gemfile:
 
-* Configuration
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.8'
+end
 
-* Database creation
+e, depois, na linha de comando, para configurar no projeto:
 
-* Database initialization
+rspec --init
 
-* How to run the test suite
+Para executar:
 
-* Services (job queues, cache servers, search engines, etc.)
+bin/rake spec
 
-* Deployment instructions
-
-* ...
+## Configurando o Cucumber
