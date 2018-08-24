@@ -2,6 +2,15 @@
 
 [![Build Status](https://travis-ci.org/damorais/medidata.svg?branch=master)](https://travis-ci.org/damorais/medidata)
 
+Sistema para Registro de Informações Médicas.
+
+# Equipe do Projeto
+
+Daniel Morais | Nº USP: 5365542 | @damorais
+Diego Mauricio Tussi | Nº USP: 10834152 | @diegotussi
+Marcelo Pavanello Martins | Nº USP: 10833418 | @MarceloPavanello
+William T. Maruyama | Nº USP: 5874679 | @wtmaruyama
+
 # Configuração do RSpec e Cucumber em um projeto Rails
 
 Aqui, o passo-a-passo para a configuração básica do RSpec e do Cucumber em um projeto Rails. Esta é uma versão preliminar, então pode ser que tenha algum passo necessário que não foi coberto ou que seja melhor quando feito de outra forma (isto foi feito com base em tutoriais das respectivas ferramentas).
