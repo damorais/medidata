@@ -7,8 +7,11 @@ Sistema para Registro de Informações Médicas.
 # Equipe do Projeto
 
 Daniel Morais | Nº USP: 5365542 | @damorais
+
 Diego Mauricio Tussi | Nº USP: 10834152 | @diegotussi
+
 Marcelo Pavanello Martins | Nº USP: 10833418 | @MarceloPavanello
+
 William T. Maruyama | Nº USP: 5874679 | @wtmaruyama
 
 # Configuração do RSpec e Cucumber em um projeto Rails
