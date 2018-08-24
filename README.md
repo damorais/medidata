@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/damorais/medidata.svg?branch=master)](https://travis-ci.org/damorais/medidata)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/2710724885117a3644ce/maintainability)](https://codeclimate.com/github/damorais/medidata/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2710724885117a3644ce/test_coverage)](https://codeclimate.com/github/damorais/medidata/test_coverage)
+
 # MediData
 
 Sistema para Registro de Informações Médicas.
