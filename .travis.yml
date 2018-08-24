@@ -1,6 +1,10 @@
 language: ruby
 rvm:
   - 2.5
+
+before_script:
+- psql -c 'create database redkban_test;' -U postgres
+
 script:
   - bin/rake spec
   - bin/rake features
