@@ -104,8 +104,9 @@ O Heroku, que será utilizado como ambiente de produção da aplicação, não p
 
     ```bash
     brew install postgresql
-    ```
-
+    ```  
+    No ubuntu 18.10, podemos instalar a versão mais recente do PostgreSQL e do Ruby on Rails com o seguinte tutorial [aqui](https://gorails.com/setup/ubuntu/18.10).
+    
 2. Criar uma nova instância do banco de dados e subir o serviço. Isto depende se você já não subiu o serviço automático. Eu prefiro deixar o processo manual, assim não fico com o SGBD rodando à toa na minha máquina:
 
     ```bash
