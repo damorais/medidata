@@ -108,9 +108,11 @@ O Heroku, que será utilizado como ambiente de produção da aplicação, não p
     brew install postgresql   
     ``` 
     
-No Ubuntu 18.10, podemos instalar o [PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/) com o seguinte comando.
+No Ubuntu 18.04, podemos instalar o [PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/) com o seguinte comando.
     
     ```bash
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    sudo apt-get update
     sudo apt-get install postgresql-10   
     ```
     
