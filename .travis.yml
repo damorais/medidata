@@ -1,21 +1,26 @@
 language: ruby
 rvm:
-  - 2.5
-
+- 2.5
 env:
   global:
-    - CC_TEST_REPORTER_ID=dc39d9f27461df711e17ccdc0e8dc1a0788d0a49aed4b8fd7570ab5d1bbe3a16
-
-
+  - CC_TEST_REPORTER_ID=dc39d9f27461df711e17ccdc0e8dc1a0788d0a49aed4b8fd7570ab5d1bbe3a16
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-  - psql -c 'create database medidata_test;' -U postgres
-
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
+- psql -c 'create database medidata_test;' -U postgres
 script:
-  - bin/rake spec
-  - bin/rake features
-
+- bin/rake spec
+- bin/rake features
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+deploy:
+  provider: heroku
+  api_key:
+    secure: lVSer/BPzisWpevj17BsOhQt149NyseXfIxew6WROOsAhux8E6rsg4JFGNrzNj71zwV6D103dGM2h2dhNF2FMBLfifUWzSgKi/qpqYwE/bhhC4q56xiHkV4SwNOGh4c3k9D/g4HDGuyX5KcX2ZHcAdO4TMJd86aBn7OgIf7CveZN2JrQZlX3q3FFyNT40R6kOwc5u7rkJiYCSPZV4jyFmg28SXzKxTuwwJbWteXjj0peoC1UHUEWIk5JEFpj2Us0n3HHt1pJu8ZN9lbvruLIZysv93I7AT3uMvT40Ogp2lbLizbiHlIR5PhV0uGKiG680Bebb3RaQfe7Sfy/roeFzDEA9jKNwXNgVXxwP1h5xibknUSInTiwHqtCIoR9VfcnCPOP/RH0D9BgZG5SLfZt5orxmLqP4X7F+wljUST0jYGzjv4Tfu+9OJEsJNwowxw+xT+cjQMWaQMat5tWSa3HTHWLLHP8OcZkcB21ZB6NpoyKkeLo/iKg3JAtmDjjIQ3FHA0uQQ2PpS0sdax/pi61y47Anldwtv7Ynt7EjqMCF7aBcyuPdBMV4vcNm3mCArbMzvWPnp4LduereVlVL3tWsDTgB/MahnT/29sWkpBAADYGjyo8xCK/EXDQlUMU5m9u74cjguBIdDjmKfKRH1L4qtJ2IJpScGdGqa5xm0jQNCI=
+  app: limitless-sands-47730
+  run:
+    - "bin/rake db:migrate"
+  on:
+    repo: damorais/medidata
