@@ -20,6 +20,8 @@ Marcelo Pavanello Martins | Nº USP: 10833418 | @MarceloPavanello
 
 William T. Maruyama | Nº USP: 5874679 | @wtmaruyama
 
+
+
 # Configuração do RSpec e Cucumber em um projeto Rails
 
 Aqui, o passo-a-passo para a configuração básica do RSpec e do Cucumber em um projeto Rails. Esta é uma versão preliminar, então pode ser que tenha algum passo necessário que não foi coberto ou que seja melhor quando feito de outra forma (isto foi feito com base em tutoriais das respectivas ferramentas).
@@ -103,9 +105,12 @@ O Heroku, que será utilizado como ambiente de produção da aplicação, não p
 1. Instalar o PostgreSQL para seu sistema operacional. No Mac, dá para usar o Homebrew para isto:
 
     ```bash
-    brew install postgresql
-    ```  
-    No ubuntu 18.10, podemos instalar a versão mais recente do PostgreSQL e do Ruby on Rails com o seguinte tutorial [aqui](https://gorails.com/setup/ubuntu/18.10).
+    brew install postgresql    ```  
+    
+No Ubuntu 18.10, podemos instalar o [PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/) com o seguinte comando.
+    
+    ```bash
+    sudo apt-get install postgresql-10    ```  
     
 2. Criar uma nova instância do banco de dados e subir o serviço. Isto depende se você já não subiu o serviço automático. Eu prefiro deixar o processo manual, assim não fico com o SGBD rodando à toa na minha máquina:
 
