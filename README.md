@@ -105,12 +105,14 @@ O Heroku, que será utilizado como ambiente de produção da aplicação, não p
 1. Instalar o PostgreSQL para seu sistema operacional. No Mac, dá para usar o Homebrew para isto:
 
     ```bash
-    brew install postgresql    ```  
+    brew install postgresql   
+    ``` 
     
 No Ubuntu 18.10, podemos instalar o [PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/) com o seguinte comando.
     
     ```bash
-    sudo apt-get install postgresql-10    ```  
+    sudo apt-get install postgresql-10   
+    ``` 
     
 2. Criar uma nova instância do banco de dados e subir o serviço. Isto depende se você já não subiu o serviço automático. Eu prefiro deixar o processo manual, assim não fico com o SGBD rodando à toa na minha máquina:
 
