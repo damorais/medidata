@@ -8,13 +8,13 @@ URL da aplicação no Heroku: [https://limitless-sands-47730.herokuapp.com/]
 
 # Equipe do Projeto
 
-Daniel Morais **| Nº USP: 5365542 | @damorais**
+**Daniel Morais | Nº USP: 5365542 | @damorais**
 
-Diego Mauricio Tussi **| Nº USP: 10834152 | @diegotussi**
+**Diego Mauricio Tussi | Nº USP: 10834152 | @diegotussi**
 
-Marcelo Pavanello Martins **| Nº USP: 10833418 | @MarceloPavanello**
+**Marcelo Pavanello Martins | Nº USP: 10833418 | @MarceloPavanello**
 
-William T. Maruyama **| Nº USP: 5874679 | @wtmaruyama**
+**William T. Maruyama | Nº USP: 5874679 | @wtmaruyama**
 
 
 
