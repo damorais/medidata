@@ -29,3 +29,20 @@ end
 Then("A {string} message saying {string} should be exibited") do |css_class_name, content_message|
   expect(page).to have_css(".alert.alert-#{css_class_name}", text: content_message)
 end
+
+Given("An user with {string} email already exists") do |email|
+  #Creates a new profile
+  expect(Profile.new(email: email, 
+                     firstname: "Dummy", 
+                     lastname: "Dummy", 
+                     birthdate: "13/01/1980", 
+                     sex: "Male", 
+                     gender: "Masculino").save).to be(true)
+  #Check if the email exists 
+  expect(Profile.exists?(email: email)).to be(true)
+end
+
+Then("An error message saying that {string} should be exibited") do |content_message|
+  expect(page).to have_css("div.text-danger.small", text: content_message)
+end
+
