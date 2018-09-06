@@ -20,9 +20,15 @@
 		</div>
 
 		<div class="form-group">
-			<%= form.label :sex %>
-			<%= form.radio_button :sex, "Feminino" %>
-			<%= form.radio_button :sex, "Masculino" %>
+      <%= form.label :sex %>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :sex, "F", class:  "form-check-input" %>
+        <%= form.label :sex_female, "Feminino", class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= form.radio_button :sex, "M", class: "form-check-input" %>
+        <%= form.label :sex_male, "Masculino", class: "form-check-label" %>
+      </div>
 		</div>
 
 		<div class="form-group">
