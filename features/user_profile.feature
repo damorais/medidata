@@ -3,7 +3,15 @@ Feature: Allows an user to administrate your profile
 		Given I am on the MediData home page
 		When I click on "Criar um Perfil"
 		Then I should be redirected to Novo Perfil page
-	
+
+	Scenario: As a new User, I shouldn't be allowed to create a new profile without my name, my e-mail and my birthdate
+		Given I am on Novo Perfil page
+		And I click on "Criar meu perfil"
+		Then An error message saying that "O e-mail é obrigatório" should be exibited
+		And An error message saying that "O nome é obrigatório" should be exibited
+		And An error message saying that "O sobrenome é obrigatório" should be exibited
+		And An error message saying that "A data de nascimento é obrigatória" should be exibited
+
 	Scenario: As a new User, I can create a New Profile
 		Given I am on Novo Perfil page
 		When I fill "email" with "joao_silva@example.org"

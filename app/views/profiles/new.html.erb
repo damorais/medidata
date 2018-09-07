@@ -22,16 +22,32 @@
 
     <div class="form-group">
         <%= form.label :firstname %>
+        <% if @profile and @profile.errors.messages[:firstname] %>
+	      <div class="text-danger small">
+	          <%= @profile.errors.messages[:firstname].to_sentence %>
+	      </div>
+	<% end %>
 	<%= form.text_field :firstname, class: "form-control" %>
     </div>
     
     <div class="form-group">
         <%= form.label :lastname %>
+        <% if @profile and @profile.errors.messages[:lastname] %>
+	      <div class="text-danger small">
+	          <%= @profile.errors.messages[:lastname].to_sentence %>
+	      </div>
+	<% end %>
+
         <%= form.text_field :lastname, class: "form-control" %>
     </div>
     
     <div class="form-group">
         <%= form.label :birthdate %>
+        <% if @profile and @profile.errors.messages[:birthdate] %>
+	      <div class="text-danger small">
+	          <%= @profile.errors.messages[:birthdate].to_sentence %>
+	      </div>
+	<% end %>
         <%= form.date_field :birthdate, class: "form-control" %>
     </div>
     

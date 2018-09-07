@@ -1,0 +1,19 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>Perfis</h1>
+ 
+<table class="table">
+  <tr>
+    <th scope="col">Firstname</th>
+    <th scope="col">Lastname</th>
+    <th scope="col">E-mail</th>
+    <th></th>
+  </tr>
+ 
+  <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.firstname %></td>
+      <td><%= profile.lastname %></td>
+      <td><%= profile.email %></td>
+    </tr>
+  <% end %>
+</table>
