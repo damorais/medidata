@@ -46,3 +46,30 @@ Then("An error message saying that {string} should be exibited") do |content_mes
   expect(page).to have_css("div.text-danger.small", text: content_message)
 end
 
+Given("I am an existing User with {string} as my email") do |email|
+  #Creates a new profile
+  expect(Profile.new(email: email, 
+                     firstname: "Joana", 
+                     lastname: "da Silva", 
+                     birthdate: "13/01/1980").save).to be(true)
+  #Check if the email exists 
+  expect(Profile.exists?(email: email)).to be(true)
+end
+
+Given("I navigate to Editar Meu Perfil page with {string}") do |profile_email|
+  visit edit_profile_path(email: profile_email) 
+end
+
+When("The field {string} should be {string}") do |field_name, field_value|
+#  expect(page).to have_field("profile[#{field_name}]", with: field_value)
+ expect(page).to have_field(field_name, with: field_value)
+end
+
+When("The field {string} should have the date {string}") do |field_name, date_value|
+  date_as_string = Date.parse(date_value).to_s
+  expect(page).to have_field(field_name, with: date_as_string)
+end
+
+When("{string} {string} should be selected") do |radio_name, radio_value|
+  expect(page).to have_checked_field(radio_value, name: "profile[#{radio_name.downcase}]")
+end
