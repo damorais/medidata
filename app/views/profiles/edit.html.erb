@@ -11,36 +11,17 @@
 <div class="form-horizontal">
 
     <div class="form-group">
-        <%= form.label :email %>
-	<% if @profile and @profile.errors.messages[:email] %>
-	      <div class="text-danger small">
-	          <%= @profile.errors.messages[:email].to_sentence %>
-	      </div>
-	<% end %>
-	<%= form.email_field :email, class: "form-control" %>
+        <div class="row">
+            <%= form.label :email %>: <%= @profile.email %>
+        </div>
+        <div class="row">
+            <%= form.label :firstname %>:<%= @profile.firstname %>
+        </div>
+        <div class="row">
+            <%= form.label :lastname %>: <%= @profile.lastname %>
+        </div>
     </div>
 
-    <div class="form-group">
-        <%= form.label :firstname %>
-        <% if @profile and @profile.errors.messages[:firstname] %>
-	      <div class="text-danger small">
-	          <%= @profile.errors.messages[:firstname].to_sentence %>
-	      </div>
-	<% end %>
-	<%= form.text_field :firstname, class: "form-control" %>
-    </div>
-    
-    <div class="form-group">
-        <%= form.label :lastname %>
-        <% if @profile and @profile.errors.messages[:lastname] %>
-	      <div class="text-danger small">
-	          <%= @profile.errors.messages[:lastname].to_sentence %>
-	      </div>
-	<% end %>
-
-        <%= form.text_field :lastname, class: "form-control" %>
-    </div>
-    
     <div class="form-group">
         <%= form.label :birthdate %>
         <% if @profile and @profile.errors.messages[:birthdate] %>
