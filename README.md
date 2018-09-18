@@ -6,6 +6,8 @@ Atualmente existe um problema em relação ao armazenamento de informações mé
 
 URL da aplicação no Heroku: [https://limitless-sands-47730.herokuapp.com/]
 
+URL da aplicação no Pivotal Tracker: []
+
 # Equipe do Projeto
 
 **Daniel Morais | Nº USP: 5365542 | @damorais**
@@ -15,8 +17,6 @@ URL da aplicação no Heroku: [https://limitless-sands-47730.herokuapp.com/]
 **Marcelo Pavanello Martins | Nº USP: 10833418 | @MarceloPavanello**
 
 **William T. Maruyama | Nº USP: 5874679 | @wtmaruyama**
-
-
 
 # Configuração do RSpec e Cucumber em um projeto Rails
 
