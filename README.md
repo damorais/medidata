@@ -6,7 +6,7 @@ Atualmente existe um problema em relação ao armazenamento de informações mé
 
 URL da aplicação no Heroku: [https://limitless-sands-47730.herokuapp.com/]
 
-URL da aplicação no Pivotal Tracker: []
+URL da aplicação no Pivotal Tracker: [https://www.pivotaltracker.com/n/projects/2199380]
 
 # Equipe do Projeto
 
