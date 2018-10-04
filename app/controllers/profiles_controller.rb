@@ -4,14 +4,15 @@ class ProfilesController < ApplicationController
     @profiles = Profile.all
   end
 
-
   def new
+  end
+
+  def show
   end
 
   def edit
     @profile = Profile.find_by(email: params[:email]) 
   end
-
 
   def create
     
@@ -36,9 +37,6 @@ class ProfilesController < ApplicationController
                                
   end
 
-
-
-
   private
   def profile_create_params
     params.require(:profile).permit(:email, 
@@ -54,6 +52,5 @@ class ProfilesController < ApplicationController
                                     :sex,
                                     :gender)
   end
-
 
 end
