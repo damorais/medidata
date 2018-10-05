@@ -9,7 +9,7 @@ Feature: Allows an user to manager your weight data
 	Scenario: A registered user want to navigate to weight registerpage
 		Given I am on My profile page
         When I click on "Weights"
-		Then I should be redirected to "weights" page
+		Then I should be redirected to weights page
 
     Scenario: A registered user want to view the new weight page
         Given I am on "weights" page

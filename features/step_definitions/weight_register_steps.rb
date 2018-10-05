@@ -13,8 +13,8 @@ Given("I am on My profile page") do
     visit profile_path(email: @registered_user_email) 
 end
 
-Then("I should be redirected to {string} page") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+Then("I should be redirected to weights page") do
+    expect(page).to have_current_path(profile_weights_path(profile_email: @registered_user_email))
 end
 
 Given("I am on {string} page") do |string|

@@ -12,7 +12,7 @@ before_script:
 - psql -c 'create database medidata_test;' -U postgres
 script:
 - bin/rake spec
-- bin/rake features
+- bin/rake cucumber
 after_script:
 - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 deploy:
