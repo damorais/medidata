@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @profile = Profile.find_by(email: params[:email])
   end
 
   def edit

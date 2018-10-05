@@ -1,0 +1,19 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>Weights</h1>
+ 
+<table class="table">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Value</th>
+    <th scope="col">Date</th>
+    <th></th>
+  </tr>
+ 
+  <% @weights.each do |weight| %>
+    <tr>
+      <td><%= weight.id %></td>
+      <td><%= weight.value %></td>
+      <td><%= weight.date %></td>
+    </tr>
+  <% end %>
+</table>

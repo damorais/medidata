@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :profiles, param: :email, email:  /[^\/]+/ 
-                        # only: [:index, :new, :create, :edit, :update]
+  
+  resources :profiles, param: :email, email:  /[^\/]+/ do
+    resources :weights
+  end
+
   root 'welcome#index'
 
 end
