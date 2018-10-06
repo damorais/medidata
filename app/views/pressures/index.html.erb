@@ -10,6 +10,16 @@
 </p>
 
 <table class="table table-striped">
+  <thead>
+    <tr>
+        <th>SIS</th>
+        <th>DIA</th>
+        <th>Data</th>
+        <th></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
   <% @pressures.each do |pressure| %>
     <tr>
       <td><%= pressure.sis %></td>
@@ -19,4 +29,5 @@
     <td><%= link_to 'Deletar',  { action: :destroy, id: pressure.id }, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %></td>
   </tr>
   <% end %>
+</tbody>
 </table>
