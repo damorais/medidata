@@ -1,0 +1,22 @@
+<h1>Registros de Pressão</h1>
+
+<% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+	    <%= flash[:success] %>
+      </div>
+<% end %>
+<p>
+  <%= link_to "Novo", new_profile_pressure_path,  class: "btn btn-success" %>
+</p>
+
+<table class="table table-striped">
+  <% @pressures.each do |pressure| %>
+    <tr>
+      <td><%= pressure.sis %></td>
+      <td><%= pressure.dia %></td>
+      <td><%= pressure.data %></td>
+    <td><%= link_to 'Editar', edit_profile_pressure_path(id: pressure.id), class: "btn btn-primary" %></td>
+    <td><%= link_to 'Deletar',  { action: :destroy, id: pressure.id }, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %></td>
+  </tr>
+  <% end %>
+</table>

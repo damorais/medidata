@@ -1,0 +1,2 @@
+class Pressure < ApplicationRecord
+end

@@ -1,0 +1,29 @@
+<h2>Pressão Sanguínea</h2>
+
+<% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+	    <%= flash[:success] %>
+      </div>
+<% end %>
+
+<%= form_with scope: :profile_pressure, url: profile_pressures_path, local: true do |form| %>
+
+<div class="form-group">
+    <%= form.label :sis %>
+  <%= form.number_field :sis, class: "form-control" %>
+</div>
+
+<div class="form-group">
+    <%= form.label :dia %>
+    <%= form.number_field :dia, class: "form-control"  %>
+</div>
+
+<div class="form-group">
+    <%= form.label :data %>
+    <%= form.datetime_select :data, class: "form-control" %>
+</div>
+
+  <p>
+    <%= form.submit "Salvar", class: "btn btn-success"  %>
+  </p>
+<% end %>
