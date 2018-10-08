@@ -1,0 +1,29 @@
+<h1>Contatos de Emergência | <%= link_to "Novo Contato", new_profile_contact_path,  class: "btn btn-success" %></h1>
+
+<% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+	    <%= flash[:success] %>
+      </div>
+<% end %>
+ 
+<table class="table table-striped">
+  <tr>
+    <th scope="col">Email</th>
+    <th scope="col">Nome</th>
+    <th scope="col">Telefone</th>
+	<th scope="col">Celular</th>
+    <th scope="col"></th>
+	<th scope="col"></th>
+  </tr>
+ 
+  <% @contacts.each do |contact| %>
+    <tr>
+      <td><%= contact.contactemail %></td>
+      <td><%= contact.contactname %></td>
+      <td><%= contact.contactphone %></td>
+	  <td><%= contact.contactmobile %></td>
+      <td><%= link_to 'Editar', edit_profile_contact_path(id: contact.id), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Deletar',  { action: :destroy, id: contact.id }, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger" %></td>	  
+    </tr>
+  <% end %>
+</table>
