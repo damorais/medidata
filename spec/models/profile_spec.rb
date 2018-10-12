@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
+
   describe "Validations" do
     it "Is valid with valid attributes" do
       profile = Profile.new(email: "joao_silva@example.org", 

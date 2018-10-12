@@ -9,16 +9,16 @@ Feature: Allows an user to manager your weight data
 	Scenario: A registered user want to navigate to weight registerpage
 		Given I am on My profile page
         When I click on "Weights"
-		Then I should be redirected to weights page
+		Then I should be redirected to the weights page
 
     Scenario: A registered user want to view the new weight page
-        Given I am on "weights" page
+        Given I am on weights page
         When I click on "Add weight"
-        Then The "Add weight" page should be displayed
+        Then The Add weight page should be displayed
     
     Scenario: A registered user want to add a new weight
-        Given I am on "Add weight" page
+        Given I am on Add weight page
         When I fill the new weight data
         And I click on "Save Weight" button
-        Then I should be redirected to "Weights" page
-        And I should see "Weight registered sucessfully" message
+        Then I should be redirected to the weights page
+        And A "success" message saying "Weight registered sucessfully" should be exibited

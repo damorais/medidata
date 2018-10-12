@@ -13,12 +13,20 @@ Given("I am on My profile page") do
     visit profile_path(email: @registered_user_email) 
 end
 
-Then("I should be redirected to weights page") do
+Given("I am on Add weight page") do
+    visit new_profile_weight_path(profile_email: @registered_user_email)
+end
+
+Then("I should be redirected to the weights page") do
     expect(page).to have_current_path(profile_weights_path(profile_email: @registered_user_email))
 end
 
-Given("I am on {string} page") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+Given("I am on weights page") do
+    visit profile_weights_path(profile_email: @registered_user_email)
+end
+
+Then("The Add weight page should be displayed") do
+    expect(page).to have_current_path(new_profile_weight_path(profile_email: @registered_user_email))
 end
 
 Then("The {string} page should be displayed") do |string|
@@ -26,14 +34,14 @@ Then("The {string} page should be displayed") do |string|
 end
 
 When("I fill the new weight data") do
-    pending # Write code here that turns the phrase above into concrete actions
+    fill_in "weight[value]", with: "67,5"
+    fill_in "weight[date]", with: "21/12/2017"
 end
 
-When("I click on {string} button") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+When("I click on {string} button") do |button_label|
+    click_on button_label
 end
 
-Then("I should see {string} message") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
-end
-  
+# Then("A {string} message saying {string} should be exibited") do |css_class_name, content_message|
+#     expect(page).to have_css(".alert.alert-#{css_class_name}", text: content_message)
+# end
