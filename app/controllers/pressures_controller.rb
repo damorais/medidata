@@ -7,19 +7,25 @@ class PressuresController < ApplicationController
   #end
 
   def index
-    @pressures = Pressure.all
+    #@pressures = Pressure.all
+    @profile = Profile.find_by(params[:email])
+    @pressures = @profile.pressures
   end
 
 
   def create
-      @pressure = Pressure.new(pressure_create_params)
+      #@pressure = Pressure.new(pressure_create_params)
+      @profile = Profile.find_by(params[:email])
+      @pressure = @profile.pressures.create(pressure_create_params)
+
       if @pressure.save
         flash[:success] = "Pressão sanguínea registrada com sucesso!"
       end
 
-      #render 'index'
+      @pressures = @profile.pressures
+      render 'index'
       #render 'new'
-      redirect_to action: :index
+      #redirect_to action: :index
   end
 
   def edit
