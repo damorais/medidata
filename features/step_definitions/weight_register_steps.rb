@@ -34,7 +34,7 @@ Then("The {string} page should be displayed") do |string|
 end
 
 When("I fill the new weight data") do
-    fill_in "weight[value]", with: "67,5"
+    fill_in "weight[value]", with: "67"
     fill_in "weight[date]", with: "21/12/2017"
 end
 
