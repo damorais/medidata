@@ -73,3 +73,7 @@ end
 When("{string} {string} should be selected") do |radio_name, radio_value|
   expect(page).to have_checked_field(radio_value, name: "profile[#{radio_name.downcase}]")
 end
+
+Then("I should be redirected to my Profile main page") do
+  expect(page).to have_current_path(profile_path(email: "joao_silva@example.org"))
+end

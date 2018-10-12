@@ -21,10 +21,11 @@ class ProfilesController < ApplicationController
 
     if @profile.save
       flash[:success] = "O perfil foi criado com sucesso"
+      redirect_to profile_path(email: @profile.email)
+    else
+      render 'new'
     end
-
-    render 'new'
-
+    
   end
 
   def update

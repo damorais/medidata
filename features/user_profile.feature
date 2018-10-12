@@ -22,6 +22,7 @@ Feature: Allows an user to administrate your basic profile
 		And I fill "gender" with "Masculino"
 		And I click on "Criar meu perfil"
 		Then A New Profile with "joao_silva@example.org" email should be created
+		And I should be redirected to my Profile main page
 		And A "success" message saying "O perfil foi criado com sucesso" should be exibited
 
 	Scenario: As a new User, I should not be able to create a New Profile with an existing email

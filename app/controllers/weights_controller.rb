@@ -10,10 +10,12 @@ class WeightsController < ApplicationController
     end
 
     def create
-
         @profile = Profile.find_by(email: params[:profile_email])
+        @weight = Weight.new(weight_create_params)
 
-        if @profile.weights.create(weight_create_params)
+        @weight.profile = @profile
+
+        if @weight.save
             flash[:success] = "Weight registered sucessfully"
             redirect_to profile_weights_path(profile_email: @profile.email)
         else
