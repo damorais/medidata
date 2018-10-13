@@ -11,6 +11,7 @@ class HeightsController < ApplicationController
 
     def edit
         @height = Height.find(params[:id])
+        @profile = @height.profile
     end
 
     def create

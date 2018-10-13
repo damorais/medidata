@@ -24,7 +24,7 @@
     </div>
 
     <%= form.submit "Save Height", class: "btn btn-success" %>	
-
+	<%= link_to 'Cancel', profile_heights_path(profile_email: @profile.email), class: "btn btn-danger" %>
 </div>
 
 <% end %>

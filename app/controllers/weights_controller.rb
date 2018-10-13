@@ -11,6 +11,7 @@ class WeightsController < ApplicationController
 
     def edit
         @weight = Weight.find(params[:id])
+        @profile = @weight.profile
     end
 
     def create
