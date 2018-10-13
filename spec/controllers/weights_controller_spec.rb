@@ -163,4 +163,21 @@ RSpec.describe WeightsController, type: :controller do
         end
     end
 
+    describe "DELETE #destroy" do
+        before { 
+            @existing_weight = FactoryBot.create :weight, :profile => @existing_profile
+        }
+
+        it "destroys the requested beight" do
+            expect {
+            delete :destroy, params: {profile_email: @existing_profile.email, id: @existing_weight.to_param}
+            }.to change(Weight, :count).by(-1)
+        end
+
+        it "redirects to the weights list" do
+            delete :destroy, params: {profile_email: @existing_profile.email, id: @existing_weight.to_param}
+            expect(response).to redirect_to(profile_weights_path(profile_email: @existing_profile.email))
+        end
+    end
+    
 end

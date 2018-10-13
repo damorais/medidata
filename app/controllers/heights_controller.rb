@@ -39,6 +39,16 @@ class HeightsController < ApplicationController
 
     end
 
+    def destroy
+        @height = Height.find(params[:id])
+
+        profile_email = @height.profile.email
+
+        @height.destroy
+        
+        redirect_to profile_heights_path(profile_email: profile_email)
+    end
+
     private
     def height_params
         params.require(:height).permit(:value,:date)

@@ -39,6 +39,16 @@ class WeightsController < ApplicationController
 
     end
 
+    def destroy
+        @weight = Weight.find(params[:id])
+
+        profile_email = @weight.profile.email
+
+        @weight.destroy
+        
+        redirect_to profile_weights_path(profile_email: profile_email)
+    end
+
     private
     def weight_params
         params.require(:weight).permit(:value,:date)

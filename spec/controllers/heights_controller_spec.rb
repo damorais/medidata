@@ -163,4 +163,21 @@ RSpec.describe HeightsController, type: :controller do
         end
 
     end
+
+    describe "DELETE #destroy" do
+        before { 
+            @existing_height = FactoryBot.create :height, :profile => @existing_profile
+        }
+
+        it "destroys the requested beight" do
+            expect {
+                delete :destroy, params: {profile_email: @existing_profile.email, id: @existing_height.to_param}
+            }.to change(Height, :count).by(-1)
+        end
+
+        it "redirects to the heights list" do
+            delete :destroy, params: {profile_email: @existing_profile.email, id: @existing_height.to_param}
+            expect(response).to redirect_to(profile_heights_path(profile_email: @existing_profile.email))
+        end
+    end
 end

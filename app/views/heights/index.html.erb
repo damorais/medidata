@@ -22,6 +22,11 @@
       <td><%= height.id %></td>
       <td><%= height.value %></td>
       <td><%= height.date %></td>
+      <td> 
+        <%= link_to "Edit", edit_profile_height_path(profile_email: @profile.email, id: height.id) %> |
+        <%= link_to "Delete", edit_profile_height_path(profile_email: @profile.email, id: height.id), 
+            method: :delete, data: { confirm: 'Are you sure?' } %> 
+      </td>
     </tr>
   <% end %>
   

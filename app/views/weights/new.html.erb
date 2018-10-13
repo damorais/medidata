@@ -1,12 +1,5 @@
 <h2>Register your weight</h2>
 
-<% if flash[:success] %>
-      <div class="alert alert-success" role="alert">
-	    <%= flash[:success] %>
-      </div>
-<% end %>
-
-
 <%= form_with scope: :weight, local: true, url: profile_weights_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">
 
