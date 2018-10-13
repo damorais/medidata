@@ -1,0 +1,28 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>Heights</h1>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<%= link_to 'Add height', new_profile_height_path(profile_email: @profile.email) %>
+
+<table class="table">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Value</th>
+    <th scope="col">Date</th>
+    <th></th>
+  </tr>
+ 
+  <% @heights.each do |height| %>
+    <tr>
+      <td><%= height.id %></td>
+      <td><%= height.value %></td>
+      <td><%= height.date %></td>
+    </tr>
+  <% end %>
+  
+</table>

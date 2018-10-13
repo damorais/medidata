@@ -1,0 +1,30 @@
+<h2>Register your weight</h2>
+
+<%= form_with scope: :height, local: true, url: profile_heights_path(profile_email: @profile.email) do |form| %>
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <%= form.label :value %>
+	<% if @height and @height.errors.messages[:value] %>
+	      <div class="text-danger small">
+	          <%= @height.errors.messages[:value].to_sentence %>
+	      </div>
+	<% end %>
+	<%= form.text_field :value, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :date %>
+        <% if @height and @height.errors.messages[:date] %>
+	      <div class="text-danger small">
+	          <%= @height.errors.messages[:date].to_sentence %>
+	      </div>
+	<% end %>
+        <%= form.date_field :date, class: "form-control" %>
+    </div>
+
+    <%= form.submit "Save Height", class: "btn btn-success" %>	
+
+</div>
+
+<% end %>

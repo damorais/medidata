@@ -24,7 +24,8 @@
     <td><%= @profile.lastname %></td>
     <td><%= @profile.email %></td>
     <td>
-      <%= link_to 'Weights', profile_weights_path(profile_email: @profile.email), class: "btn btn-primary" %>
+      <%= link_to 'Weights', profile_weights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %>
     </td>
   </tr>
   </tbody>
