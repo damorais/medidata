@@ -22,3 +22,15 @@ Feature: Allows an user to manager your weight data
         And I click on "Save Weight" button
         Then I should be redirected to the weights page
         And A "success" message saying "Weight registered sucessfully" should be exibited
+
+    # Scenario: A registered user want to update an existing weight
+    #     Given I am on weights page
+    #     And I have a weight registered
+    #     And I click in "edit" of that weight
+    #     Then I should be redirected to the edit page of that weight
+
+    #     Given I am on the edit page of an existing weight
+    #     When I replace the data
+    #     And I click on "Save Weight" button
+    #     Then I should be redirected to the weights page
+    #     And A "success" message saying "Weight registered sucessfully" should be exibited

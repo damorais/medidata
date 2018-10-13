@@ -41,7 +41,3 @@ end
 When("I click on {string} button") do |button_label|
     click_on button_label
 end
-
-# Then("A {string} message saying {string} should be exibited") do |css_class_name, content_message|
-#     expect(page).to have_css(".alert.alert-#{css_class_name}", text: content_message)
-# end

@@ -37,7 +37,7 @@ Feature: Allows an user to administrate your basic profile
 		And I click on "Criar meu perfil"
 		Then An error message saying that "Já existe um perfil com este e-mail" should be exibited
 	
-	Scenario: As an exsting User, I should be allowed to edit "birthdate", "sex", and "gender" of my basic profile
+	Scenario: As an existing User, I should be allowed to edit "birthdate", "sex", and "gender" of my basic profile
 		Given I am an existing User with "joana_silva@example.org" as my email
 		And I navigate to Editar Meu Perfil page with "joana_silva@example.org"
 		When I fill "birthdate" with "13/12/1999"

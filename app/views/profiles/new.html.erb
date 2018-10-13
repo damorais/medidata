@@ -1,12 +1,5 @@
 <h2>Crie o seu perfil</h2>
 
-<% if flash[:success] %>
-      <div class="alert alert-success" role="alert">
-	    <%= flash[:success] %>
-      </div>
-<% end %>
-
-
 <%= form_with scope: :profile, local: true, url: profiles_path do |form| %>
 <div class="form-horizontal">
 

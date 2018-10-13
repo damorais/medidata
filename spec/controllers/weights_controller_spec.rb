@@ -35,6 +35,27 @@ RSpec.describe WeightsController, type: :controller do
         end
     end
 
+    describe "GET #edit" do
+        before { 
+            @existing_weight = FactoryBot.create :weight, :profile => @existing_profile
+        }
+        
+        it "returns a success response" do  
+            get :edit, params: { profile_email: @existing_profile.email, id: @existing_weight.id }
+            expect(response).to be_successful
+        end
+
+        it "returns an existing weight" do  
+            get :edit, params: { profile_email: @existing_profile.email, id: @existing_weight.id }
+            expect(assigns(:weight)).to eq(@existing_weight)
+        end
+
+        it "returns an edit view" do  
+            get :edit, params: { profile_email: @existing_profile.email, id: @existing_weight.id }
+            expect(response).to render_template(:edit)
+        end
+    end
+
     describe "POST #create" do
 
         context "with valid params" do
@@ -82,6 +103,61 @@ RSpec.describe WeightsController, type: :controller do
                 }
                 
                 expect(response).to render_template(:new)
+            end
+
+        end
+    end
+
+    describe "PUT #update" do
+        before { 
+            @existing_weight = FactoryBot.create :weight, :profile => @existing_profile
+            @original_weight_value = @existing_weight.value
+            @original_weight_date = @existing_weight.date
+        }
+
+        context "with valid params" do
+            let(:new_attributes) {
+                {
+                    value: '65',
+                    date: '2018-06-25'
+                }
+            }
+
+            it "updates the requested profile" do
+                put :update, params: {profile_email: @existing_profile.email, id: @existing_weight.id, weight: new_attributes}
+                @existing_weight.reload
+                
+                expect(@existing_weight.value).to eq(new_attributes[:value].to_f)
+                expect(@existing_weight.date).to eq(new_attributes[:date].to_date)
+                expect(@existing_weight.profile).to eq(@existing_profile)
+            end
+
+            it "redirects to the weights page" do
+                put :update, params: { profile_email: @existing_profile.email, id: @existing_weight.id, weight: new_attributes }
+                
+                expect(response).to redirect_to(profile_weights_path(profile_email: @existing_profile.email))
+            end
+
+        end
+
+        context "with invalid params" do
+            let(:invalid_attributes) { 
+                { value: "" }
+            }
+
+            it "doesn't change the Weight" do
+                put :update, params: {profile_email: @existing_profile.email, id: @existing_weight.id, weight: invalid_attributes}
+                @existing_weight.reload
+                
+                expect(@existing_weight.value).to eq(@original_weight_value)
+                expect(@existing_weight.date).to eq(@original_weight_date)
+                expect(@existing_weight.profile).to eq(@existing_profile)
+            end
+
+            it "stay in the edit weight" do
+                put :update, params: {profile_email: @existing_profile.email, id: @existing_weight.id, weight: invalid_attributes}
+                
+                expect(response).to render_template(:edit)
             end
 
         end

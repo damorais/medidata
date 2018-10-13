@@ -9,6 +9,6 @@ class Weight < ApplicationRecord
   validates :date, presence: { message: "A date must be informed" }
 
   def set_defaults
-    self.date = Time.now
+    self.date = Time.now unless self.date
   end
 end

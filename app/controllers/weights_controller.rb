@@ -9,9 +9,13 @@ class WeightsController < ApplicationController
         @profile = Profile.find_by(email: params[:profile_email])
     end
 
+    def edit
+        @weight = Weight.find(params[:id])
+    end
+
     def create
         @profile = Profile.find_by(email: params[:profile_email])
-        @weight = Weight.new(weight_create_params)
+        @weight = Weight.new(weight_params)
 
         @weight.profile = @profile
 
@@ -23,8 +27,20 @@ class WeightsController < ApplicationController
         end
     end
 
+    def update
+        @weight = Weight.find(params[:id])
+        
+        if @weight.update(weight_params)
+            flash[:success] = "Weight updated sucessfully"
+            redirect_to profile_weights_path(profile_email: @weight.profile.email)
+        else
+            render 'edit'
+        end
+
+    end
+
     private
-    def weight_create_params
+    def weight_params
         params.require(:weight).permit(:value,:date)
     end
 end
