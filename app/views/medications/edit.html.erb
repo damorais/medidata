@@ -1,0 +1,72 @@
+<h2>Register your medication</h2>
+
+<%= form_with scope: :medication, local: true, url: profile_medications_path(profile_email: @profile.email) do |form| %>
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <%= form.label :Medifications_Name %>
+	<% if @medication and @medication.errors.messages[:name] %>
+	      <div class="text-danger small">
+	          <%= @medication.errors.messages[:name].to_sentence %>
+	      </div>
+	<% end %>
+	<%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :Categorize_Medifications %>
+  <% if @medication and @medication.errors.messages[:categorize] %>
+        <div class="text-danger small">
+            <%= @medication.errors.messages[:categorize].to_sentence %>
+        </div>
+  <% end %>
+  <%= form.text_field :categorize, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= form.label :Medifications_Start %>
+	<% if @medication and @medication.errors.messages[:start] %>
+	      <div class="text-danger small">
+	          <%= @medication.errors.messages[:start].to_sentence %>
+	      </div>
+	<% end %>
+	<%= form.date_field :start, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :Medifications_Finish %>
+  <% if @medication and @medication.errors.messages[:finish] %>
+        <div class="text-danger small">
+            <%= @medication.errors.messages[:finish].to_sentence %>
+        </div>
+  <% end %>
+  <%= form.date_field :finish, class: "form-control" %>
+
+    </div>
+    <div class="form-group">
+        <%= form.label :Dosage %>
+    <% if @medication and @medication.errors.messages[:dosage] %>
+        <div class="text-danger small">
+            <%= @medication.errors.messages[:dosage].to_sentence %>
+        </div>
+    <% end %>
+    <%= form.text_field :dosage, class: "form-control" %>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+      <%= form.label :Additional_Information %>
+  <% if @medication and @medication.errors.messages[:infadd] %>
+      <div class="text-danger small">
+          <%= @medication.errors.messages[:infadd].to_sentence %>
+      </div>
+  <% end %>
+  <%= form.text_field :infadd, class: "form-control" %>
+  </div>
+
+    <%= form.submit "Save Medication", class: "btn btn-success" %>
+    <%= link_to 'Cancel', profile_medications_path(profile_email: @profile.email), class: "btn btn-danger" %>
+
+</div>
+
+<% end %>

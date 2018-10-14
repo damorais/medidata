@@ -1,0 +1,6 @@
+2018-10-14 16:45:41.676 -03 [3914] FATAL:  data directory "/Users/marcelopavanellomartins/Desktop/medidata/pgsql/pgdata" has group or world access
+2018-10-14 16:45:41.676 -03 [3914] DETAIL:  Permissions should be u=rwx (0700).
+2018-10-14 17:36:12.009 -03 [4484] FATAL:  data directory "/Users/marcelopavanellomartins/Desktop/medidata/pgsql/pgdata" has group or world access
+2018-10-14 17:36:12.009 -03 [4484] DETAIL:  Permissions should be u=rwx (0700).
+2018-10-14 17:45:18.376 -03 [4656] FATAL:  data directory "/Users/marcelopavanellomartins/Desktop/medidata/pgsql/pgdata" has group or world access
+2018-10-14 17:45:18.376 -03 [4656] DETAIL:  Permissions should be u=rwx (0700).

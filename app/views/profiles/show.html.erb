@@ -14,7 +14,7 @@
       <th scope="col">Firstname</th>
       <th scope="col">Lastname</th>
       <th scope="col">E-mail</th>
-      <th scope=""></th> 
+      <th scope=""></th>
       <th></th>
     </tr>
   </thead>
@@ -25,7 +25,8 @@
     <td><%= @profile.email %></td>
     <td>
       <%= link_to 'Weights', profile_weights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
-      <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %>
+      <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Medications', profile_medications_path(profile_email: @profile.email), class: "btn btn-primary" %>
     </td>
   </tr>
   </tbody>
