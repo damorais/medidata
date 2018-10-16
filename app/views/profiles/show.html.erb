@@ -1,5 +1,5 @@
 <!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
-<h1>Perfil</h1>
+<h1>Profile</h1>
 
 <% if flash[:success] %>
       <div class="alert alert-success" role="alert">
@@ -8,25 +8,21 @@
 <% end %>
 
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Firstname</th>
-      <th scope="col">Lastname</th>
-      <th scope="col">E-mail</th>
-      <th scope=""></th> 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<table class="table table-striped">
+  <tr>
+    <th scope="col">Firstname</th>
+    <th scope="col">Lastname</th>
+    <th scope="col">E-mail</th>
+    <th scope="col"></th> 
+  </tr>
   <tr>
     <td><%= @profile.firstname %></td>
     <td><%= @profile.lastname %></td>
     <td><%= @profile.email %></td>
     <td>
       <%= link_to 'Weights', profile_weights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
-      <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %>
+      <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+	  <%= link_to 'Contacts', profile_contacts_path(profile_email: @profile.email), class: "btn btn-primary" %>
     </td>
   </tr>
-  </tbody>
 </table>
