@@ -21,9 +21,9 @@
       <td><%= height.value %></td>
       <td><%= height.date %></td>
       <td> 
-        <%= link_to "Edit", edit_profile_height_path(profile_email: @profile.email, id: height.id) %> |
+        <%= link_to "Edit", edit_profile_height_path(profile_email: @profile.email, id: height.id), class: "btn btn-primary" %>
         <%= link_to "Delete", profile_height_path(profile_email: @profile.email, id: height.id), 
-            method: :delete, data: { confirm: 'Are you sure?' } %> 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
       </td>
     </tr>
   <% end %>
