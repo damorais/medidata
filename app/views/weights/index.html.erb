@@ -1,13 +1,11 @@
 <!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
-<h1>Weights</h1>
+<h1>Weights | <%= link_to 'Add weight', new_profile_weight_path(profile_email: @profile.email),  class: "btn btn-success"  %></h1>
 
 <% if flash[:success] %>
   <div class="alert alert-success" role="alert">
     <%= flash[:success] %>
   </div>
 <% end %>
-
-<%= link_to 'Add weight', new_profile_weight_path(profile_email: @profile.email) %>
 
 <table class="table">
   <tr>
@@ -31,4 +29,4 @@
   <% end %>
   
 </table>
-<%= link_to 'Back', profile_path(email: @profile.email) %>
+<%= link_to 'Back', profile_path(email: @profile.email),  class: "btn btn-success" %>
