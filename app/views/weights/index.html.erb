@@ -7,7 +7,7 @@
   </div>
 <% end %>
 
-<table class="table" class="table table-striped">
+<table class="table table-striped">
   <tr>
     <th scope="col">ID</th>
     <th scope="col">Value</th>
@@ -21,7 +21,7 @@
       <td><%= weight.value %></td>
       <td><%= weight.date %></td>
       <td>
-        <%= link_to "Edit", edit_profile_weight_path(profile_email: @profile.email, id: weight.id), class: "btn btn-primary" %> 
+        <%= link_to "Edit", edit_profile_weight_path(profile_email: @profile.email, id: weight.id), class: "btn btn-primary" %> |  
         <%= link_to "Delete", profile_weight_path(profile_email: @profile.email, id: weight.id), 
             method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
         </td>
