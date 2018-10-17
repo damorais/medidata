@@ -1,5 +1,6 @@
 class PressuresController < ApplicationController
   def new
+     @profile = Profile.find_by(email: params[:profile_email])
   end
 
   #def create
@@ -20,10 +21,12 @@ class PressuresController < ApplicationController
 
       if @pressure.save
         flash[:success] = "Pressão sanguínea registrada com sucesso!"
+        @pressures = @profile.pressures
+        render 'index'
+      else
+        render 'new'
       end
 
-      @pressures = @profile.pressures
-      render 'index'
       #render 'new'
       #redirect_to action: :index
   end
@@ -61,7 +64,7 @@ class PressuresController < ApplicationController
   # Pega somente esses parametros da request
   private
   def pressure_create_params
-    params.require(:profile_pressure).permit(:sis,
+    params.require(:pressure).permit(:sis,
                                     :dia,
                                     :data)
   end
