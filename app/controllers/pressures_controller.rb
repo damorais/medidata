@@ -34,7 +34,6 @@ class PressuresController < ApplicationController
   def edit
     @pressure = Pressure.find_by(id: params[:id])
     #@pressure = Pressure.find(params[:id])
-
     #redirect_to action: :index
 
   end
@@ -45,18 +44,15 @@ class PressuresController < ApplicationController
     if @pressure.update(pressure_update_params)
       flash[:success] = "A pressão foi alterada com sucesso"
     end
-
-    redirect_to action: :index
+      redirect_to action: :index
 
   end
 
   def destroy
     @pressure = Pressure.find(params[:id])
-
     if @pressure.destroy
       flash[:success] = "A pressão excluida com sucesso!"
     end
-
 
     redirect_to action: :index
   end
