@@ -1,15 +1,15 @@
-<h2>Editar Pressão Sanguínea</h2>
+<h2>Edit</h2>
 
 <%= form_with model: @pressure, local: true, url: profile_pressure_path  do |form| %>
 
 <div class="form-group">
     <%= form.label :sis %>
-  <%= form.number_field :sis, class: "form-control" %>
+  <%= form.number_field :systolic, class: "col-sm-1" %>
 </div>
 
 <div class="form-group">
     <%= form.label :dia %>
-    <%= form.number_field :dia, class: "form-control"  %>
+    <%= form.number_field :diastolic, class: "col-sm-1"  %>
 </div>
 
 <div class="form-group">
@@ -18,6 +18,6 @@
 </div>
 
   <p>
-    <%= form.submit "Salvar", class: "btn btn-success"  %>
+    <%= form.submit "Save", class: "btn btn-success"  %>
   </p>
 <% end %>

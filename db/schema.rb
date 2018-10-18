@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_13_003738) do
+ActiveRecord::Schema.define(version: 2018_10_18_145822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2018_10_13_003738) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_heights_on_profile_id"
+  end
+
+  create_table "pressures", force: :cascade do |t|
+    t.integer "systolic"
+    t.integer "diastolic"
+    t.datetime "data"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_pressures_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -44,17 +54,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_003738) do
     t.index ["profile_id"], name: "index_weights_on_profile_id"
   end
 
-  create_table "pressures", force: :cascade do |t|
-    t.string "sis"
-    t.string "dia"
-    t.datetime "data"
-    t.bigint "profile_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_pressures_on_profile_id"
-  end
-
-  add_foreign_key "pressures", "profiles"
   add_foreign_key "heights", "profiles"
+  add_foreign_key "pressures", "profiles"
   add_foreign_key "weights", "profiles"
 end
