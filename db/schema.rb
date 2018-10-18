@@ -12,6 +12,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_10_13_003738) do
 =======
 ActiveRecord::Schema.define(version: 2018_10_05_204253) do
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 2018_10_05_204253) do
 =======
 ActiveRecord::Schema.define(version: 2018_10_12_190357) do
 >>>>>>> Associando Modelos - Profile e Pressure
+=======
+ActiveRecord::Schema.define(version: 2018_10_05_204253) do
+>>>>>>> Revert "Associando Modelos - Profile e Pressure"
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,17 +37,19 @@ ActiveRecord::Schema.define(version: 2018_10_12_190357) do
     t.index ["profile_id"], name: "index_heights_on_profile_id"
 =======
   create_table "pressures", force: :cascade do |t|
-    t.string "sis"
-    t.string "dia"
+    t.integer "sis"
+    t.integer "dia"
     t.datetime "data"
-    t.bigint "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> Pressao Sanguinea - new, edit, delete
 =======
     t.index ["profile_id"], name: "index_pressures_on_profile_id"
 >>>>>>> Associando Modelos - Profile e Pressure
+=======
+>>>>>>> Revert "Associando Modelos - Profile e Pressure"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -57,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_190357) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   create_table "weights", force: :cascade do |t|
@@ -75,4 +82,6 @@ ActiveRecord::Schema.define(version: 2018_10_12_190357) do
 =======
   add_foreign_key "pressures", "profiles"
 >>>>>>> Associando Modelos - Profile e Pressure
+=======
+>>>>>>> Revert "Associando Modelos - Profile e Pressure"
 end
