@@ -3,16 +3,12 @@ class PressuresController < ApplicationController
      @profile = Profile.find_by(email: params[:profile_email])
   end
 
-  #def create
-  #    render plain: params[:pressure].inspect
-  #end
-
   def index
     @pressures = Pressure.all
   end
 
-
   def create
+      # render plain: params[:pressure].inspect
       @pressure = Pressure.new(pressure_create_params)
       if @pressure.save
         flash[:success] = "Pressão sanguínea registrada com sucesso!"
@@ -22,11 +18,6 @@ class PressuresController < ApplicationController
         render 'new'
       end
 
-<<<<<<< HEAD
-=======
-      #render 'index'
->>>>>>> parent of 40ee3de... Associando Modelos - Profile e Pressure
-      #render 'new'
       redirect_to action: :index
   end
 
