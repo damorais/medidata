@@ -7,7 +7,11 @@ class ProfilesController < ApplicationController
   def new
   end
 
+<<<<<<< HEAD
   def show
+=======
+  def edit
+>>>>>>> cc4bffff507cb5c0d91eb665ffdbaf67e08d1d1f
     @profile = Profile.find_by(email: params[:email])
   end
 
@@ -37,10 +41,14 @@ class ProfilesController < ApplicationController
 
     render "edit"
 <<<<<<< HEAD
+<<<<<<< HEAD
                                
 =======
 
 >>>>>>> Validacao - numero negativo.
+=======
+
+>>>>>>> cc4bffff507cb5c0d91eb665ffdbaf67e08d1d1f
   end
 
   private

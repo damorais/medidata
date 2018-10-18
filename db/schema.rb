@@ -13,6 +13,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_10_13_003738) do
 =======
 ActiveRecord::Schema.define(version: 2018_10_05_204253) do
@@ -23,10 +24,14 @@ ActiveRecord::Schema.define(version: 2018_10_12_190357) do
 =======
 ActiveRecord::Schema.define(version: 2018_10_05_204253) do
 >>>>>>> Revert "Associando Modelos - Profile e Pressure"
+=======
+ActiveRecord::Schema.define(version: 2018_10_05_204253) do
+>>>>>>> cc4bffff507cb5c0d91eb665ffdbaf67e08d1d1f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   create_table "heights", force: :cascade do |t|
     t.decimal "value"
@@ -36,6 +41,8 @@ ActiveRecord::Schema.define(version: 2018_10_05_204253) do
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_heights_on_profile_id"
 =======
+=======
+>>>>>>> cc4bffff507cb5c0d91eb665ffdbaf67e08d1d1f
   create_table "pressures", force: :cascade do |t|
     t.integer "sis"
     t.integer "dia"
@@ -44,12 +51,15 @@ ActiveRecord::Schema.define(version: 2018_10_05_204253) do
     t.datetime "updated_at", null: false
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Pressao Sanguinea - new, edit, delete
 =======
     t.index ["profile_id"], name: "index_pressures_on_profile_id"
 >>>>>>> Associando Modelos - Profile e Pressure
 =======
 >>>>>>> Revert "Associando Modelos - Profile e Pressure"
+=======
+>>>>>>> cc4bffff507cb5c0d91eb665ffdbaf67e08d1d1f
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -63,6 +73,7 @@ ActiveRecord::Schema.define(version: 2018_10_05_204253) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -84,4 +95,6 @@ ActiveRecord::Schema.define(version: 2018_10_05_204253) do
 >>>>>>> Associando Modelos - Profile e Pressure
 =======
 >>>>>>> Revert "Associando Modelos - Profile e Pressure"
+=======
+>>>>>>> cc4bffff507cb5c0d91eb665ffdbaf67e08d1d1f
 end
