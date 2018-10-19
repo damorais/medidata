@@ -11,4 +11,12 @@ class Profile < ApplicationRecord
   validates :lastname, presence: { message: "O sobrenome é obrigatório" }
   validates :birthdate, presence: { message: "A data de nascimento é obrigatória" }
 
+  def latest_weight 
+    self.weights.order(:date).reverse_order().take
+  end
+
+  def latest_height 
+    self.heights.order(:date).reverse_order().take
+  end
+
 end
