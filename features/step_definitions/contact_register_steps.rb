@@ -1,14 +1,3 @@
-Given("I am an registered user with {string} email address") do |email|
-    @registered_user_email = email
-    #Creates a new profile
-    expect(Profile.new(email: @registered_user_email, 
-        firstname: "Carlos", 
-        lastname: "Constantino", 
-        birthdate: "01/07/1967").save).to be(true)
-    #Check if the email exists 
-    expect(Profile.exists?(email: email)).to be(true)
-end
-
 Given("I am on My profile page") do
     visit profile_path(email: @registered_user_email) 
 end
