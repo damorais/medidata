@@ -1,7 +1,3 @@
-Given("I am on My profile page") do
-    visit profile_path(email: @registered_user_email) 
-end
-
 Then("I should be redirected to the contacts page") do
     expect(page).to have_current_path(profile_contacts_path(profile_email: @registered_user_email))
 end
@@ -23,8 +19,4 @@ When("I fill the new contact data") do
     fill_in "contact[name]", with: "Joaquim Torres"
     fill_in "contact[phone]", with: "11988881787"
     fill_in "contact[mobile]", with: "1120939091"	
-end
-
-When("I click on {string} button") do |button_label|
-    click_on button_label
 end
