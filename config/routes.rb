@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :profiles, param: :email, email:  /[^\/]+/ do
     resources :weights
     resources :heights
+    resources :contacts
   end
 
   root 'welcome#index'
