@@ -3,7 +3,7 @@ class CreatePressures < ActiveRecord::Migration[5.2]
     create_table :pressures do |t|
       t.integer :systolic
       t.integer :diastolic
-      t.datetime :data
+      t.datetime :date
       t.references :profile, foreign_key: true
 
       t.timestamps

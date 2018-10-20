@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_10_18_145822) do
   create_table "pressures", force: :cascade do |t|
     t.integer "systolic"
     t.integer "diastolic"
-    t.datetime "data"
+    t.datetime "date"
     t.bigint "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

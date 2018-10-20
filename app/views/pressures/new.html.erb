@@ -9,7 +9,7 @@
 <%= form_with scope: :pressure, url: profile_pressures_path, local: true do |form| %>
 
 <div class="form-group">
-    <%= form.label :systolic %>
+    <%= form.label :Systolic %>
   <% if @pressure and @pressure.errors.messages[:systolic] %>
   <div class="text-danger small">
       <%= @pressure.errors.messages[:systolic].to_sentence %>
@@ -19,23 +19,23 @@
 </div>
 
 <div class="form-group">
-    <%= form.label :diastolic %>
+    <%= form.label :Diastolic %>
     <% if @pressure and @pressure.errors.messages[:diastolic] %>
       <div class="text-danger small">
-          <%= @pressure.errors.messages[:dia].to_sentence %>
+          <%= @pressure.errors.messages[:diastolic].to_sentence %>
       </div>
     <% end %>
     <%= form.number_field :diastolic, class: "col-sm-1"  %>
 </div>
 
 <div class="form-group">
-    <%= form.label :data %>
-    <% if @pressure and @pressure.errors.messages[:data] %>
+    <%= form.label :date %>
+    <% if @pressure and @pressure.errors.messages[:date] %>
     <div class="text-danger small">
-        <%= @pressure.errors.messages[:data].to_sentence %>
+        <%= @pressure.errors.messages[:date].to_sentence %>
     </div>
     <% end %>
-    <%= form.datetime_select :data, class: "form-control" %>
+    <%= form.datetime_select :date, class: "form-control" %>
 </div>
 
   <p>
