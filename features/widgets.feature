@@ -25,3 +25,18 @@ Feature: Allows an user to look at a glance some of your important health data f
         Given I don't have any height registered
         And I am on My profile page
         Then I should see a Height widget warning that "You don't have any height registered"
+
+    Scenario: I should be able to see my BMI on my profile page
+        Given I have a Weight and a Height registered
+        And I am on My profile page
+        Then I should see a BMI widget with my BMI
+    
+    Scenario: I should be warned when I don't have a weight data to calculate my BMI
+        Given I don't have any weight registered
+        And I am on My profile page
+        Then I should see a BMI widget warning that "You don't have enough data to calculate your BMI"
+    
+    Scenario: I should be warned when I don't have a height data to calculate my BMI
+        Given I don't have any height registered
+        And I am on My profile page
+        Then I should see a BMI widget warning that "You don't have enough data to calculate your BMI"

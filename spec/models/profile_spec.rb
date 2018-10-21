@@ -74,5 +74,40 @@ RSpec.describe Profile, type: :model do
 
   end
 
+  describe "BMI" do
 
+    context "With valid height and weight" do
+      before { 
+        @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
+        @weight = FactoryBot.create :weight, :date => Time.now, :profile => @existing_profile, :value => 65
+        @height = FactoryBot.create :height, :date => Time.now, :profile => @existing_profile, :value => 1.85
+      }
+
+      it "Should return the bmi value for the current profile" do
+        expect(@existing_profile.bmi).to eq(19)
+      end
+    end
+    
+    context "Without height" do 
+      before { 
+        @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
+        @weight = FactoryBot.create :weight, :date => Time.now, :profile => @existing_profile, :value => 65
+      }
+
+      it "Should return nil as the bmi value for the current profile" do
+        expect(@existing_profile.bmi).to eq(nil)
+      end
+    end
+
+    context "Without weight" do 
+      before { 
+        @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
+        @height = FactoryBot.create :height, :date => Time.now, :profile => @existing_profile, :value => 1.85
+      }
+
+      it "Should return nil as the bmi value for the current profile" do
+        expect(@existing_profile.bmi).to eq(nil)
+      end
+    end
+  end
 end

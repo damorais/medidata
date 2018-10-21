@@ -43,3 +43,26 @@ Then("I should see a Height widget warning that {string}") do |message|
 
     expect(widget).to have_content(message)
 end
+
+Given("I have a Weight and a Height registered") do
+    @my_weight = FactoryBot.create :weight, :date => Time.now, :profile => @my_profile, :value => 65.0
+    @my_height = FactoryBot.create :height, :date => Time.now, :profile => @my_profile, :value => 1.85
+    @expected_bmi = 19.0
+
+
+    expect(@my_profile.weights.size).to be(1)
+    expect(@my_profile.heights.size).to be(1)
+end
+
+Then("I should see a BMI widget with my BMI") do
+    widget = find("#widget_bmi")
+
+    expect(widget).to have_content(@expected_bmi)
+
+end
+
+Then("I should see a BMI widget warning that {string}") do |message|
+    widget = find("#widget_bmi")
+
+    expect(widget).to have_content(message)    
+end

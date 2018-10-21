@@ -19,4 +19,10 @@ class Profile < ApplicationRecord
     self.heights.order(:date).reverse_order().take
   end
 
+  def bmi
+    if latest_height and latest_weight
+      BodyMassIndex.calculate(latest_weight.value, latest_height.value)
+    end
+  end
+
 end

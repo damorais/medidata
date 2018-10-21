@@ -31,6 +31,8 @@
   </tbody>
 </table>
 
-<%= render :partial => "weights/latest", :locals => { :latest_weight => @profile.latest_weight } %>
-
-<%= render :partial => "heights/latest", :locals => { :latest_height => @profile.latest_height } %>
+<div class="row">
+  <%= render :partial => "weights/latest", :locals => { :latest_weight => @profile.latest_weight } %>
+  <%= render :partial => "heights/latest", :locals => { :latest_height => @profile.latest_height } %>
+  <%= render :partial => "widgets/bmi", :locals => { :bmi => @profile.bmi } %>
+</div>
