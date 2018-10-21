@@ -1,0 +1,27 @@
+<div id="widget_lastest_weight" class="col-md-3">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <% if latest_weight %>
+            
+            <h3 class="card-title">
+                Weight:
+            </h3>
+            <h2 class=""><%= latest_weight.value %> kg</h2>
+            
+            <% else %>
+            
+            <small>You don't have any weight registered</small> 
+            
+            <% end %>
+        </div>
+        <% if latest_weight %>
+        
+        <div class="card-footer">
+            <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Registered: <%= latest_weight.date.to_date() %></small>
+            </div>
+        </div>
+        
+        <% end %>
+    </div>
+</div>

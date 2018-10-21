@@ -14,6 +14,10 @@ class WeightsController < ApplicationController
         @profile = @weight.profile
     end
 
+    # def latest        
+    #     @weight = Weight.joins(:profile).where("profiles.email" => params[:profile_email]).order(:date).reverse_order().take()
+    # end
+
     def create
         @profile = Profile.find_by(email: params[:profile_email])
         @weight = Weight.new(weight_params)

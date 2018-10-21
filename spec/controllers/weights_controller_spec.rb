@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'date'
 
 RSpec.describe WeightsController, type: :controller do
     # Todo registro de peso depende de um perfil válido existente
@@ -55,6 +56,41 @@ RSpec.describe WeightsController, type: :controller do
             expect(response).to render_template(:edit)
         end
     end
+
+    # describe "GET #latest" do
+    #     context "With weight registered" do
+    #         before { 
+    #             @latest_weight = FactoryBot.create :weight, :date => Time.now, :profile => @existing_profile
+    #             @other_weight = FactoryBot.create :weight, :date => 1.day.ago, :profile => @existing_profile
+    #         }
+
+    #         it "returns a success response" do
+    #             get :latest, params: { profile_email: @existing_profile.email }
+    #             expect(response).to be_successful
+    #         end
+
+    #         it "returns the latest weight " do
+    #             get :latest, params: { profile_email: @existing_profile.email }
+
+    #             expect(assigns(:weight)).to eq(@latest_weight)
+    #         end
+
+    #         it "returns an lastest widget" do
+    #             get :latest, params: { profile_email: @existing_profile.email }
+    #             expect(response).to render_template(:latest)
+    #         end
+    #     end
+        
+    #     # context "Without weight registered" do
+    #     #     it "returns a success response" do
+    #     #     end
+
+    #     #     it "returns nothing as the latest weight data" do
+    #     #     end
+    #     # end
+
+    # end
+
 
     describe "POST #create" do
 
