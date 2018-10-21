@@ -1,22 +1,20 @@
 class AllergiesController < ApplicationController
 
+    before_action :recover_profile
+
     def index
-        @profile = Profile.find_by(email: params[:profile_email])
         @allergies = @profile.allergies
     end
    
     def new
-        @profile = Profile.find_by(email: params[:profile_email])
     end
    
     def edit
         @allergy = Allergy.find(params[:id])
-        @profile = @allergy.profile
     end
 
 	def create
         @allergy = Allergy.new(allergy_params)
-        @profile = Profile.find_by(email: params[:profile_email])		
 
         @allergy.profile = @profile
 

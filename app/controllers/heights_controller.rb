@@ -1,21 +1,19 @@
 class HeightsController < ApplicationController
 
+    before_action :recover_profile
+
     def index
-        @profile = Profile.find_by(email: params[:profile_email])
         @heights = @profile.heights
     end
 
     def new
-        @profile = Profile.find_by(email: params[:profile_email])
     end
 
     def edit
         @height = Height.find(params[:id])
-        @profile = @height.profile
     end
 
     def create
-        @profile = Profile.find_by(email: params[:profile_email])
         @height = Height.new(height_params)
 
         @height.profile = @profile

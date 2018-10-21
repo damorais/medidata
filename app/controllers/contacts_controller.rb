@@ -1,21 +1,19 @@
 class ContactsController < ApplicationController
+    
+    before_action :recover_profile
 
     def index
-        @profile = Profile.find_by(email: params[:profile_email])
         @contacts = @profile.contacts
     end
    
     def new
-        @profile = Profile.find_by(email: params[:profile_email])
     end
    
     def edit
         @contact = Contact.find(params[:id])
-        @profile = @contact.profile
     end
 
 	def create
-        @profile = Profile.find_by(email: params[:profile_email])		
         @contact = Contact.new(contact_params)
 	
         @contact.profile = @profile

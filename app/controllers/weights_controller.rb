@@ -1,25 +1,19 @@
 class WeightsController < ApplicationController
 
+    before_action :recover_profile
+
     def index
-        @profile = Profile.find_by(email: params[:profile_email])
         @weights = @profile.weights
     end
 
     def new
-        @profile = Profile.find_by(email: params[:profile_email])
     end
 
     def edit
         @weight = Weight.find(params[:id])
-        @profile = @weight.profile
     end
 
-    # def latest        
-    #     @weight = Weight.joins(:profile).where("profiles.email" => params[:profile_email]).order(:date).reverse_order().take()
-    # end
-
     def create
-        @profile = Profile.find_by(email: params[:profile_email])
         @weight = Weight.new(weight_params)
 
         @weight.profile = @profile

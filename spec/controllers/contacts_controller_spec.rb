@@ -21,6 +21,12 @@ RSpec.describe ContactsController, type: :controller do
             get :index, params: { profile_email: @existing_profile.email }
             expect(response).to render_template(:index)
         end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :index, params: { profile_email: "inexisting_user@example.org" }
+            }.to raise_error(ActionController::RoutingError)
+        end
     end
 
     describe "GET #new" do
@@ -32,6 +38,12 @@ RSpec.describe ContactsController, type: :controller do
         it "render a new contact page" do
             get :new, params: { profile_email: @existing_profile.email }
             expect(response).to render_template(:new)
+        end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :new, params: { profile_email: "inexisting_profile@inexisting_example.org" }
+            }.to raise_error(ActionController::RoutingError)
         end
     end
 
@@ -54,9 +66,24 @@ RSpec.describe ContactsController, type: :controller do
             get :edit, params: { profile_email: @existing_profile.email, id: @existing_contact.id }
             expect(response).to render_template(:edit)
         end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :edit, params: { profile_email: "inexisting_profile@inexisting_example.org", id: @existing_contact.id }
+            }.to raise_error(ActionController::RoutingError)
+        end
     end
 
     describe "POST #create" do
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                post :create, params: { 
+                    profile_email: "inexisting_profile@inexisting_example.org", 
+                    contact: {}
+                } 
+            }.to raise_error(ActionController::RoutingError)
+        end
 
         context "with valid params" do
             let(:valid_attributes) { 
@@ -117,6 +144,12 @@ RSpec.describe ContactsController, type: :controller do
             @original_contact_mobile = @existing_contact.mobile
         }
 
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                put :update, params: {profile_email: "inexisting_profile@inexisting_example.org", id: @existing_contact.id, contact: {}}
+            }.to raise_error(ActionController::RoutingError)
+        end
+
         context "with valid params" do
             let(:new_attributes) {
                	{ email: "petrus@exemplo.org", name: "Petrus", phone: "1120201323", mobile: "11982838128" }	
@@ -138,6 +171,8 @@ RSpec.describe ContactsController, type: :controller do
                 
                 expect(response).to redirect_to(profile_contacts_path(profile_email: @existing_profile.email))
             end
+
+            
 
         end
 
@@ -162,7 +197,6 @@ RSpec.describe ContactsController, type: :controller do
                 
                 expect(response).to render_template(:edit)
             end
-
         end
     end
 	
@@ -180,6 +214,12 @@ RSpec.describe ContactsController, type: :controller do
         it "redirects to the contact list" do
             delete :destroy, params: {profile_email: @existing_profile.email, id: @existing_contact.to_param}
             expect(response).to redirect_to(profile_contacts_path(profile_email: @existing_profile.email))
+        end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                delete :destroy, params: {profile_email: "inexisting_profile@inexisting_example.org", id: @existing_contact.to_param}
+            }.to raise_error(ActionController::RoutingError)
         end
     end
 end
