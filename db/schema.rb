@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181013233839) do
+ActiveRecord::Schema.define(version: 20181020234812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,17 @@ ActiveRecord::Schema.define(version: 20181013233839) do
     t.index ["profile_id"], name: "index_contacts_on_profile_id"
   end  
   
+  create_table "allergies", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_allergies_on_profile_id"
+  end
+  
   add_foreign_key "heights", "profiles"
   add_foreign_key "weights", "profiles"
   add_foreign_key "contacts", "profiles"
+  add_foreign_key "allergies", "profiles" 
 end
