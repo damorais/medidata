@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     end
 
     resources :heights
+    resources :contacts
+    resources :allergies    
 
-    
   end
 
   root 'welcome#index'

@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_13_003738) do
+ActiveRecord::Schema.define(version: 2018_10_20_234812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "allergies", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_allergies_on_profile_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "phone"
+    t.string "mobile"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_contacts_on_profile_id"
+  end
 
   create_table "heights", force: :cascade do |t|
     t.decimal "value"
@@ -44,6 +64,8 @@ ActiveRecord::Schema.define(version: 2018_10_13_003738) do
     t.index ["profile_id"], name: "index_weights_on_profile_id"
   end
 
+  add_foreign_key "allergies", "profiles"
+  add_foreign_key "contacts", "profiles"
   add_foreign_key "heights", "profiles"
   add_foreign_key "weights", "profiles"
 end
