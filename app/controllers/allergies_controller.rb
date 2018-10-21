@@ -15,8 +15,8 @@ class AllergiesController < ApplicationController
     end
 
 	def create
-        @profile = Profile.find_by(email: params[:profile_email])
         @allergy = Allergy.new(allergy_params)
+        @profile = Profile.find_by(email: params[:profile_email])		
 
         @allergy.profile = @profile
 
