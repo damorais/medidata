@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :weights
     resources :heights
     resources :contacts
+    resources :allergies    
   end
 
   root 'welcome#index'
