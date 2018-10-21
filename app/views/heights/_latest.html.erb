@@ -1,16 +1,16 @@
-<div class="col-md-3">
+<div id="widget_lastest_height" class="col-md-3">
     <div class="card mb-4 shadow-sm">
         <div class="card-body">
             <% if latest_height %>
             
             <h3 class="card-title">
-                Minha altura:
+                My current height is:
             </h3>
-            <h2 class=""><%= latest_height.value %> m</h2>
+            <h2 class=""><%= latest_height.value %> kg</h2>
             
             <% else %>
             
-            <h3>Não há altura cadastrada</h3> 
+            <small>You don't have any height registered</small> 
             
             <% end %>
         </div>
@@ -18,7 +18,7 @@
         
         <div class="card-footer">
             <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted">Registrado em: <%= latest_height.date.to_date() %></small>
+                <small class="text-muted">Registered: <%= latest_height.date.to_date() %></small>
             </div>
         </div>
         
