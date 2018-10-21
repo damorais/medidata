@@ -17,6 +17,7 @@ class ContactsController < ApplicationController
 	def create
         @profile = Profile.find_by(email: params[:profile_email])		
         @contact = Contact.new(contact_params)
+	
         @contact.profile = @profile
 
         if @contact.save
