@@ -1,17 +1,17 @@
 Then("I should be redirected to the contacts page") do
-    expect(page).to have_current_path(profile_contacts_path(profile_email: @registered_user_email))
+    expect(page).to have_current_path(profile_contacts_path(profile_email: @my_profile.email))
 end
 
 Given("I am on contacts page") do
-    visit profile_contacts_path(profile_email: @registered_user_email)
+    visit profile_contacts_path(profile_email: @my_profile.email)
 end
 
 Then("The Add contact page should be displayed") do
-    expect(page).to have_current_path(new_profile_contact_path(profile_email: @registered_user_email))
+    expect(page).to have_current_path(new_profile_contact_path(profile_email: @my_profile.email))
 end
 
 Given("I am on Add contact page") do
-    visit new_profile_contact_path(profile_email: @registered_user_email)
+    visit new_profile_contact_path(profile_email: @my_profile.email)
 end
 
 When("I fill the new contact data") do

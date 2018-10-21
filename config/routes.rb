@@ -3,12 +3,7 @@ Rails.application.routes.draw do
   
   resources :profiles, param: :email, email:  /[^\/]+/ do
     
-    resources :weights do
-      collection do
-        get 'latest'
-      end
-    end
-
+    resources :weights
     resources :heights
     resources :contacts
     resources :allergies    
