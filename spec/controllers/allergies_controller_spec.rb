@@ -21,6 +21,12 @@ RSpec.describe AllergiesController, type: :controller do
             get :index, params: { profile_email: @existing_profile.email }
             expect(response).to render_template(:index)
         end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :index, params: { profile_email: "inexisting_user@example.org" }
+            }.to raise_error(ActionController::RoutingError)
+        end
     end
 
     describe "GET #new" do
@@ -32,6 +38,12 @@ RSpec.describe AllergiesController, type: :controller do
         it "render a new allergy page" do
             get :new, params: { profile_email: @existing_profile.email }
             expect(response).to render_template(:new)
+        end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :new, params: { profile_email: "inexisting_user@example.org" }
+            }.to raise_error(ActionController::RoutingError)
         end
     end
 
@@ -54,9 +66,25 @@ RSpec.describe AllergiesController, type: :controller do
             get :edit, params: { profile_email: @existing_profile.email, id: @existing_allergy.id }
             expect(response).to render_template(:edit)
         end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :edit, params: { profile_email: "inexisting_user@example.org", id: @existing_allergy.id }
+            }.to raise_error(ActionController::RoutingError)
+        end
     end
 
     describe "POST #create" do
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                post :create, params: { 
+                    profile_email: "inexisting_user@example.org", 
+                    allergy: {}
+                } 
+                
+            }.to raise_error(ActionController::RoutingError)
+        end
 
         context "with valid params" do
             let(:valid_attributes) { 
@@ -80,6 +108,7 @@ RSpec.describe AllergiesController, type: :controller do
                 
                 expect(response).to redirect_to(profile_allergies_path(profile_email: @existing_profile.email))
             end
+
         end
 
         context "with invalid params" do
@@ -115,6 +144,12 @@ RSpec.describe AllergiesController, type: :controller do
             @original_allergy_description = @existing_allergy.description
         }
 
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                put :update, params: {profile_email: "inexisting_user@example.org", id: @existing_allergy.id, allergy: {}}
+            }.to raise_error(ActionController::RoutingError)
+        end
+        
         context "with valid params" do
             let(:new_attributes) {
                	{ name: "Buscopan", description: "Princípio Ativo: Dipirona Sódica" }	
@@ -134,7 +169,6 @@ RSpec.describe AllergiesController, type: :controller do
                 
                 expect(response).to redirect_to(profile_allergies_path(profile_email: @existing_profile.email))
             end
-
         end
 
         context "with invalid params" do
@@ -156,7 +190,6 @@ RSpec.describe AllergiesController, type: :controller do
                 
                 expect(response).to render_template(:edit)
             end
-
         end
     end
 	
@@ -174,6 +207,12 @@ RSpec.describe AllergiesController, type: :controller do
         it "redirects to the allergy list" do
             delete :destroy, params: {profile_email: @existing_profile.email, id: @existing_allergy.to_param}
             expect(response).to redirect_to(profile_allergies_path(profile_email: @existing_profile.email))
+        end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                delete :destroy, params: {profile_email: "inexisting_user@example.org", id: @existing_allergy.to_param}
+            }.to raise_error(ActionController::RoutingError)
         end
     end
 end
