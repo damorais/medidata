@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'date'
 
 RSpec.describe WeightsController, type: :controller do
     # Todo registro de peso depende de um perfil válido existente
@@ -21,6 +22,12 @@ RSpec.describe WeightsController, type: :controller do
             get :index, params: { profile_email: @existing_profile.email }
             expect(response).to render_template(:index)
         end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :index, params: { profile_email: "inexisting_user@example.org" }
+            }.to raise_error(ActionController::RoutingError)
+        end
     end
 
     describe "GET #new" do
@@ -32,6 +39,12 @@ RSpec.describe WeightsController, type: :controller do
         it "render a new weight page" do
             get :new, params: { profile_email: @existing_profile.email }
             expect(response).to render_template(:new)
+        end
+        
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :new, params: { profile_email: "inexisting_user@example.org" }
+            }.to raise_error(ActionController::RoutingError)
         end
     end
 
@@ -54,9 +67,24 @@ RSpec.describe WeightsController, type: :controller do
             get :edit, params: { profile_email: @existing_profile.email, id: @existing_weight.id }
             expect(response).to render_template(:edit)
         end
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                get :edit, params: { profile_email: "inexisting_user@example.org", id: @existing_weight.id }
+            }.to raise_error(ActionController::RoutingError)
+        end
     end
 
     describe "POST #create" do
+
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                post :create, params: { 
+                    profile_email: "inexisting_user@example.org", 
+                    weight: {} 
+                } 
+            }.to raise_error(ActionController::RoutingError)
+        end
 
         context "with valid params" do
             let(:valid_attributes) { 
@@ -115,6 +143,12 @@ RSpec.describe WeightsController, type: :controller do
             @original_weight_date = @existing_weight.date
         }
 
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                put :update, params: {profile_email: "inexisting_user@example.org", id: @existing_weight.id, weight: {}}
+            }.to raise_error(ActionController::RoutingError)
+        end
+
         context "with valid params" do
             let(:new_attributes) {
                 {
@@ -167,6 +201,12 @@ RSpec.describe WeightsController, type: :controller do
         before { 
             @existing_weight = FactoryBot.create :weight, :profile => @existing_profile
         }
+        
+        it "returns an error when trying to access based on inexisting user" do
+            expect{
+                delete :destroy, params: {profile_email: "inexisting_user@example.org", id: @existing_weight.to_param}
+            }.to raise_error(ActionController::RoutingError)
+        end
 
         it "destroys the requested beight" do
             expect {

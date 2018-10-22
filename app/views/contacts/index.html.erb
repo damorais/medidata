@@ -1,0 +1,36 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>Emergency Contacts | <%= link_to "Add contact", new_profile_contact_path(profile_email: @profile.email), class: "btn btn-success" %></h1>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+ 
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">E-mail</th>
+    <th scope="col">Name</th>
+    <th scope="col">Phone</th>
+	<th scope="col">Mobile</th>
+    <th scope="col"></th>
+  </tr>
+ 
+  <% @contacts.each do |contact| %>
+    <tr>
+	  <td><%= contact.id %></td>
+      <td><%= contact.email %></td>
+      <td><%= contact.name %></td>
+      <td><%= contact.phone %></td>
+	  <td><%= contact.mobile %></td>
+      <td>
+	    <%= link_to "Edit", edit_profile_contact_path(profile_email: @profile.email, id: contact.id), class: "btn btn-primary" %> | 
+	     <%= link_to "Delete", profile_contact_path(profile_email: @profile.email, id: contact.id), 
+	     method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+	  </td>
+  </tr>
+  <% end %>
+  
+</table>
+<%= link_to 'Back', profile_path(email: @profile.email), class: "btn btn-success" %>

@@ -1,17 +1,17 @@
 Given("I am on Add pressure page") do
-    visit new_profile_pressure_path(profile_email: @registered_user_email)
+    visit new_profile_pressure_path(profile_email: @my_profile.email)
 end
 
 Then("I should be redirected to the pressures page") do
-    expect(page).to have_current_path(profile_pressures_path(profile_email: @registered_user_email))
+    expect(page).to have_current_path(profile_pressures_path(profile_email: @my_profile.email))
 end
 
 Given("I am on pressures page") do
-    visit profile_pressures_path(profile_email: @registered_user_email)
+    visit profile_pressures_path(profile_email: @my_profile.email)
 end
 
 Then("The Add pressure page should be displayed") do
-    expect(page).to have_current_path(new_profile_pressure_path(profile_email: @registered_user_email))
+    expect(page).to have_current_path(new_profile_pressure_path(profile_email: @my_profile.email))
 end
 
 When("I fill the new pressure data") do

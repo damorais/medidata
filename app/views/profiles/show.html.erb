@@ -21,8 +21,16 @@
     <td><%= @profile.email %></td>
     <td>
       <%= link_to 'Weights', profile_weights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
-      <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %>
-      <%= link_to 'Pressures', profile_pressures_path(profile_email: @profile.email), class: "btn btn-primary" %>
+      <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Pressures', profile_pressures_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Contacts', profile_contacts_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Allergies', profile_allergies_path(profile_email: @profile.email), class: "btn btn-primary" %>
     </td>
   </tr>
 </table>
+
+<div class="row">
+  <%= render :partial => "weights/latest", :locals => { :latest_weight => @profile.latest_weight } %>
+  <%= render :partial => "heights/latest", :locals => { :latest_height => @profile.latest_height } %>
+  <%= render :partial => "widgets/bmi", :locals => { :bmi => @profile.bmi } %>
+</div>
