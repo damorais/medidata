@@ -1,0 +1,33 @@
+<h1>Pressures</h1>
+
+<% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+	    <%= flash[:success] %>
+      </div>
+<% end %>
+<p>
+  <%= link_to "Add", new_profile_pressure_path,  class: "btn btn-success" %>
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+        <th>Systolic</th>
+        <th>Diastolic</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @pressures.each do |pressure| %>
+    <tr>
+      <td><%= pressure.systolic %></td>
+      <td><%= pressure.diastolic %></td>
+      <td><%= pressure.date %></td>
+    <td><%= link_to 'Edit', edit_profile_pressure_path(id: pressure.id), class: "btn btn-primary" %></td>
+    <td><%= link_to 'Delete',  { action: :destroy, id: pressure.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>

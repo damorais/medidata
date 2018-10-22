@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
- 
+
   def index
     @profiles = Profile.all
   end
@@ -12,11 +12,11 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find_by(email: params[:email]) 
+    @profile = Profile.find_by(email: params[:email])
   end
 
   def create
-    
+
     @profile = Profile.new(profile_create_params)
 
     if @profile.save
@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
     else
       render 'new'
     end
-    
+
   end
 
   def update
@@ -36,15 +36,15 @@ class ProfilesController < ApplicationController
     end
 
     render "edit"
-                               
+
   end
 
   private
   def profile_create_params
-    params.require(:profile).permit(:email, 
-                                    :firstname, 
-                                    :lastname, 
-                                    :birthdate, 
+    params.require(:profile).permit(:email,
+                                    :firstname,
+                                    :lastname,
+                                    :birthdate,
                                     :sex, 
                                     :gender)
   end
