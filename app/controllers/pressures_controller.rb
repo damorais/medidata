@@ -12,7 +12,7 @@ class PressuresController < ApplicationController
       @pressure.profile = @profile
 
       if @pressure.save
-        flash[:success] = "Blood pressure registered successfully!"
+        flash[:success] = "Blood pressure registered successfully"
         @pressures = @profile.pressures
         redirect_to profile_pressures_path(profile_email: @profile.email)
       else
@@ -28,7 +28,7 @@ class PressuresController < ApplicationController
     @pressure = Pressure.find_by(id: params[:id])
 
     if @pressure.update(pressure_update_params)
-      flash[:success] = "The pressure was changed successfully!"
+      flash[:success] = "Blood pressure was changed successfully"
       redirect_to profile_pressures_path(profile_email: @pressure.profile.email)
     else
       render 'edit'
@@ -41,7 +41,7 @@ class PressuresController < ApplicationController
     @pressure = Pressure.find(params[:id])
 
     if @pressure.destroy
-      flash[:success] = "The pressure successfully excluded!"
+      flash[:success] = "Blood pressure successfully excluded"
     end
     redirect_to action: :index
   end

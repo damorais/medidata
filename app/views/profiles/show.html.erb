@@ -13,7 +13,7 @@
     <th scope="col">Firstname</th>
     <th scope="col">Lastname</th>
     <th scope="col">E-mail</th>
-    <th scope="col"></th> 
+    <th scope="col"></th>
   </tr>
   <tr>
     <td><%= @profile.firstname %></td>
@@ -22,6 +22,7 @@
     <td>
       <%= link_to 'Weights', profile_weights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %>
+      <%= link_to 'Pressures', profile_pressures_path(profile_email: @profile.email), class: "btn btn-primary" %>
     </td>
   </tr>
 </table>
