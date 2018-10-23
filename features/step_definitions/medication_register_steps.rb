@@ -15,7 +15,7 @@ Then("The Add medication page should be displayed") do
 end
 
 When("I fill the new medication data") do
-    fill_in "medication[name]", with: "Cataflan"
+    fill_in "medication[name]", with: "cataflan"
     fill_in "medication[categorize]", with: "comprimido"
     fill_in "medication[start]", with: "01/10/2018"
     fill_in "medication[finish]", with: "02/10/2018"
