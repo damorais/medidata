@@ -1,13 +1,10 @@
-<h1>Pressures</h1>
+<h1>Pressures | <%= link_to "Add", new_profile_pressure_path,  class: "btn btn-success" %></h1>
 
 <% if flash[:success] %>
       <div class="alert alert-success" role="alert">
 	    <%= flash[:success] %>
       </div>
 <% end %>
-<p>
-  <%= link_to "Add", new_profile_pressure_path,  class: "btn btn-success" %>
-</p>
 
 <table class="table table-striped">
   <thead>
@@ -31,3 +28,4 @@
   <% end %>
 </tbody>
 </table>
+<%= link_to 'Back', profile_path(email: @profile.email), class: "btn btn-success" %>
