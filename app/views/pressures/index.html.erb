@@ -7,24 +7,22 @@
 <% end %>
 
 <table class="table table-striped">
-  <thead>
     <tr>
         <th scope="col">Systolic</th>
         <th scope="col">Diastolic</th>
         <th scope="col">Date</th>
         <th scope="col"></th>
     </tr>
-  </thead>
-  <tbody>
   <% @pressures.each do |pressure| %>
     <tr>
       <td><%= pressure.systolic %></td>
       <td><%= pressure.diastolic %></td>
       <td><%= pressure.date %></td>
-    <td><%= link_to 'Edit', edit_profile_pressure_path(id: pressure.id), class: "btn btn-primary" %></td>
-    <%= link_to 'Delete',  { action: :destroy, id: pressure.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+    <td>
+      <%= link_to 'Edit', edit_profile_pressure_path(id: pressure.id), class: "btn btn-primary" %>
+      <%= link_to 'Delete',  { action: :destroy, id: pressure.id }, 
+      method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
   </tr>
   <% end %>
-</tbody>
 </table>
 <%= link_to 'Back', profile_path(email: @profile.email), class: "btn btn-success" %>
