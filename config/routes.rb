@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :vldls
     resources :totals
     resources :reactions
+    resources :glucose_measures 
   end
 
   root 'welcome#index'

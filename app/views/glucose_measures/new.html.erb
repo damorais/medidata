@@ -1,0 +1,44 @@
+<h2>New Glucose Measure</h2>
+
+<% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+	    <%= flash[:success] %>
+      </div>
+<% end %>
+
+<%= form_with scope: :glucose_measure, url: profile_glucose_measures_path, local: true do |form| %>
+
+<div class="form-group">
+    <%= form.label :"Glucose Measure" %>
+  <% if @glucose_measure and @glucose_measure.errors.messages[:value] %>
+  <div class="text-danger small">
+      <%= @glucose_measure.errors.messages[:value].to_sentence %>
+  </div>
+<% end %>
+  <%= form.number_field :value, class: "col-sm-1" %>
+</div>
+
+<div class="form-group">
+  <% if @glucose_measure and @glucose_measure.errors.messages[:fasting] %>
+  <div class="text-danger small">
+      <%= @glucose_measure.errors.messages[:fasting].to_sentence %>
+  </div>
+<% end %>
+<%= form.label :"Are you fasting?" %> <%= form.check_box :fasting, class: "checkbox" %>
+</div>
+
+<div class="form-group">
+    <%= form.label :Date %>
+    <% if @glucose_measure and @glucose_measure.errors.messages[:date] %>
+    <div class="text-danger small">
+        <%= @glucose_measure.errors.messages[:date].to_sentence %>
+    </div>
+    <% end %>
+    <%= form.datetime_select :date, class: "form-control" %>
+</div>
+
+  <p>
+    <%= form.submit "Save", class: "btn btn-success"  %>
+    <%= link_to 'Cancel', profile_glucose_measures_path(profile_email: @profile.email), class: "btn btn-danger" %>
+  </p>
+<% end %>

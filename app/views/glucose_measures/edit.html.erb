@@ -1,0 +1,29 @@
+<h2>Edit glucose measure</h2>
+
+<%= form_with model: @glucose_measure, local: true, url: profile_glucose_measure_path  do |form| %>
+
+<div class="form-group">
+    <%= form.label :"Glucose Measure" %>
+  <%= form.number_field :value, class: "col-sm-1" %>
+</div>
+
+<div class="form-group">
+    <%= form.label :Date %>
+    <%= form.datetime_select :date, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <% if @glucose_measure and @glucose_measure.errors.messages[:fasting] %>
+  <div class="text-danger small">
+      <%= @glucose_measure.errors.messages[:fasting].to_sentence %>
+  </div>
+    <%= form.label :"Are you fasting?" %>   <%= form.check_box:fasting, class: "checkbox" %>
+<% end %>
+
+</div>
+
+  <p>
+    <%= form.submit "Save", class: "btn btn-success"  %>
+    <%= link_to 'Cancel', profile_glucose_measures_path(profile_email: @profile.email), class: "btn btn-danger" %>
+  </p>
+<% end %>
