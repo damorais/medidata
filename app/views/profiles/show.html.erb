@@ -7,14 +7,17 @@
       </div>
 <% end %>
 
-
-<table class="table table-striped">
-  <tr>
-    <th scope="col">Firstname</th>
-    <th scope="col">Lastname</th>
-    <th scope="col">E-mail</th>
-    <th scope="col"></th>
-  </tr>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">E-mail</th>
+      <th scope=""></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
   <tr>
     <td><%= @profile.firstname %></td>
     <td><%= @profile.lastname %></td>
@@ -22,11 +25,13 @@
     <td>
       <%= link_to 'Weights', profile_weights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Medications', profile_medications_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Pressures', profile_pressures_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Contacts', profile_contacts_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Allergies', profile_allergies_path(profile_email: @profile.email), class: "btn btn-primary" %>
     </td>
   </tr>
+  </tbody>
 </table>
 
 <div class="row">

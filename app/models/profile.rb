@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
   has_many :weights
   has_many :heights
+  has_many :medications
   has_many :pressures
   has_many :contacts
   has_many :allergies

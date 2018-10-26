@@ -3,8 +3,8 @@ require 'rails_helper'
 
 RSpec.describe ProfilesController, type: :controller do
 
-    let(:valid_attributes) { 
-        { 
+    let(:valid_attributes) {
+        {
             email: "joao@example.org",
             firstname: "João",
             lastname: "Silva",
@@ -12,8 +12,8 @@ RSpec.describe ProfilesController, type: :controller do
         }
     }
 
-    let(:invalid_attributes) { 
-        { 
+    let(:invalid_attributes) {
+        {
             email: "",
             firstname: "",
             lastname: "",
@@ -29,8 +29,8 @@ RSpec.describe ProfilesController, type: :controller do
         end
     end
 
-    describe "GET #show" do           
-        before { 
+    describe "GET #show" do
+        before {
             @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
         }
 
@@ -39,7 +39,7 @@ RSpec.describe ProfilesController, type: :controller do
             expect(response).to be_successful
         end
     end
-    
+
     describe "GET #new" do
         it "returns a success response" do
             get :new, params: {}
@@ -48,11 +48,11 @@ RSpec.describe ProfilesController, type: :controller do
     end
 
     describe "GET #edit" do
-        before { 
+        before {
             @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
         }
 
-        it "returns a success response" do  
+        it "returns a success response" do
             get :edit, params: { email: @existing_profile.email }
             expect(response).to be_successful
         end
@@ -64,12 +64,12 @@ RSpec.describe ProfilesController, type: :controller do
                 expect {
                     post :create, params: { profile: valid_attributes}
                 }.to change(Profile, :count).by(1)
-        
+
             end
 
             it "redirects to the profile main page" do
                 post :create, params: { profile: valid_attributes}
-                
+
                 expect(response).to redirect_to(profile_path(email: valid_attributes[:email] ))
             end
         end
@@ -89,9 +89,9 @@ RSpec.describe ProfilesController, type: :controller do
         end
 
         context "with a profile with the same email address" do
-            before { 
+            before {
                 @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
-            } 
+            }
 
             it "doesn't creates a new Profile" do
                 expect {
@@ -106,12 +106,12 @@ RSpec.describe ProfilesController, type: :controller do
         end
     end
     describe "PUT #update" do
-        before { 
+        before {
             @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
             @original_email = @existing_profile.email
             @original_firstname = @existing_profile.firstname
             @original_lastname = @existing_profile.lastname
-        } 
+        }
 
         context "with valid params" do
             let(:new_attributes) {
@@ -125,17 +125,17 @@ RSpec.describe ProfilesController, type: :controller do
             it "updates the requested profile" do
                 put :update, params: {email: @existing_profile.email, profile: new_attributes}
                 @existing_profile.reload
-                
+
                 expect(@existing_profile.birthdate.to_date).to eq(new_attributes[:birthdate].to_date)
                 expect(@existing_profile.sex).to eq(new_attributes[:sex])
                 expect(@existing_profile.gender).to eq(new_attributes[:gender])
-                
+
             end
 
             it "does not change the fields email, firstname and lastname" do
                 put :update, params: {email: @existing_profile.email, profile: new_attributes}
                 @existing_profile.reload
-                
+
                 expect(@existing_profile.email).to eq(@original_email)
                 expect(@existing_profile.firstname).to eq(@original_firstname)
                 expect(@existing_profile.lastname).to eq(@original_lastname)
@@ -144,14 +144,14 @@ RSpec.describe ProfilesController, type: :controller do
             it "stay in the edit profile page" do
                 put :update, params: {email: @existing_profile.email, profile: new_attributes}
                 expect(response).to render_template(:edit)
-            end           
+            end
         end
 
         context "with invalid params" do
             let(:invalid_new_attributes) {
                 { birthdate: '' }
             }
-            
+
             let(:invalid_new_attributes_trying_to_replace) {
                 {
                     email: "teste@example.org",
@@ -163,7 +163,7 @@ RSpec.describe ProfilesController, type: :controller do
             it "doesn't update the requested profile with invalid parameter" do
                 put :update, params: {email: @existing_profile.email, profile: invalid_new_attributes}
                 @existing_profile.reload
-                
+
                 expect(@existing_profile.birthdate.to_date).to_not eq(invalid_new_attributes[:birthdate])
             end
 
@@ -171,11 +171,11 @@ RSpec.describe ProfilesController, type: :controller do
                 put :update, params: {email: @existing_profile.email, profile: invalid_new_attributes}
                 expect(response).to render_template(:edit)
             end
-            
+
             it "does not change the fields email, firstname and lastname even when passed as params" do
                 put :update, params: {email: @existing_profile.email, profile: invalid_new_attributes_trying_to_replace}
                 @existing_profile.reload
-                
+
                 expect(@existing_profile.email).to eq(@original_email)
                 expect(@existing_profile.firstname).to eq(@original_firstname)
                 expect(@existing_profile.lastname).to eq(@original_lastname)

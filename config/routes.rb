@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :heights
     resources :pressures
     resources :contacts
-    resources :allergies    
+    resources :allergies  
+    resources :medications  
   end
 
   root 'welcome#index'

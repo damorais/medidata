@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 2018_10_20_234812) do
     t.index ["profile_id"], name: "index_heights_on_profile_id"
   end
 
+  create_table "medications", force: :cascade do |t|
+    t.string "name"
+    t.string "categorize"
+    t.date "start"
+    t.date "finish"
+    t.string "dosage"
+    t.string "infadd"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medications_on_profile_id"
+  end
+
   create_table "pressures", force: :cascade do |t|
     t.integer "systolic"
     t.integer "diastolic"
@@ -77,6 +90,7 @@ ActiveRecord::Schema.define(version: 2018_10_20_234812) do
   add_foreign_key "allergies", "profiles"
   add_foreign_key "contacts", "profiles"
   add_foreign_key "heights", "profiles"
+  add_foreign_key "medications", "profiles"
   add_foreign_key "pressures", "profiles"
   add_foreign_key "weights", "profiles"
 end
