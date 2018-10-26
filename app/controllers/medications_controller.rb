@@ -1,47 +1,43 @@
 class MedicationsController < ApplicationController
 
-def index
-    @profile = Profile.find_by(email: params[:profile_email])
+  before_action :recover_profile
+
+  def index
     @medications = @profile.medications
-end
+  end
 
-def new
-    @profile = Profile.find_by(email: params[:profile_email])
-end
+  def new
+  end
 
-def edit
+  def edit
     @medication = Medication.find(params[:id])
-    @profile = @medication.profile
-end
+  end
 
-def create
-
-    @profile = Profile.find_by(email: params[:profile_email])
+  def create
     @medication = Medication.new(medication_params)
 
     @medication.profile = @profile
 
     if @medication.save
-        flash[:success] = "Medication registered sucessfully"
-        redirect_to profile_medications_path(profile_email: @profile.email)
+      flash[:success] = "Medication registered sucessfully"
+      redirect_to profile_medications_path(profile_email: @profile.email)
     else
-        render 'new'
+      render "new"
     end
-end
+  end
 
-def update
+  def update
     @medication = Medication.find(params[:id])
 
     if @medication.update(medication_params)
-        flash[:success] = "Medication updated sucessfully"
-        redirect_to profile_medications_path(profile_email: @medication.profile.email)
+      flash[:success] = "Medication updated sucessfully"
+      redirect_to profile_medications_path(profile_email: @medication.profile.email)
     else
-        render 'edit'
+      render "edit"
     end
+  end
 
-end
-
-def destroy
+  def destroy
     @medication = Medication.find(params[:id])
 
     profile_email = @medication.profile.email
@@ -49,10 +45,11 @@ def destroy
     @medication.destroy
 
     redirect_to profile_medications_path(profile_email: profile_email)
-end
+  end
 
-private
-def medication_params
-    params.require(:medication).permit(:name,:categorize,:start,:finish,:dosage,:infadd)
-end
+  private
+
+  def medication_params
+    params.require(:medication).permit(:name, :categorize, :start, :finish, :dosage, :infadd)
+  end
 end

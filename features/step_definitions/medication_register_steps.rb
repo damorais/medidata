@@ -1,17 +1,17 @@
 Given("I am on Add medication page") do
-    visit new_profile_medication_path(profile_email: @registered_user_email)
+    visit new_profile_medication_path(profile_email: @my_profile.email)
 end
 
 Then("I should be redirected to the medications page") do
-    expect(page).to have_current_path(profile_medications_path(profile_email: @registered_user_email))
+    expect(page).to have_current_path(profile_medications_path(profile_email: @my_profile.email))
 end
 
 Given("I am on medications page") do
-    visit profile_medications_path(profile_email: @registered_user_email)
+    visit profile_medications_path(profile_email: @my_profile.email)
 end
 
 Then("The Add medication page should be displayed") do
-    expect(page).to have_current_path(new_profile_medication_path(profile_email: @registered_user_email))
+    expect(page).to have_current_path(new_profile_medication_path(profile_email: @my_profile.email))
 end
 
 When("I fill the new medication data") do

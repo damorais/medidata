@@ -1,5 +1,5 @@
 <!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
-<h1>Heights</h1>
+<h1>Heights | <%= link_to 'Add height', new_profile_height_path(profile_email: @profile.email), class: "btn btn-success" %></h1>
 
 <% if flash[:success] %>
   <div class="alert alert-success" role="alert">
@@ -7,14 +7,12 @@
   </div>
 <% end %>
 
-<%= link_to 'Add height', new_profile_height_path(profile_email: @profile.email) %>
-
-<table class="table">
+<table class="table table-striped">
   <tr>
     <th scope="col">ID</th>
     <th scope="col">Value</th>
     <th scope="col">Date</th>
-    <th></th>
+    <th scope="col"></th>
   </tr>
  
   <% @heights.each do |height| %>
@@ -23,13 +21,13 @@
       <td><%= height.value %></td>
       <td><%= height.date %></td>
       <td> 
-        <%= link_to "Edit", edit_profile_height_path(profile_email: @profile.email, id: height.id) %> |
+        <%= link_to "Edit", edit_profile_height_path(profile_email: @profile.email, id: height.id), class: "btn btn-primary" %> | 
         <%= link_to "Delete", profile_height_path(profile_email: @profile.email, id: height.id), 
-            method: :delete, data: { confirm: 'Are you sure?' } %> 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
       </td>
     </tr>
   <% end %>
   
 </table>
 
-<%= link_to 'Back', profile_path(email: @profile.email) %>
+<%= link_to 'Back', profile_path(email: @profile.email), class: "btn btn-success" %>
