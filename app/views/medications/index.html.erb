@@ -1,5 +1,5 @@
 <!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
-<h1>Medications</h1>
+<h1>Medications | <%= link_to 'Add medication', new_profile_medication_path(profile_email: @profile.email), class: "btn btn-success" %></h1>
 
 <% if flash[:success] %>
   <div class="alert alert-success" role="alert">
@@ -7,9 +7,7 @@
   </div>
 <% end %>
 
-<%= link_to 'Add medication', new_profile_medication_path(profile_email: @profile.email) %>
-
-<table class="table">
+<table class="table table-striped">
   <tr>
     <th scope="col">ID</th>
     <th scope="col">Name</th>
@@ -18,7 +16,7 @@
     <th scope="col">Finish</th>
     <th scope="col">Dosage</th>
     <th scope="col">Infadd</th>
-    <th></th>
+    <th scope="col"></th>
   </tr>
 
   <% @medications.each do |medication| %>
@@ -40,5 +38,4 @@
   <% end %>
 
 </table>
-
-<%= link_to 'Back', profile_path(email: @profile.email) %>
+<%= link_to 'Back', profile_path(email: @profile.email), class: "btn btn-success" %>
