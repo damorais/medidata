@@ -1,6 +1,6 @@
 <h2>Edit your Weight</h2>
 
-<%= form_with scope: :weight, local: true, url: profile_weights_path(profile_email: @profile.email) do |form| %>
+<%= form_with model: @weight, local: true, url: profile_weight_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">
 
     <div class="form-group">
