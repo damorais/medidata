@@ -1,3 +1,5 @@
+require 'date'
+
 FactoryBot.define do
   factory :glucose_measure do
     value { 1.5 }
