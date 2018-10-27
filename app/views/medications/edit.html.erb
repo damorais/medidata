@@ -1,6 +1,6 @@
 <h2>Register your medication</h2>
 
-<%= form_with scope: :medication, local: true, url: profile_medications_path(profile_email: @profile.email) do |form| %>
+<%= form_with model: @medication, local: true, url: profile_medications_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">
 
     <div class="form-group">
