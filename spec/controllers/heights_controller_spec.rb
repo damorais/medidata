@@ -107,8 +107,6 @@ RSpec.describe HeightsController, type: :controller do
                 
                 expect(response).to redirect_to(profile_heights_path(profile_email: @existing_profile.email))
             end
-
-            
         end
 
         context "with invalid params" do

@@ -1,0 +1,41 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>Medications | <%= link_to 'Add medication', new_profile_medication_path(profile_email: @profile.email), class: "btn btn-success" %></h1>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Categorize</th>
+    <th scope="col">Start</th>
+    <th scope="col">Finish</th>
+    <th scope="col">Dosage</th>
+    <th scope="col">Infadd</th>
+    <th scope="col"></th>
+  </tr>
+
+  <% @medications.each do |medication| %>
+    <tr>
+      <td><%= medication.id %></td>
+      <td><%= medication.name %></td>
+      <td><%= medication.categorize %></td>
+      <td><%= medication.start %></td>
+      <td><%= medication.finish %></td>
+      <td><%= medication.dosage %></td>
+      <td><%= medication.infadd %></td>
+
+      <td>
+        <%= link_to "Edit", edit_profile_medication_path(profile_email: @profile.email, id: medication.id), class: "btn btn-primary" %> | 
+        <%= link_to "Delete", profile_medication_path(profile_email: @profile.email, id: medication.id),
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+<%= link_to 'Back', profile_path(email: @profile.email), class: "btn btn-success" %>
