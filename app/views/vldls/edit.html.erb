@@ -1,0 +1,31 @@
+<h2>Edit your VLDL</h2>
+
+<%= form_with model: @vldl, local: true, url: profile_vldl_path(profile_email: @profile.email) do |form| %>
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <%= form.label :value %>
+	<% if @vldl and @vldl.errors.messages[:value] %>
+	      <div class="text-danger small">
+	          <%= @vldl.errors.messages[:value].to_sentence %>
+	      </div>
+	<% end %>
+	<%= form.text_field :value, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :date %>
+        <% if @vldl and @vldl.errors.messages[:date] %>
+	      <div class="text-danger small">
+	          <%= @vldl.errors.messages[:date].to_sentence %>
+	      </div>
+	<% end %>
+        <%= form.date_field :date, class: "form-control" %>
+    </div>
+	
+    <%= form.submit "Save VLDL", class: "btn btn-success" %>	
+	<%= link_to 'Cancel', profile_vldls_path(profile_email: @profile.email), class: "btn btn-danger" %>
+
+</div>
+
+<% end %>

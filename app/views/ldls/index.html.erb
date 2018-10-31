@@ -1,0 +1,32 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>LDL Cholesterol | <%= link_to 'Add LDL', new_profile_ldl_path(profile_email: @profile.email),  class: "btn btn-success"  %></h1>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Value</th>
+    <th scope="col">Date</th>
+    <th scope="col"></th>
+  </tr>
+ 
+  <% @ldls.each do |ldl| %>
+    <tr>
+      <td><%= ldl.id %></td>
+      <td><%= ldl.value %></td>
+      <td><%= ldl.date %></td>
+      <td>
+        <%= link_to "Edit", edit_profile_ldl_path(profile_email: @profile.email, id: ldl.id), class: "btn btn-primary" %> |  
+        <%= link_to "Delete", profile_ldl_path(profile_email: @profile.email, id: ldl.id), 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
+        </td>
+    </tr>
+  <% end %>
+  
+</table>
+<%= link_to 'Back', profile_path(email: @profile.email),  class: "btn btn-success" %>
