@@ -22,13 +22,19 @@
     <td><%= @profile.firstname %></td>
     <td><%= @profile.lastname %></td>
     <td><%= @profile.email %></td>
-    <td>
+    <td nowrap>
       <%= link_to 'Weights', profile_weights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Heights', profile_heights_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Medications', profile_medications_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Pressures', profile_pressures_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Contacts', profile_contacts_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'Allergies', profile_allergies_path(profile_email: @profile.email), class: "btn btn-primary" %>
+	  <br><br>
+      <%= link_to 'HDL', profile_hdls_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Non-HDL', profile_nonhdls_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'LDL', profile_ldls_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'VLDL', profile_vldls_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Total', profile_totals_path(profile_email: @profile.email), class: "btn btn-primary" %>	  
     </td>
   </tr>
   </tbody>

@@ -5,8 +5,12 @@ class Profile < ApplicationRecord
   has_many :pressures
   has_many :contacts
   has_many :allergies
-
-  
+  has_many :hdls
+  has_many :non_hdls
+  has_many :ldls
+  has_many :vldls
+  has_many :totals
+	
   validates :email, uniqueness: { case_sensitive: false,
                                   message: "Já existe um perfil com este e-mail" },
                     presence: { message: "O e-mail é obrigatório" }

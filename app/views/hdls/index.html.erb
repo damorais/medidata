@@ -1,0 +1,32 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>HDL Cholesterol | <%= link_to 'Add HDL', new_profile_hdl_path(profile_email: @profile.email),  class: "btn btn-success"  %></h1>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Value</th>
+    <th scope="col">Date</th>
+    <th scope="col"></th>
+  </tr>
+ 
+  <% @hdls.each do |hdl| %>
+    <tr>
+      <td><%= hdl.id %></td>
+      <td><%= hdl.value %></td>
+      <td><%= hdl.date %></td>
+      <td>
+        <%= link_to "Edit", edit_profile_hdl_path(profile_email: @profile.email, id: hdl.id), class: "btn btn-primary" %> |  
+        <%= link_to "Delete", profile_hdl_path(profile_email: @profile.email, id: hdl.id), 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
+        </td>
+    </tr>
+  <% end %>
+  
+</table>
+<%= link_to 'Back', profile_path(email: @profile.email),  class: "btn btn-success" %>
