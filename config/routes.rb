@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  
+
   resources :profiles, param: :email, email:  /[^\/]+/ do
     resources :weights
     resources :heights
@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     resources :medications
     resources :hdls
     resources :nonhdls
-    resources :ldls	
+    resources :ldls
     resources :vldls
     resources :totals
+    resources :platelets
   end
 
   root 'welcome#index'
