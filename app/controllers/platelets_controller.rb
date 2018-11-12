@@ -1,4 +1,4 @@
-class PlateletController < ApplicationController
+class PlateletsController < ApplicationController
   before_action :recover_profile
 
   def index
@@ -9,11 +9,11 @@ class PlateletController < ApplicationController
   end
 
   def edit
-    @platelet = platelet.find(params[:id])
+    @platelet = Platelet.find(params[:id])
   end
 
   def create
-    @platelet = platelet.new(platelet_params)
+    @platelet = Platelet.new(platelet_params)
 
     @platelet.profile = @profile
 
@@ -49,6 +49,9 @@ class PlateletController < ApplicationController
   private
 
   def platelet_params
-    params.require(:platelet).permit(:name, :categorize, :start, :finish, :dosage, :infadd)
+    params.require(:platelet).permit(:erythrocyte, :hemoglobin, :hematocrit, :vcm, :hcm, :chcm, :rdw,
+                                     :leukocytep, :neutrophilp, :eosinophilp, :basophilp, :lymphocytep,
+                                     :monocytep, :leukocyteul, :neutrophilul, :eosinophilul, :basophilul,
+                                     :lymphocyteul, :monocyteul, :total)
   end
 end

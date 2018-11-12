@@ -1,2 +1,2 @@
-module PlateletHelper
+module PlateletsHelper
 end
