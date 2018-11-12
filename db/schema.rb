@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_030817) do
+ActiveRecord::Schema.define(version: 2018_11_12_060418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,18 @@ ActiveRecord::Schema.define(version: 2018_10_31_030817) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reactions", force: :cascade do |t|
+    t.string "name"
+    t.string "cause"
+    t.text "description"
+    t.date "start"
+    t.date "finish"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_reactions_on_profile_id"
+  end
+
   create_table "totals", force: :cascade do |t|
     t.integer "value"
     t.date "date"
@@ -140,6 +152,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_030817) do
   add_foreign_key "medications", "profiles"
   add_foreign_key "non_hdls", "profiles"
   add_foreign_key "pressures", "profiles"
+  add_foreign_key "reactions", "profiles"
   add_foreign_key "totals", "profiles"
   add_foreign_key "vldls", "profiles"
   add_foreign_key "weights", "profiles"

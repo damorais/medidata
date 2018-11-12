@@ -10,6 +10,7 @@ class Profile < ApplicationRecord
   has_many :ldls
   has_many :vldls
   has_many :totals
+  has_many :reactions
 	
   validates :email, uniqueness: { case_sensitive: false,
                                   message: "Já existe um perfil com este e-mail" },
