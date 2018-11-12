@@ -19,6 +19,7 @@ class Profile < ApplicationRecord
   has_many :health_insurances
   has_many :medical_appointments
   has_many :diseases
+  has_many :platelets
 
   validates :email, uniqueness: { case_sensitive: false,
                                   message: 'Já existe um perfil com este e-mail' },
@@ -34,6 +35,7 @@ class Profile < ApplicationRecord
 
   def latest_height
     heights.order(:date).reverse_order.take
+    self.weights.order(:date).reverse_order().take
   end
 
   def bmi
