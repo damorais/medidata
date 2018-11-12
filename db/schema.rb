@@ -94,6 +94,36 @@ ActiveRecord::Schema.define(version: 2018_11_17_185420) do
     t.index ["profile_id"], name: "index_non_hdls_on_profile_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "platelets", force: :cascade do |t|
+    t.decimal "erythrocyte"
+    t.decimal "hemoglobin"
+    t.decimal "hematocrit"
+    t.decimal "vcm"
+    t.decimal "hcm"
+    t.decimal "chcm"
+    t.decimal "rdw"
+    t.decimal "leukocytep"
+    t.decimal "neutrophilp"
+    t.decimal "eosinophilp"
+    t.decimal "basophilp"
+    t.decimal "lymphocytep"
+    t.decimal "monocytep"
+    t.integer "leukocyteul"
+    t.integer "neutrophilul"
+    t.integer "eosinophilul"
+    t.integer "basophilul"
+    t.integer "lymphocyteul"
+    t.integer "monocyteul"
+    t.integer "total"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_platelets_on_profile_id"
+  end
+
+>>>>>>> ajustes na funcionalidade registro de plaquetas
   create_table "pressures", force: :cascade do |t|
     t.integer "systolic"
     t.integer "diastolic"

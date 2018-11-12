@@ -15,6 +15,7 @@ class Profile < ApplicationRecord
   has_many :reactions
   has_many :glucose_measures 
 
+  has_many :platelets
 
   validates :email, uniqueness: { case_sensitive: false,
                                   message: "Já existe um perfil com este e-mail" },
