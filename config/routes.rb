@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :ldls	
     resources :vldls
     resources :totals
+    resources :reactions	
   end
 
   root 'welcome#index'

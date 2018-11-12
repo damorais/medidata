@@ -1,0 +1,38 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>Adverse Reactions | <%= link_to 'Add Adverse Reaction', new_profile_reaction_path(profile_email: @profile.email),  class: "btn btn-success"  %></h1>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Cause</th>
+    <th scope="col">Description</th>
+    <th scope="col">Start Date</th>
+    <th scope="col">Finish Date</th>
+    <th scope="col"></th>
+  </tr>
+ 
+  <% @reactions.each do |reaction| %>
+    <tr>
+      <td><%= reaction.id %></td>
+      <td><%= reaction.name %></td>
+      <td><%= reaction.cause %></td>
+      <td><%= reaction.description %></td>
+      <td><%= reaction.start %></td>
+      <td><%= reaction.finish %></td>
+      <td>
+        <%= link_to "Edit", edit_profile_reaction_path(profile_email: @profile.email, id: reaction.id), class: "btn btn-primary" %> |  
+        <%= link_to "Delete", profile_reaction_path(profile_email: @profile.email, id: reaction.id), 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
+        </td>
+    </tr>
+  <% end %>
+  
+</table>
+<%= link_to 'Back', profile_path(email: @profile.email),  class: "btn btn-success" %>
