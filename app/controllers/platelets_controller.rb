@@ -2,18 +2,18 @@ class PlateletController < ApplicationController
   before_action :recover_profile
 
   def index
-    @platelets = @profile.medications
+    @platelets = @profile.platelets
   end
 
   def new
   end
 
   def edit
-    @platelet = Medication.find(params[:id])
+    @platelet = platelet.find(params[:id])
   end
 
   def create
-    @platelet = Medication.new(platelet_params)
+    @platelet = platelet.new(platelet_params)
 
     @platelet.profile = @profile
 

@@ -1,0 +1,67 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<h1>Platelets | <%= link_to 'Add Platelet', new_profile_platelet_path(profile_email: @profile.email),  class: "btn btn-success"  %></h1>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="<colgroup">ID</th"
+    <th scope="col">erythrocyte</th>
+    <th scope="col">hemoglobin</th>
+    <th scope="col">hematocrit</th>
+    <th scope="col">vcm</th>
+    <th scope="col">hcm</th>
+    <th scope="col">chcm</th>
+    <th scope="col">rdw</th>
+    <th scope="col">leukocytep</th>
+    <th scope="col">neutrophilp</th>
+    <th scope="col">eosinophilp</th>
+    <th scope="col">basophilp</th>
+    <th scope="col">lymphocytep</th>
+    <th scope="col">monocytep</th>
+    <th scope="col">leukocyteul</th>
+    <th scope="col">neutrophilul</th>
+    <th scope="col">eosinophilul</th>
+    <th scope="col">basophilul</th>
+    <th scope="col">lymphocyteul</th>
+    <th scope="col">monocyteul</th>
+  </tr>
+
+  <% @platelets.each do |platelet| %>
+    <tr>
+      <td><%= platelet.id %></td>
+      <td><%= platelet.erythrocyte %></td>
+      <td><%= platelet.hemoglobin %></td>
+      <td><%= platelet.hematocrit %></td>
+      <td><%= platelet.vcm %></td>
+      <td><%= platelet.hcm %></td>
+      <td><%= platelet.chcm %></td>
+      <td><%= platelet.rdw %></td>
+      <td><%= platelet.leukocytep %></td>
+      <td><%= platelet.neutrophilp %></td>
+      <td><%= platelet.eosinophilp %></td>
+      <td><%= platelet.basophilp %></td>
+      <td><%= platelet.lymphocytep %></td>
+      <td><%= platelet.monocytep %></td>
+      <td><%= platelet.leukocyteul %></td>
+      <td><%= platelet.neutrophilul %></td>
+      <td><%= platelet.eosinophilul %></td>
+      <td><%= platelet.basophilul %></td>
+      <td><%= platelet.lymphocyteul %></td>
+      <td><%= platelet.monocyteul %></td>
+
+    <td>
+        <%= link_to "Edit", edit_profile_platelet_path(profile_email: @profile.email, id: platelet.id), class: "btn btn-primary" %> |
+        <%= link_to "Delete", profile_platelet_path(profile_email: @profile.email, id: platelet.id),
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </td>
+    </tr>
+  <% end %>
+
+</table>
+<%= link_to 'Back', profile_path(email: @profile.email),  class: "btn btn-success" %>

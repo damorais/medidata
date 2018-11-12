@@ -19,6 +19,7 @@ FactoryBot.define do
     basophilul { 1 }
     lymphocyteul { 1 }
     monocyteul { 1 }
+    total { 1 }
     profile { nil }
   end
 end

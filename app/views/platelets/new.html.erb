@@ -1,0 +1,223 @@
+<h2>Register your platelets</h2>
+
+<h3>Red Series</h3>
+
+<%= form_with scope: :platelet, local: true, url: profile_platelets_path(profile_email: @profile.email) do |form| %>
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <%= form.label :Erythrocyte %>
+	<% if @platelet and @platelet.errors.messages[:erythrocyte] %>
+	      <div class="text-danger small">
+	          <%= @platelet.errors.messages[:erythrocyte].to_sentence %>
+	      </div>
+	<% end %>
+	<%= form.text_field :erythrocyte, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :Hemoglobin %>
+  <% if @platelet and @platelet.errors.messages[:hemoglobin] %>
+        <div class="text-danger small">
+            <%= @platelet.errors.messages[:hemoglobin].to_sentence %>
+        </div>
+  <% end %>
+  <%= form.text_field :hemoglobin, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= form.label :Hematocrit %>
+    <% if @platelet and @platelet.errors.messages[:hematocrit] %>
+        <div class="text-danger small">
+            <%= @platelet.errors.messages[:hematocrit].to_sentence %>
+        </div>
+    <% end %>
+    <%= form.text_field :hematocrit, class: "form-control" %>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+      <%= form.label :Vcm %>
+  <% if @platelet and @platelet.errors.messages[:vcm] %>
+      <div class="text-danger small">
+          <%= @platelet.errors.messages[:vcm].to_sentence %>
+      </div>
+  <% end %>
+  <%= form.text_field :vcm, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+      <%= form.label :Hcm %>
+  <% if @platelet and @platelet.errors.messages[:hcm] %>
+      <div class="text-danger small">
+          <%= @platelet.errors.messages[:hcm].to_sentence %>
+      </div>
+  <% end %>
+  <%= form.text_field :hcm, class: "form-control" %>
+
+  </div>
+  <div class="form-group">
+      <%= form.label :Chcm %>
+  <% if @platelet and @platelet.errors.messages[:chcm] %>
+      <div class="text-danger small">
+          <%= @platelet.errors.messages[:chcm].to_sentence %>
+      </div>
+  <% end %>
+  <%= form.text_field :chcm, class: "form-control" %>
+  </div>
+
+</div>
+<div class="form-group">
+    <%= form.label :Rdw %>
+<% if @platelet and @platelet.errors.messages[:rdw] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:rdw].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :rdw, class: "form-control" %>
+</div>
+
+<h3>White Series</h3>
+
+</div>
+<div class="form-group">
+    <%= form.label :Percent_leukocyte %>
+<% if @platelet and @platelet.errors.messages[:leukocytep] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:leukocytep].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :leukocytep, class: "form-control" %>
+</div>
+
+</div>
+<div class="form-group">
+    <%= form.label :Ul_leukocyte %>
+<% if @platelet and @platelet.errors.messages[:leukocyteul] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:leukocyteul].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :leukocyteul, class: "form-control" %>
+</div>
+
+</div>
+<div class="form-group">
+    <%= form.label :Percent_Neutrophil %>
+<% if @platelet and @platelet.errors.messages[:neutrophilp] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:neutrophilp].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :neutrophilp, class: "form-control" %>
+</div>
+</div>
+<div class="form-group">
+    <%= form.label :Ul_neutrophil %>
+<% if @platelet and @platelet.errors.messages[:neutrophilul] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:neutrophilul].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :neutrophilul, class: "form-control" %>
+</div>
+</div>
+<div class="form-group">
+    <%= form.label :Percent_eosinophil %>
+<% if @platelet and @platelet.errors.messages[:eosinophil] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:eosinophil].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :eosinophilul, class: "form-control" %>
+</div>
+</div>
+<div class="form-group">
+    <%= form.label :Ul_eosinophil %>
+<% if @platelet and @platelet.errors.messages[:eosinophilul] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:eosinophilul].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :eosinophilul, class: "form-control" %>
+</div>
+
+</div>
+<div class="form-group">
+    <%= form.label :Percent_basophil %>
+<% if @platelet and @platelet.errors.messages[:basophil] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:basophil].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :basophil, class: "form-control" %>
+</div>
+</div>
+<div class="form-group">
+    <%= form.label :Ul_basophil %>
+<% if @platelet and @platelet.errors.messages[:basophilul] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:basophilul].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :basophilul, class: "form-control" %>
+</div>
+
+</div>
+<div class="form-group">
+    <%= form.label :Percent_lymphocyte %>
+<% if @platelet and @platelet.errors.messages[:lymphocyte] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:lymphocyte].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :lymphocyte, class: "form-control" %>
+</div>
+</div>
+<div class="form-group">
+    <%= form.label :Ul_lymphocyte %>
+<% if @platelet and @platelet.errors.messages[:lymphocyteul] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:lymphocyteul].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :lymphocyteul, class: "form-control" %>
+</div>
+</div>
+<div class="form-group">
+    <%= form.label :Percent_monocyte %>
+<% if @platelet and @platelet.errors.messages[:monocyte] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:monocyte].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :monocyte, class: "form-control" %>
+</div>
+</div>
+<div class="form-group">
+    <%= form.label :Ul_monocyteul %>
+<% if @platelet and @platelet.errors.messages[:monocyteul] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:monocyteul].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :monocyteul, class: "form-control" %>
+</div>
+
+</div>
+<div class="form-group">
+    <%= form.label :Total_Platelets %>
+<% if @platelet and @platelet.errors.messages[:total] %>
+    <div class="text-danger small">
+        <%= @platelet.errors.messages[:total].to_sentence %>
+    </div>
+<% end %>
+<%= form.text_field :total, class: "form-control" %>
+</div>
+
+    <%= form.submit "Save platelet", class: "btn btn-success" %>
+    <%= link_to 'Cancel', profile_platelets_path(profile_email: @profile.email), class: "btn btn-danger" %>
+
+</div>
+
+<% end %>

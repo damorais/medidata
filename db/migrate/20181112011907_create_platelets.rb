@@ -20,6 +20,7 @@ class CreatePlatelets < ActiveRecord::Migration[5.2]
       t.integer :basophilul
       t.integer :lymphocyteul
       t.integer :monocyteul
+      t.integer :total
       t.references :profile, foreign_key: true
 
       t.timestamps

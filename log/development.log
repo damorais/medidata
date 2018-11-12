@@ -573,3 +573,1034 @@ FOREIGN KEY ("profile_id")
   ↳ bin/rails:9
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8203133180777734815)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePlatelets (20181104213313)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (17.3ms)[0m  [1m[35mCREATE TABLE "platelets" ("id" bigserial primary key, "erythrocyte" decimal, "hemoglobin" decimal, "hematocrit" decimal, "vcm" decimal, "hcm" decimal, "chcm" decimal, "rdw" decimal, "leukocytep" decimal, "neutrophilp" decimal, "eosinophilp" decimal, "basophilp" decimal, "lymphocytep" decimal, "monocytep" decimal, "leukocyteul" integer, "neutrophilul" integer, "eosinophilul" integer, "basophilul" integer, "lymphocyteul" integer, "monocyteul" integer, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_929ce91a12"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181104213313_create_platelets.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8203133180777734815)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (175.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "medidata_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (167.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "medidata_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (474.2ms)[0m  [1m[35mCREATE DATABASE "medidata_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (303.5ms)[0m  [1m[35mCREATE DATABASE "medidata_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (1.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "allergies" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "allergies" ("id" bigserial primary key, "name" character varying, "description" text, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_allergies_on_profile_id" ON "allergies"  ("profile_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "contacts" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "email" character varying, "name" character varying, "phone" character varying, "mobile" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_profile_id" ON "contacts"  ("profile_id")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "hdls" CASCADE[0m
+  ↳ db/schema.rb:38
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_hdls_on_profile_id" ON "hdls"  ("profile_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "heights" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "heights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_heights_on_profile_id" ON "heights"  ("profile_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "ldls" CASCADE[0m
+  ↳ db/schema.rb:56
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:56
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_ldls_on_profile_id" ON "ldls"  ("profile_id")[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "medications" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "medications" ("id" bigserial primary key, "name" character varying, "categorize" character varying, "start" date, "finish" date, "dosage" character varying, "infadd" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_medications_on_profile_id" ON "medications"  ("profile_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "non_hdls" CASCADE[0m
+  ↳ db/schema.rb:78
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "non_hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:78
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_non_hdls_on_profile_id" ON "non_hdls"  ("profile_id")[0m
+  ↳ db/schema.rb:78
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "platelets" CASCADE[0m
+  ↳ db/schema.rb:87
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "platelets" ("id" bigserial primary key, "erythrocyte" decimal, "hemoglobin" decimal, "hematocrit" decimal, "vcm" decimal, "hcm" decimal, "chcm" decimal, "rdw" decimal, "leukocytep" decimal, "neutrophilp" decimal, "eosinophilp" decimal, "basophilp" decimal, "lymphocytep" decimal, "monocytep" decimal, "leukocyteul" integer, "neutrophilul" integer, "eosinophilul" integer, "basophilul" integer, "lymphocyteul" integer, "monocyteul" integer, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:87
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_platelets_on_profile_id" ON "platelets"  ("profile_id")[0m
+  ↳ db/schema.rb:87
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pressures" CASCADE[0m
+  ↳ db/schema.rb:113
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "pressures" ("id" bigserial primary key, "systolic" integer, "diastolic" integer, "date" timestamp, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:113
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_pressures_on_profile_id" ON "pressures"  ("profile_id")[0m
+  ↳ db/schema.rb:113
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "profiles" CASCADE[0m
+  ↳ db/schema.rb:123
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "email" character varying, "firstname" character varying, "lastname" character varying, "birthdate" date, "sex" character varying, "gender" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:123
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "totals" CASCADE[0m
+  ↳ db/schema.rb:134
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "totals" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:134
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_totals_on_profile_id" ON "totals"  ("profile_id")[0m
+  ↳ db/schema.rb:134
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "vldls" CASCADE[0m
+  ↳ db/schema.rb:143
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "vldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:143
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_vldls_on_profile_id" ON "vldls"  ("profile_id")[0m
+  ↳ db/schema.rb:143
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "weights" CASCADE[0m
+  ↳ db/schema.rb:152
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "weights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:152
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_weights_on_profile_id" ON "weights"  ("profile_id")[0m
+  ↳ db/schema.rb:152
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "allergies" ADD CONSTRAINT "fk_rails_b3c065b150"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:161
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "contacts" ADD CONSTRAINT "fk_rails_7aa91c1878"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:162
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "hdls" ADD CONSTRAINT "fk_rails_f085722161"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:163
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "heights" ADD CONSTRAINT "fk_rails_b5b284d7bd"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:164
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "ldls" ADD CONSTRAINT "fk_rails_577e0c57e6"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:165
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "medications" ADD CONSTRAINT "fk_rails_dbfe424d80"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:166
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "non_hdls" ADD CONSTRAINT "fk_rails_5ebdc0d8b0"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:167
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "platelets" ADD CONSTRAINT "fk_rails_929ce91a12"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:168
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "pressures" ADD CONSTRAINT "fk_rails_26d01c6831"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:169
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "totals" ADD CONSTRAINT "fk_rails_74c4029177"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:170
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "vldls" ADD CONSTRAINT "fk_rails_d36669f130"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:171
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "weights" ADD CONSTRAINT "fk_rails_03ca434dbe"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:172
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181104213313)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181005135749),
+(20181031023616),
+(20181013003738),
+(20181013233839),
+(20181030055025),
+(20181031030817),
+(20181018145822),
+(20181031023649),
+(20181031030750),
+(20180906191447),
+(20181014230014),
+(20181020234812);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-12 01:17:23.191696"], ["updated_at", "2018-11-12 01:17:23.191696"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "allergies" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "allergies" ("id" bigserial primary key, "name" character varying, "description" text, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_allergies_on_profile_id" ON "allergies"  ("profile_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "contacts" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "email" character varying, "name" character varying, "phone" character varying, "mobile" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_profile_id" ON "contacts"  ("profile_id")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "hdls" CASCADE[0m
+  ↳ db/schema.rb:38
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_hdls_on_profile_id" ON "hdls"  ("profile_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "heights" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "heights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_heights_on_profile_id" ON "heights"  ("profile_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "ldls" CASCADE[0m
+  ↳ db/schema.rb:56
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "ldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:56
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_ldls_on_profile_id" ON "ldls"  ("profile_id")[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "medications" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "medications" ("id" bigserial primary key, "name" character varying, "categorize" character varying, "start" date, "finish" date, "dosage" character varying, "infadd" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_medications_on_profile_id" ON "medications"  ("profile_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "non_hdls" CASCADE[0m
+  ↳ db/schema.rb:78
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "non_hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:78
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_non_hdls_on_profile_id" ON "non_hdls"  ("profile_id")[0m
+  ↳ db/schema.rb:78
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "platelets" CASCADE[0m
+  ↳ db/schema.rb:87
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "platelets" ("id" bigserial primary key, "erythrocyte" decimal, "hemoglobin" decimal, "hematocrit" decimal, "vcm" decimal, "hcm" decimal, "chcm" decimal, "rdw" decimal, "leukocytep" decimal, "neutrophilp" decimal, "eosinophilp" decimal, "basophilp" decimal, "lymphocytep" decimal, "monocytep" decimal, "leukocyteul" integer, "neutrophilul" integer, "eosinophilul" integer, "basophilul" integer, "lymphocyteul" integer, "monocyteul" integer, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:87
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_platelets_on_profile_id" ON "platelets"  ("profile_id")[0m
+  ↳ db/schema.rb:87
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "pressures" CASCADE[0m
+  ↳ db/schema.rb:113
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "pressures" ("id" bigserial primary key, "systolic" integer, "diastolic" integer, "date" timestamp, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:113
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_pressures_on_profile_id" ON "pressures"  ("profile_id")[0m
+  ↳ db/schema.rb:113
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "profiles" CASCADE[0m
+  ↳ db/schema.rb:123
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "email" character varying, "firstname" character varying, "lastname" character varying, "birthdate" date, "sex" character varying, "gender" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:123
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "totals" CASCADE[0m
+  ↳ db/schema.rb:134
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "totals" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:134
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_totals_on_profile_id" ON "totals"  ("profile_id")[0m
+  ↳ db/schema.rb:134
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "vldls" CASCADE[0m
+  ↳ db/schema.rb:143
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "vldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:143
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_vldls_on_profile_id" ON "vldls"  ("profile_id")[0m
+  ↳ db/schema.rb:143
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "weights" CASCADE[0m
+  ↳ db/schema.rb:152
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "weights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:152
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_weights_on_profile_id" ON "weights"  ("profile_id")[0m
+  ↳ db/schema.rb:152
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "allergies" ADD CONSTRAINT "fk_rails_b3c065b150"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:161
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "contacts" ADD CONSTRAINT "fk_rails_7aa91c1878"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:162
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "hdls" ADD CONSTRAINT "fk_rails_f085722161"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:163
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "heights" ADD CONSTRAINT "fk_rails_b5b284d7bd"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:164
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "ldls" ADD CONSTRAINT "fk_rails_577e0c57e6"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:165
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "medications" ADD CONSTRAINT "fk_rails_dbfe424d80"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:166
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "non_hdls" ADD CONSTRAINT "fk_rails_5ebdc0d8b0"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:167
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "platelets" ADD CONSTRAINT "fk_rails_929ce91a12"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:168
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "pressures" ADD CONSTRAINT "fk_rails_26d01c6831"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:169
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "totals" ADD CONSTRAINT "fk_rails_74c4029177"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:170
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "vldls" ADD CONSTRAINT "fk_rails_d36669f130"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:171
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "weights" ADD CONSTRAINT "fk_rails_03ca434dbe"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:172
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181104213313)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181005135749),
+(20181031023616),
+(20181013003738),
+(20181013233839),
+(20181030055025),
+(20181031030817),
+(20181018145822),
+(20181031023649),
+(20181031030750),
+(20180906191447),
+(20181014230014),
+(20181020234812);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-12 01:17:23.483295"], ["updated_at", "2018-11-12 01:17:23.483295"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-11-12 01:17:23.491953"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8203133180777734815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePlatelets (20181112011907)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "platelets" ("id" bigserial primary key, "erythrocyte" decimal, "hemoglobin" decimal, "hematocrit" decimal, "vcm" decimal, "hcm" decimal, "chcm" decimal, "rdw" decimal, "leukocytep" decimal, "neutrophilp" decimal, "eosinophilp" decimal, "basophilp" decimal, "lymphocytep" decimal, "monocytep" decimal, "leukocyteul" integer, "neutrophilul" integer, "eosinophilul" integer, "basophilul" integer, "lymphocyteul" integer, "monocyteul" integer, "total" integer, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_929ce91a12"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181112011907_create_platelets.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8203133180777734815)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (145.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "medidata_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (147.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "medidata_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (325.3ms)[0m  [1m[35mCREATE DATABASE "medidata_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (323.6ms)[0m  [1m[35mCREATE DATABASE "medidata_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "allergies" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "allergies" ("id" bigserial primary key, "name" character varying, "description" text, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_allergies_on_profile_id" ON "allergies"  ("profile_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "contacts" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "email" character varying, "name" character varying, "phone" character varying, "mobile" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_profile_id" ON "contacts"  ("profile_id")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "hdls" CASCADE[0m
+  ↳ db/schema.rb:38
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_hdls_on_profile_id" ON "hdls"  ("profile_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "heights" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "heights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "index_heights_on_profile_id" ON "heights"  ("profile_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "ldls" CASCADE[0m
+  ↳ db/schema.rb:56
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:56
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_ldls_on_profile_id" ON "ldls"  ("profile_id")[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "medications" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "medications" ("id" bigserial primary key, "name" character varying, "categorize" character varying, "start" date, "finish" date, "dosage" character varying, "infadd" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_medications_on_profile_id" ON "medications"  ("profile_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "non_hdls" CASCADE[0m
+  ↳ db/schema.rb:78
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "non_hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:78
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_non_hdls_on_profile_id" ON "non_hdls"  ("profile_id")[0m
+  ↳ db/schema.rb:78
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "platelets" CASCADE[0m
+  ↳ db/schema.rb:87
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "platelets" ("id" bigserial primary key, "erythrocyte" decimal, "hemoglobin" decimal, "hematocrit" decimal, "vcm" decimal, "hcm" decimal, "chcm" decimal, "rdw" decimal, "leukocytep" decimal, "neutrophilp" decimal, "eosinophilp" decimal, "basophilp" decimal, "lymphocytep" decimal, "monocytep" decimal, "leukocyteul" integer, "neutrophilul" integer, "eosinophilul" integer, "basophilul" integer, "lymphocyteul" integer, "monocyteul" integer, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:87
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_platelets_on_profile_id" ON "platelets"  ("profile_id")[0m
+  ↳ db/schema.rb:87
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "pressures" CASCADE[0m
+  ↳ db/schema.rb:113
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "pressures" ("id" bigserial primary key, "systolic" integer, "diastolic" integer, "date" timestamp, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:113
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_pressures_on_profile_id" ON "pressures"  ("profile_id")[0m
+  ↳ db/schema.rb:113
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "profiles" CASCADE[0m
+  ↳ db/schema.rb:123
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "email" character varying, "firstname" character varying, "lastname" character varying, "birthdate" date, "sex" character varying, "gender" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:123
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "totals" CASCADE[0m
+  ↳ db/schema.rb:134
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "totals" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:134
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_totals_on_profile_id" ON "totals"  ("profile_id")[0m
+  ↳ db/schema.rb:134
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "vldls" CASCADE[0m
+  ↳ db/schema.rb:143
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "vldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:143
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_vldls_on_profile_id" ON "vldls"  ("profile_id")[0m
+  ↳ db/schema.rb:143
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "weights" CASCADE[0m
+  ↳ db/schema.rb:152
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "weights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:152
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_weights_on_profile_id" ON "weights"  ("profile_id")[0m
+  ↳ db/schema.rb:152
+  [1m[35m (4.8ms)[0m  [1m[35mALTER TABLE "allergies" ADD CONSTRAINT "fk_rails_b3c065b150"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:161
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "contacts" ADD CONSTRAINT "fk_rails_7aa91c1878"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:162
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "hdls" ADD CONSTRAINT "fk_rails_f085722161"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:163
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "heights" ADD CONSTRAINT "fk_rails_b5b284d7bd"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:164
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "ldls" ADD CONSTRAINT "fk_rails_577e0c57e6"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:165
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "medications" ADD CONSTRAINT "fk_rails_dbfe424d80"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:166
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "non_hdls" ADD CONSTRAINT "fk_rails_5ebdc0d8b0"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:167
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "platelets" ADD CONSTRAINT "fk_rails_929ce91a12"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:168
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "pressures" ADD CONSTRAINT "fk_rails_26d01c6831"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:169
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "totals" ADD CONSTRAINT "fk_rails_74c4029177"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:170
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "vldls" ADD CONSTRAINT "fk_rails_d36669f130"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:171
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "weights" ADD CONSTRAINT "fk_rails_03ca434dbe"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:172
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181104213313)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181005135749),
+(20181031023616),
+(20181013003738),
+(20181013233839),
+(20181030055025),
+(20181031030817),
+(20181018145822),
+(20181031023649),
+(20181031030750),
+(20180906191447),
+(20181014230014),
+(20181020234812);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-12 01:19:41.522539"], ["updated_at", "2018-11-12 01:19:41.522539"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "allergies" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "allergies" ("id" bigserial primary key, "name" character varying, "description" text, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_allergies_on_profile_id" ON "allergies"  ("profile_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "contacts" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "email" character varying, "name" character varying, "phone" character varying, "mobile" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_profile_id" ON "contacts"  ("profile_id")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hdls" CASCADE[0m
+  ↳ db/schema.rb:38
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:38
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_hdls_on_profile_id" ON "hdls"  ("profile_id")[0m
+  ↳ db/schema.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "heights" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "heights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_heights_on_profile_id" ON "heights"  ("profile_id")[0m
+  ↳ db/schema.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "ldls" CASCADE[0m
+  ↳ db/schema.rb:56
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:56
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_ldls_on_profile_id" ON "ldls"  ("profile_id")[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "medications" CASCADE[0m
+  ↳ db/schema.rb:65
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "medications" ("id" bigserial primary key, "name" character varying, "categorize" character varying, "start" date, "finish" date, "dosage" character varying, "infadd" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:65
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_medications_on_profile_id" ON "medications"  ("profile_id")[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "non_hdls" CASCADE[0m
+  ↳ db/schema.rb:78
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "non_hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:78
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_non_hdls_on_profile_id" ON "non_hdls"  ("profile_id")[0m
+  ↳ db/schema.rb:78
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "platelets" CASCADE[0m
+  ↳ db/schema.rb:87
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "platelets" ("id" bigserial primary key, "erythrocyte" decimal, "hemoglobin" decimal, "hematocrit" decimal, "vcm" decimal, "hcm" decimal, "chcm" decimal, "rdw" decimal, "leukocytep" decimal, "neutrophilp" decimal, "eosinophilp" decimal, "basophilp" decimal, "lymphocytep" decimal, "monocytep" decimal, "leukocyteul" integer, "neutrophilul" integer, "eosinophilul" integer, "basophilul" integer, "lymphocyteul" integer, "monocyteul" integer, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:87
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_platelets_on_profile_id" ON "platelets"  ("profile_id")[0m
+  ↳ db/schema.rb:87
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "pressures" CASCADE[0m
+  ↳ db/schema.rb:113
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "pressures" ("id" bigserial primary key, "systolic" integer, "diastolic" integer, "date" timestamp, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:113
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_pressures_on_profile_id" ON "pressures"  ("profile_id")[0m
+  ↳ db/schema.rb:113
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "profiles" CASCADE[0m
+  ↳ db/schema.rb:123
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "email" character varying, "firstname" character varying, "lastname" character varying, "birthdate" date, "sex" character varying, "gender" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:123
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "totals" CASCADE[0m
+  ↳ db/schema.rb:134
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "totals" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:134
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_totals_on_profile_id" ON "totals"  ("profile_id")[0m
+  ↳ db/schema.rb:134
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "vldls" CASCADE[0m
+  ↳ db/schema.rb:143
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "vldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:143
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_vldls_on_profile_id" ON "vldls"  ("profile_id")[0m
+  ↳ db/schema.rb:143
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "weights" CASCADE[0m
+  ↳ db/schema.rb:152
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "weights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:152
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_weights_on_profile_id" ON "weights"  ("profile_id")[0m
+  ↳ db/schema.rb:152
+  [1m[35m (4.4ms)[0m  [1m[35mALTER TABLE "allergies" ADD CONSTRAINT "fk_rails_b3c065b150"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:161
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "contacts" ADD CONSTRAINT "fk_rails_7aa91c1878"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:162
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "hdls" ADD CONSTRAINT "fk_rails_f085722161"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:163
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "heights" ADD CONSTRAINT "fk_rails_b5b284d7bd"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:164
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "ldls" ADD CONSTRAINT "fk_rails_577e0c57e6"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:165
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "medications" ADD CONSTRAINT "fk_rails_dbfe424d80"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:166
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "non_hdls" ADD CONSTRAINT "fk_rails_5ebdc0d8b0"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:167
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "platelets" ADD CONSTRAINT "fk_rails_929ce91a12"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:168
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "pressures" ADD CONSTRAINT "fk_rails_26d01c6831"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:169
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "totals" ADD CONSTRAINT "fk_rails_74c4029177"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:170
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "vldls" ADD CONSTRAINT "fk_rails_d36669f130"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:171
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "weights" ADD CONSTRAINT "fk_rails_03ca434dbe"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  ↳ db/schema.rb:172
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181104213313)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20181005135749),
+(20181031023616),
+(20181013003738),
+(20181013233839),
+(20181030055025),
+(20181031030817),
+(20181018145822),
+(20181031023649),
+(20181031030750),
+(20180906191447),
+(20181014230014),
+(20181020234812);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-12 01:19:41.843953"], ["updated_at", "2018-11-12 01:19:41.843953"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-11-12 01:19:41.853477"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8203133180777734815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePlatelets (20181112011907)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "platelets" ("id" bigserial primary key, "erythrocyte" decimal, "hemoglobin" decimal, "hematocrit" decimal, "vcm" decimal, "hcm" decimal, "chcm" decimal, "rdw" decimal, "leukocytep" decimal, "neutrophilp" decimal, "eosinophilp" decimal, "basophilp" decimal, "lymphocytep" decimal, "monocytep" decimal, "leukocyteul" integer, "neutrophilul" integer, "eosinophilul" integer, "basophilul" integer, "lymphocyteul" integer, "monocyteul" integer, "total" integer, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_929ce91a12"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181112011907_create_platelets.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8203133180777734815)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rake:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rake:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rake:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rake:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rake:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rake:9
+  [1m[35m (141.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "medidata_development"[0m
+  ↳ bin/rake:9
+  [1m[35m (153.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "medidata_test"[0m
+  ↳ bin/rake:9
+  [1m[35m (322.7ms)[0m  [1m[35mCREATE DATABASE "medidata_development" ENCODING = 'unicode'[0m
+  ↳ bin/rake:9
+  [1m[35m (318.0ms)[0m  [1m[35mCREATE DATABASE "medidata_test" ENCODING = 'unicode'[0m
+  ↳ bin/rake:9
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rake:9
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rake:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8203133180777734815)[0m
+  ↳ bin/rake:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rake:9
+Migrating to CreateProfiles (20180906191447)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "email" character varying, "firstname" character varying, "lastname" character varying, "birthdate" date, "sex" character varying, "gender" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180906191447_create_profiles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180906191447"]]
+  ↳ bin/rake:9
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateWeights (20181005135749)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "weights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_03ca434dbe"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181005135749_create_weights.rb:3
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE  INDEX  "index_weights_on_profile_id" ON "weights"  ("profile_id")[0m
+  ↳ db/migrate/20181005135749_create_weights.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181005135749"]]
+  ↳ bin/rake:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateHeights (20181013003738)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "heights" ("id" bigserial primary key, "value" decimal, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b5b284d7bd"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181013003738_create_heights.rb:3
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_heights_on_profile_id" ON "heights"  ("profile_id")[0m
+  ↳ db/migrate/20181013003738_create_heights.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181013003738"]]
+  ↳ bin/rake:9
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateContacts (20181013233839)
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" bigserial primary key, "email" character varying, "name" character varying, "phone" character varying, "mobile" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_7aa91c1878"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181013233839_create_contacts.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_contacts_on_profile_id" ON "contacts"  ("profile_id")[0m
+  ↳ db/migrate/20181013233839_create_contacts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181013233839"]]
+  ↳ bin/rake:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateMedications (20181014230014)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "medications" ("id" bigserial primary key, "name" character varying, "categorize" character varying, "start" date, "finish" date, "dosage" character varying, "infadd" character varying, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_dbfe424d80"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181014230014_create_medications.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_medications_on_profile_id" ON "medications"  ("profile_id")[0m
+  ↳ db/migrate/20181014230014_create_medications.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181014230014"]]
+  ↳ bin/rake:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreatePressures (20181018145822)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "pressures" ("id" bigserial primary key, "systolic" integer, "diastolic" integer, "date" timestamp, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_26d01c6831"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181018145822_create_pressures.rb:3
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_pressures_on_profile_id" ON "pressures"  ("profile_id")[0m
+  ↳ db/migrate/20181018145822_create_pressures.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181018145822"]]
+  ↳ bin/rake:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateAllergies (20181020234812)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "allergies" ("id" bigserial primary key, "name" character varying, "description" text, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b3c065b150"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181020234812_create_allergies.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_allergies_on_profile_id" ON "allergies"  ("profile_id")[0m
+  ↳ db/migrate/20181020234812_create_allergies.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181020234812"]]
+  ↳ bin/rake:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateHdls (20181030055025)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f085722161"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181030055025_create_hdls.rb:3
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_hdls_on_profile_id" ON "hdls"  ("profile_id")[0m
+  ↳ db/migrate/20181030055025_create_hdls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181030055025"]]
+  ↳ bin/rake:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateNonHdls (20181031023616)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "non_hdls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5ebdc0d8b0"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181031023616_create_non_hdls.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_non_hdls_on_profile_id" ON "non_hdls"  ("profile_id")[0m
+  ↳ db/migrate/20181031023616_create_non_hdls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181031023616"]]
+  ↳ bin/rake:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateLdls (20181031023649)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "ldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_577e0c57e6"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181031023649_create_ldls.rb:3
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_ldls_on_profile_id" ON "ldls"  ("profile_id")[0m
+  ↳ db/migrate/20181031023649_create_ldls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181031023649"]]
+  ↳ bin/rake:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateVldls (20181031030750)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "vldls" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d36669f130"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181031030750_create_vldls.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_vldls_on_profile_id" ON "vldls"  ("profile_id")[0m
+  ↳ db/migrate/20181031030750_create_vldls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181031030750"]]
+  ↳ bin/rake:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreateTotals (20181031030817)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "totals" ("id" bigserial primary key, "value" integer, "date" date, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_74c4029177"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181031030817_create_totals.rb:3
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_totals_on_profile_id" ON "totals"  ("profile_id")[0m
+  ↳ db/migrate/20181031030817_create_totals.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181031030817"]]
+  ↳ bin/rake:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+Migrating to CreatePlatelets (20181112011907)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (53.2ms)[0m  [1m[35mCREATE TABLE "platelets" ("id" bigserial primary key, "erythrocyte" decimal, "hemoglobin" decimal, "hematocrit" decimal, "vcm" decimal, "hcm" decimal, "chcm" decimal, "rdw" decimal, "leukocytep" decimal, "neutrophilp" decimal, "eosinophilp" decimal, "basophilp" decimal, "lymphocytep" decimal, "monocytep" decimal, "leukocyteul" integer, "neutrophilul" integer, "eosinophilul" integer, "basophilul" integer, "lymphocyteul" integer, "monocyteul" integer, "total" integer, "profile_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_929ce91a12"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+)[0m
+  ↳ db/migrate/20181112011907_create_platelets.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_platelets_on_profile_id" ON "platelets"  ("profile_id")[0m
+  ↳ db/migrate/20181112011907_create_platelets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181112011907"]]
+  ↳ bin/rake:9
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rake:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-12 01:20:44.432613"], ["updated_at", "2018-11-12 01:20:44.432613"]]
+  ↳ bin/rake:9
+  [1m[35m (48.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+  [1m[35m (34.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8203133180777734815)[0m
+  ↳ bin/rake:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rake:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8203133180777734815)[0m
+  ↳ bin/rake:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rake:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rake:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rake:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rake:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8203133180777734815)[0m
+  ↳ bin/rake:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rake:9
