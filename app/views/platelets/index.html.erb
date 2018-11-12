@@ -29,7 +29,6 @@
     <th scope="col">basophilul</th>
     <th scope="col">lymphocyteul</th>
     <th scope="col">monocyteul</th>
-    <th scope="col">total</th>
   </tr>
 
   <% @platelets.each do |platelet| %>
@@ -54,8 +53,6 @@
       <td><%= platelet.basophilul %></td>
       <td><%= platelet.lymphocyteul %></td>
       <td><%= platelet.monocyteul %></td>
-      <td><%= platelet.total %></td>
-
     <td>
         <%= link_to "Edit", edit_profile_platelet_path(profile_email: @profile.email, id: platelet.id), class: "btn btn-primary" %> |
         <%= link_to "Delete", profile_platelet_path(profile_email: @profile.email, id: platelet.id),
