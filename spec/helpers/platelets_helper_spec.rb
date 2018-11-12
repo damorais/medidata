@@ -10,6 +10,5 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe PlateletHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe PlateletsHelper, type: :helper do
 end

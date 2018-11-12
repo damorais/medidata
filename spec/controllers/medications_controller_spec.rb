@@ -119,7 +119,7 @@ RSpec.describe MedicationsController, type: :controller do
                           profile_email: @existing_profile.email,
                           medication: invalid_attributes,
                         }
-        }.to_not change(@existing_profile.heights, :count)
+        }.to_not change(@existing_profile.medications, :count)
       end
 
       it "stay in the new medication" do
