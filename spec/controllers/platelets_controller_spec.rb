@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe PlateletsController, type: :controller do
 
-  # Todo registro de peso depende de um perfil válido existente
   before {
     @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
   }
@@ -141,7 +140,7 @@ RSpec.describe PlateletsController, type: :controller do
     before {
       @existing_platelet = FactoryBot.create :platelet, :profile => @existing_profile
       @original_platetet_erythrocyte = @existing_platelet.erythrocyte
-      @original_platetet_hemoglobin = @existing_platelet.hemoglobin
+      @original_platetet_hemoglobin= @existing_platelet.hemoglobin
       @original_platetet_hematocrit = @existing_platelet.hematocrit
       @original_platetet_vcm = @existing_platelet.vcm
       @original_platetet_hcm = @existing_platelet.hcm
@@ -157,7 +156,7 @@ RSpec.describe PlateletsController, type: :controller do
       @original_platetet_neutrophilul = @existing_platelet.neutrophilul
       @original_platetet_eosinophilul = @existing_platelet.eosinophilul
       @original_platetet_basophilul = @existing_platelet.basophilul
-      @original_platetet_basophilul = @existing_platelet.lymphocyteul
+      @original_platetet_lymphocyteul = @existing_platelet.lymphocyteul
       @original_platetet_monocyteul = @existing_platelet.monocyteul
       @original_platetet_total = @existing_platelet.total
     }
@@ -213,10 +212,37 @@ RSpec.describe PlateletsController, type: :controller do
 
     context "with invalid params" do
       let(:invalid_attributes) {
-        {erythrocyte:"", hemoglobin:"", hematocrit:"", vcm:"", hcm:"", chcm:"", rdw:"", leukocytep:"", neutrophilp:"", eosinophilp:"",
-         basophilp:"", lymphocytep:"",  monocytep:"", leukocyteul:"", neutrophilul:"", eosinophilul:"", basophilul:"",
-         lymphocyteul:"", monocyteul:"", total:""}
+        {erythrocyte:"", hemoglobin:"", hematocrit:"", vcm:"", hcm:"", chcm:"", rdw:"", leukocytep:"",
+         neutrophilp:"", eosinophilp:"", basophilp:"", lymphocytep:"",
+         monocytep:"", leukocyteul:"", neutrophilul:"", eosinophilul:"",
+         basophilul:"",lymphocyteul:"", monocyteul:"", total:""}
       }
+
+      it "doesn't change the platelet" do
+        put :update, params: {profile_email: @existing_profile.email, id: @existing_platelet.id, platelet: invalid_attributes}
+        @existing_platelet.reload
+        expect(@existing_platelet.erythrocyte).to eq(@original_platetet_erythrocyte)
+        expect(@existing_platelet.hemoglobin).to eq(@original_platetet_hemoglobin)
+        expect(@existing_platelet.hematocrit).to eq(@original_platetet_hematocrit)
+        expect(@existing_platelet.vcm).to eq(@original_platetet_vcm)
+        expect(@existing_platelet.hcm).to eq(@original_platetet_hcm)
+        expect(@existing_platelet.chcm).to eq(@original_platetet_chcm)
+        expect(@existing_platelet.rdw).to eq(@original_platetet_rdw)
+        expect(@existing_platelet.leukocytep).to eq(@original_platetet_leukocytep)
+        expect(@existing_platelet.neutrophilp).to eq(@original_platetet_neutrophilp)
+        expect(@existing_platelet.eosinophilp).to eq(@original_platetet_eosinophilp)
+        expect(@existing_platelet.basophilp).to eq(@original_platetet_basophilp)
+        expect(@existing_platelet.lymphocytep).to eq(@original_platetet_lymphocytep)
+        expect(@existing_platelet.monocytep).to eq(@original_platetet_monocytep)
+        expect(@existing_platelet.leukocyteul).to eq(@original_platetet_leukocyteul)
+        expect(@existing_platelet.neutrophilul).to eq(@original_platetet_neutrophilul)
+        expect(@existing_platelet.eosinophilul).to eq(@original_platetet_eosinophilul)
+        expect(@existing_platelet.basophilul).to eq(@original_platetet_basophilul)
+        expect(@existing_platelet.lymphocyteul).to eq(@original_platetet_lymphocyteul)
+        expect(@existing_platelet.monocyteul).to eq(@original_platetet_monocyteul)
+        expect(@existing_platelet.total).to eq(@original_platetet_total)
+        expect(@existing_platelet.profile).to eq(@existing_profile)
+      end
 
       it "stay in the edit platelet" do
         put :update, params: {profile_email: @existing_profile.email, id: @existing_platelet.id, platelet: invalid_attributes}
