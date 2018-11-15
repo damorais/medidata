@@ -1,4 +1,4 @@
-Given("I am on Add medication page") do
+Given("I am on Add platelet page") do
     visit new_profile_platelet_path(profile_email: @my_profile.email)
 end
 
