@@ -1,6 +1,9 @@
 class Platelet < ApplicationRecord
   belongs_to :profile
-  validates :erythrocyte, presence: { message: "O nome do campo erythrocyte é obrigatório" }
+  validates :erythrocyte, presence: { message: "O nome do campo erythrocyte é obrigatório" },
+             numericality: {
+             greater_than: 0
+             }
   validates :hemoglobin, presence: { message: "O nome do campo hemoglobin é obrigatório" }
   validates :hematocrit, presence: { message: "O nome do campo hematocrit é obrigatório" }
   validates :vcm, presence: { message: "O nome do campo vcm é obrigatório" }
