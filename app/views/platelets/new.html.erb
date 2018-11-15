@@ -6,7 +6,7 @@
 <div class="form-horizontal">
 
     <div class="form-group">
-        <%= form.label :Erythrocyte %>
+        <%= form.label :erythrocyte %>
 	<% if @platelet and @platelet.errors.messages[:erythrocyte] %>
 	      <div class="text-danger small">
 	          <%= @platelet.errors.messages[:erythrocyte].to_sentence %>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-group">
-        <%= form.label :Hemoglobin %>
+        <%= form.label :hemoglobin %>
   <% if @platelet and @platelet.errors.messages[:hemoglobin] %>
         <div class="text-danger small">
             <%= @platelet.errors.messages[:hemoglobin].to_sentence %>
@@ -25,7 +25,7 @@
   <%= form.text_field :hemoglobin, class: "form-control" %>
     </div>
     <div class="form-group">
-        <%= form.label :Hematocrit %>
+        <%= form.label :hematocrit %>
     <% if @platelet and @platelet.errors.messages[:hematocrit] %>
         <div class="text-danger small">
             <%= @platelet.errors.messages[:hematocrit].to_sentence %>
@@ -37,7 +37,7 @@
   </div>
 
   <div class="form-group">
-      <%= form.label :Vcm %>
+      <%= form.label :vcm %>
   <% if @platelet and @platelet.errors.messages[:vcm] %>
       <div class="text-danger small">
           <%= @platelet.errors.messages[:vcm].to_sentence %>
