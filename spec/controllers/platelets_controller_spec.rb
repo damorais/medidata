@@ -140,7 +140,7 @@ RSpec.describe PlateletsController, type: :controller do
     before {
       @existing_platelet = FactoryBot.create :platelet, :profile => @existing_profile
       @original_platetet_erythrocyte = @existing_platelet.erythrocyte
-      @original_platetet_hemoglobin = @existing_platelet.hemoglobin
+      @original_platetet_hemoglobin= @existing_platelet.hemoglobin
       @original_platetet_hematocrit = @existing_platelet.hematocrit
       @original_platetet_vcm = @existing_platelet.vcm
       @original_platetet_hcm = @existing_platelet.hcm
@@ -212,9 +212,10 @@ RSpec.describe PlateletsController, type: :controller do
 
     context "with invalid params" do
       let(:invalid_attributes) {
-      {erythrocyte:"", hemoglobin:"", hematocrit:"", vcm:"", hcm:"", chcm:"", rdw:"", leukocytep:"", neutrophilp:"", eosinophilp:"",
-         basophilp:"", lymphocytep:"",  monocytep:"", leukocyteul:"", neutrophilul:"", eosinophilul:"", basophilul:"",
-         lymphocyteul:"", monocyteul:"", total:""}
+        {erythrocyte:"", hemoglobin:"", hematocrit:"", vcm:"", hcm:"", chcm:"", rdw:"", leukocytep:"",
+         neutrophilp:"", eosinophilp:"", basophilp:"", lymphocytep:"",
+         monocytep:"", leukocyteul:"", neutrophilul:"", eosinophilul:"",
+         basophilul:"",lymphocyteul:"", monocyteul:"", total:""}
       }
 
       it "doesn't change the platelet" do
