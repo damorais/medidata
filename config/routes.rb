@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   get 'welcome/index'
-  
-  resources :profiles, param: :email, email:  /[^\/]+/ do
+
+  resources :profiles, param: :email, email: %r{[^\/]+} do
     resources :weights
     resources :heights
     resources :pressures
@@ -10,12 +12,11 @@ Rails.application.routes.draw do
     resources :medications
     resources :hdls
     resources :nonhdls
-    resources :ldls	
+    resources :ldls
     resources :vldls
     resources :totals
-    resources :reactions	
+    resources :reactions
   end
 
   root 'welcome#index'
-
 end

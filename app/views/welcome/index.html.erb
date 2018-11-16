@@ -1,7 +1,14 @@
 <html>
-  <center><h2><b>MediData | <%= link_to 'Criar um Perfil', new_profile_path, class: "btn btn-primary" %></b></h2>
+  <center>
+    <h2>
+      <b>MediData </b> | 
+      <%= link_to "Registrar-se", new_user_registration_path, :class => 'btn btn-primary' %> | 
+      <%= link_to "Login", new_user_session_path, :class => 'btn btn-primary'  %>
+    </h2>
     <img src="https://camo.githubusercontent.com/2269ecb9a25cb1d91fbce24ef9f0edb93bd55d7c/68747470733a2f2f7374322e6465706f73697470686f746f732e636f6d2f313232393731382f353238382f692f3935302f6465706f73697470686f746f735f35323838393933332d73746f636b2d70686f746f2d6d65646963616c2d646174612e6a7067" alt="MediData" width="540" height="540">
-  <br>
-  <h6><b>MediData - Copyright 2018 Project Team</b></h6>
-  </center> 
+    <br>
+    <h6>
+      <b>MediData - Copyright 2018 Project Team</b>
+    </h6>
+  </center>
 </html>

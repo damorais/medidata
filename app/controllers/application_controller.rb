@@ -1,12 +1,21 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
+  def after_sign_in_path_for(_resource)
+    profile_path(email: current_user.email)
+  end
 
-    def recover_profile
-        if params[:profile_email]
-            @profile = Profile.find_by(email: params[:profile_email])
-        end
+  def recover_profile
+    email = params[:profile_email] || params[:email]
 
-        if not @profile
-            raise ActionController::RoutingError.new('Not Found')
-        end
-    end
+    @profile = Profile.find_by(email: email) if email
+
+    redirect_to new_profile_path unless @profile
+  end
+
+  def block_crossprofile_access
+    authorized = current_user.email == (params[:profile_email] || params[:email])
+
+    render file: 'public/401.html', status: :unauthorized unless authorized
+  end
 end

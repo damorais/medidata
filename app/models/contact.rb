@@ -1,8 +1,10 @@
-class Contact < ApplicationRecord
-    belongs_to :profile
+# frozen_string_literal: true
 
-    validates :email, presence: { message: "The value must be provided" }
-    validates :name, presence: { message: "The value must be provided" }
-	validates :phone, presence: { message: "The value must be provided" }
-    validates :mobile, presence: { message: "The value must be provided" }
+class Contact < ApplicationRecord
+  belongs_to :profile
+
+  validates :email, presence: { message: 'The value must be provided' }
+  validates :name, presence: { message: 'The value must be provided' }
+  validates :phone, presence: { message: 'The value must be provided' }
+  validates :mobile, presence: { message: 'The value must be provided' }
 end
