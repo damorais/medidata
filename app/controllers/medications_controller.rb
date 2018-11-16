@@ -1,13 +1,13 @@
 class MedicationsController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :block_crossprofile_access
   before_action :recover_profile
 
   def index
     @medications = @profile.medications
   end
 
-  def new
-  end
+  def new; end
 
   def edit
     @medication = Medication.find(params[:id])
@@ -19,10 +19,10 @@ class MedicationsController < ApplicationController
     @medication.profile = @profile
 
     if @medication.save
-      flash[:success] = "Medication registered sucessfully"
+      flash[:success] = 'Medication registered sucessfully'
       redirect_to profile_medications_path(profile_email: @profile.email)
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -30,10 +30,10 @@ class MedicationsController < ApplicationController
     @medication = Medication.find(params[:id])
 
     if @medication.update(medication_params)
-      flash[:success] = "Medication updated sucessfully"
+      flash[:success] = 'Medication updated sucessfully'
       redirect_to profile_medications_path(profile_email: @medication.profile.email)
     else
-      render "edit"
+      render 'edit'
     end
   end
 

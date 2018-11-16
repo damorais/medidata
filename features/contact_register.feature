@@ -5,6 +5,7 @@ Feature: Allows an user to manager your emergency contacts
 
 	Background: 
         Given I am an registered user with "joao@example.org" email address
+        And I have a registered profile with "joao@example.org" email address
 	
 	Scenario: A registered user want to navigate to emergency contacts page
 		Given I am on My profile page
