@@ -6,7 +6,7 @@ require 'date'
 RSpec.describe WeightsController, type: :controller do
   before do
     @user = FactoryBot.create :user, email: 'joao@example.org'
-    @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+    @existing_profile = FactoryBot.create :profile, email: 'joao@example.org', user: @user
     sign_in @user
   end
 
