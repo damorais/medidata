@@ -1,7 +1,12 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Hdl, type: :model do
+  describe 'Associations' do
+    it { should belong_to :profile }
+  end
+
   describe 'Validations' do
     before do
       @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
