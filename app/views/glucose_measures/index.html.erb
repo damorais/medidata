@@ -1,0 +1,28 @@
+<h1>Glucose Measures | <%= link_to "Add", new_profile_glucose_measure_path,  class: "btn btn-success" %></h1>
+
+<% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+	    <%= flash[:success] %>
+      </div>
+<% end %>
+
+<table class="table table-striped">
+    <tr>
+        <th scope="col">Fasting?</th>
+        <th scope="col">Glucose Measure</th>
+        <th scope="col">Date</th>
+        <th scope="col"></th>
+    </tr>
+  <% @glucose_measures.each do |glucose_measure| %>
+    <tr>
+      <td><%= glucose_measure.fasting ? "Yes" : "No" %></td>
+      <td><%= glucose_measure.value %></td>
+      <td><%= glucose_measure.date %></td>
+    <td>
+      <%= link_to 'Edit', edit_profile_glucose_measure_path(id: glucose_measure.id), class: "btn btn-primary" %> |
+      <%= link_to 'Delete',  { action: :destroy, id: glucose_measure.id },
+      method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to 'Back', profile_path(email: @profile.email), class: "btn btn-success" %>

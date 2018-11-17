@@ -7,6 +7,7 @@ RSpec.describe Profile, type: :model do
 
   it { should have_many :allergies }
   it { should have_many :contacts }
+  it { should have_many :glucose_measures }
   it { should have_many :hdls }
   it { should have_many :heights }
   it { should have_many :ldls }

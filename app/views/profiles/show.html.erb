@@ -35,7 +35,8 @@
       <%= link_to 'Non-HDL', profile_nonhdls_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'LDL', profile_ldls_path(profile_email: @profile.email), class: "btn btn-primary" %> |
       <%= link_to 'VLDL', profile_vldls_path(profile_email: @profile.email), class: "btn btn-primary" %> |
-      <%= link_to 'Total', profile_totals_path(profile_email: @profile.email), class: "btn btn-primary" %>	  
+      <%= link_to 'Total', profile_totals_path(profile_email: @profile.email), class: "btn btn-primary" %> |
+      <%= link_to 'Glucose Measures', profile_glucose_measures_path(profile_email: @profile.email), class: "btn btn-primary" %>
     </td>
   </tr>
   </tbody>
