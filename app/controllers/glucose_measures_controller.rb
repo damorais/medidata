@@ -53,5 +53,5 @@ end
     params.require(:glucose_measure).permit(:value,
                                             :fasting,
                                             :date)
-end
+  end
 end
