@@ -1,6 +1,13 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "There are another user with the same email address"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
