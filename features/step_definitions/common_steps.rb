@@ -50,7 +50,7 @@ Given('I am an registered user with {string} email address') do |email|
 end
 
 Given('I have a registered profile with {string} email address') do |email|
-  @my_profile = FactoryBot.create :profile, email: email
+  @my_profile = FactoryBot.create :profile, email: email, user: @user
 
   expect(Profile.exists?(email: email)).to be(true)
 end

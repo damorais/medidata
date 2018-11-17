@@ -1,4 +1,6 @@
 class Profile < ApplicationRecord
+  belongs_to :user
+  
   has_many :weights
   has_many :heights
   has_many :medications
