@@ -1,68 +1,66 @@
 <h2>Crie o seu perfil</h2>
-
 <%= form_with scope: :profile, local: true, url: profiles_path do |form| %>
+
 <div class="form-horizontal">
 
-    <div class="form-group">
-        <%= form.label :email %>
-	<% if @profile and @profile.errors.messages[:email] %>
-	      <div class="text-danger small">
-	          <%= @profile.errors.messages[:email].to_sentence %>
-	      </div>
-	<% end %>
-	<%= form.email_field :email, class: "form-control" %>
-    </div>
+  <div class="form-group">
+    <%= form.label :email %>
+    <% if @profile and @profile.errors.messages[:email] %>
+      <div class="text-danger small">
+        <%= @profile.errors.messages[:email].to_sentence %>
+      </div>
+    <% end %>
+    <%= form.email_field :email, class: "form-control" %>
+  </div>
 
-    <div class="form-group">
-        <%= form.label :firstname %>
-        <% if @profile and @profile.errors.messages[:firstname] %>
-	      <div class="text-danger small">
-	          <%= @profile.errors.messages[:firstname].to_sentence %>
-	      </div>
-	<% end %>
-	<%= form.text_field :firstname, class: "form-control" %>
-    </div>
-    
-    <div class="form-group">
-        <%= form.label :lastname %>
-        <% if @profile and @profile.errors.messages[:lastname] %>
-	      <div class="text-danger small">
-	          <%= @profile.errors.messages[:lastname].to_sentence %>
-	      </div>
-	<% end %>
+  <div class="form-group">
+    <%= form.label :firstname %>
+    <% if @profile and @profile.errors.messages[:firstname] %>
+      <div class="text-danger small">
+        <%= @profile.errors.messages[:firstname].to_sentence %>
+      </div>
+    <% end %>
+    <%= form.text_field :firstname, class: "form-control" %>
+  </div>
 
-        <%= form.text_field :lastname, class: "form-control" %>
-    </div>
-    
-    <div class="form-group">
-        <%= form.label :birthdate %>
-        <% if @profile and @profile.errors.messages[:birthdate] %>
-	      <div class="text-danger small">
-	          <%= @profile.errors.messages[:birthdate].to_sentence %>
-	      </div>
-	<% end %>
-        <%= form.date_field :birthdate, class: "form-control" %>
-    </div>
-    
-    <div class="form-group">
-        <%= form.label :sex %>
-        <div class="form-check form-check-inline">
-            <%= form.radio_button :sex, "Female", class:  "form-check-input" %>
-            <%= form.label :sex_female, "Feminino", class: "form-check-label" %>
-        </div>
-        <div class="form-check form-check-inline">
-            <%= form.radio_button :sex, "Male", class: "form-check-input" %>
-            <%= form.label :sex_male, "Masculino", class: "form-check-label" %>
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <%= form.label :gender %>
-        <%= form.text_field :gender, class: "form-control" %>
-    </div>
+  <div class="form-group">
+    <%= form.label :lastname %>
+    <% if @profile and @profile.errors.messages[:lastname] %>
+      <div class="text-danger small">
+        <%= @profile.errors.messages[:lastname].to_sentence %>
+      </div>
+    <% end %>
+    <%= form.text_field :lastname, class: "form-control" %>
+  </div>
 
-    <%= form.submit "Criar meu perfil", class: "btn btn-success" %>	
+  <div class="form-group">
+    <%= form.label :birthdate %>
+    <% if @profile and @profile.errors.messages[:birthdate] %>
+      <div class="text-danger small">
+        <%= @profile.errors.messages[:birthdate].to_sentence %>
+      </div>
+    <% end %>
+    <%= form.date_field :birthdate, class: "form-control" %>
+  </div>
 
+  <div class="form-group">
+    <%= form.label :sex %>
+    <div class="form-check form-check-inline">
+      <%= form.radio_button :sex, "Female", class:  "form-check-input" %>
+      <%= form.label :sex_female, "Feminino", class: "form-check-label" %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= form.radio_button :sex, "Male", class: "form-check-input" %>
+      <%= form.label :sex_male, "Masculino", class: "form-check-label" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :gender %>
+    <%= form.text_field :gender, class: "form-control" %>
+  </div>
+
+  <%= form.submit "Criar meu perfil", class: "btn btn-success" %>	
 </div>
 
 <% end %>
