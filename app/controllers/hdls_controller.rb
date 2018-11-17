@@ -1,55 +1,57 @@
+# frozen_string_literal: true
+
 class HdlsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :block_crossprofile_access
+  before_action :recover_profile
 
-    before_action :recover_profile
+  def index
+    @hdls = @profile.hdls
+  end
 
-    def index
-        @hdls = @profile.hdls
+  def new; end
+
+  def edit
+    @hdl = Hdl.find(params[:id])
+  end
+
+  def create
+    @hdl = Hdl.new(hdl_params)
+
+    @hdl.profile = @profile
+
+    if @hdl.save
+      flash[:success] = 'HDL Cholesterol registered sucessfully'
+      redirect_to profile_hdls_path(profile_email: @profile.email)
+    else
+      render 'new'
     end
+  end
 
-    def new
+  def update
+    @hdl = Hdl.find(params[:id])
+
+    if @hdl.update(hdl_params)
+      flash[:success] = 'HDL Cholesterol updated sucessfully'
+      redirect_to profile_hdls_path(profile_email: @hdl.profile.email)
+    else
+      render 'edit'
     end
+  end
 
-    def edit
-        @hdl = Hdl.find(params[:id])
-    end
+  def destroy
+    @hdl = Hdl.find(params[:id])
 
-    def create
-        @hdl = Hdl.new(hdl_params)
+    profile_email = @hdl.profile.email
 
-        @hdl.profile = @profile
+    @hdl.destroy
 
-        if @hdl.save
-            flash[:success] = "HDL Cholesterol registered sucessfully"
-            redirect_to profile_hdls_path(profile_email: @profile.email)
-        else
-            render 'new'
-        end
-    end
+    redirect_to profile_hdls_path(profile_email: profile_email)
+  end
 
-    def update
-        @hdl = Hdl.find(params[:id])
-        
-        if @hdl.update(hdl_params)
-            flash[:success] = "HDL Cholesterol updated sucessfully"
-            redirect_to profile_hdls_path(profile_email: @hdl.profile.email)
-        else
-            render 'edit'
-        end
+  private
 
-    end
-
-    def destroy
-        @hdl = Hdl.find(params[:id])
-
-        profile_email = @hdl.profile.email
-
-        @hdl.destroy
-        
-        redirect_to profile_hdls_path(profile_email: profile_email)
-    end
-
-    private
-    def hdl_params
-        params.require(:hdl).permit(:value,:date)
-    end
+  def hdl_params
+    params.require(:hdl).permit(:value, :date)
+  end
 end
