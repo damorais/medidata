@@ -2,9 +2,15 @@ require 'rails_helper'
 require 'date'
 
 RSpec.describe GlucoseMeasuresController, type: :controller do
-  before {
-      @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
-  }
+  before do
+    @user = FactoryBot.create :user, email: 'joao@example.org'
+    sign_in @user
+    @existing_profile = FactoryBot.create :profile, email: 'joao@example.org', user: @user
+  end
+
+  after do
+    sign_out @user
+  end
 
   describe "GET #index" do
       it "returns a success response" do
@@ -21,12 +27,6 @@ RSpec.describe GlucoseMeasuresController, type: :controller do
           get :index, params: { profile_email: @existing_profile.email }
           expect(response).to render_template(:index)
       end
-
-      it "returns an error when trying to access based on inexisting user" do
-          expect{
-              get :index, params: { profile_email: "inexisting_user@example.org" }
-          }.to raise_error(ActionController::RoutingError)
-      end
   end
 
   describe "GET #new" do
@@ -38,12 +38,6 @@ RSpec.describe GlucoseMeasuresController, type: :controller do
       it "render a new glucose measure page" do
           get :new, params: { profile_email: @existing_profile.email }
           expect(response).to render_template(:new)
-      end
-
-      it "returns an error when trying to access based on inexisting user" do
-          expect{
-              get :new, params: { profile_email: "inexisting_user@example.org" }
-          }.to raise_error(ActionController::RoutingError)
       end
   end
 
@@ -65,12 +59,6 @@ RSpec.describe GlucoseMeasuresController, type: :controller do
       it "returns an edit view" do
           get :edit, params: { profile_email: @existing_profile.email, id: @existing_glucose.id }
           expect(response).to render_template(:edit)
-      end
-
-      it "returns an error when trying to access based on inexisting user" do
-          expect{
-              get :edit, params: { profile_email: "inexisting_user@example.org", id: @existing_glucose.id }
-          }.to raise_error(ActionController::RoutingError)
       end
   end
 
@@ -127,14 +115,6 @@ RSpec.describe GlucoseMeasuresController, type: :controller do
               expect(response).to render_template(:new)
           end
 
-                it "returns an error when trying to access based on inexisting user" do
-                    expect{
-                        post :create, params: {
-                            profile_email: "inexisting_user@example.org"
-                        }
-                    }.to raise_error(ActionController::RoutingError)
-                end
-
 
       end
   end
@@ -146,12 +126,6 @@ RSpec.describe GlucoseMeasuresController, type: :controller do
           @original_glucose_fasting = @existing_glucose.fasting
           @original_glucose_date = @existing_glucose.date
       }
-
-      it "returns an error when trying to access based on inexisting user" do
-          expect{
-              put :update, params: {profile_email: "inexisting_user@example.org", id: @existing_glucose.id, glucose_measure: {}}
-          }.to raise_error(ActionController::RoutingError)
-      end
 
       context "with valid params" do
           let(:new_attributes) {
@@ -226,15 +200,6 @@ RSpec.describe GlucoseMeasuresController, type: :controller do
       before {
           @existing_glucose = FactoryBot.create :glucose_measure, :profile => @existing_profile
       }
-
-      it "returns an error when trying to access based on inexisting user" do
-          expect{
-              delete :destroy, params: {
-                profile_email: "inexisting_user@example.org",
-                id: @existing_glucose.to_param
-              }
-          }.to raise_error(ActionController::RoutingError)
-      end
 
       it "destroys the requested" do
           expect {

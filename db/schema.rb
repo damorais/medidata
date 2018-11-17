@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2018_11_17_185420) do
     t.index ["profile_id"], name: "index_contacts_on_profile_id"
   end
 
+  create_table "glucose_measures", force: :cascade do |t|
+    t.float "value"
+    t.datetime "date"
+    t.boolean "fasting"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_glucose_measures_on_profile_id"
+  end
+
   create_table "hdls", force: :cascade do |t|
     t.integer "value"
     t.date "date"
@@ -160,6 +170,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_185420) do
 
   add_foreign_key "allergies", "profiles"
   add_foreign_key "contacts", "profiles"
+  add_foreign_key "glucose_measures", "profiles"
   add_foreign_key "hdls", "profiles"
   add_foreign_key "heights", "profiles"
   add_foreign_key "ldls", "profiles"
