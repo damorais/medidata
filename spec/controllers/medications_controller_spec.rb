@@ -7,7 +7,7 @@ RSpec.describe MedicationsController, type: :controller do
   before do
     @user = FactoryBot.create :user, email: 'joao@example.org'
     sign_in @user
-    @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+    @existing_profile = FactoryBot.create :profile, email: 'joao@example.org', user: @user
   end
 
   after do

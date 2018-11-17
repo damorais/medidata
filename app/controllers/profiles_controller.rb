@@ -20,6 +20,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_create_params)
     @profile.email = current_user.email
+    @profile.user = current_user
 
     if @profile.save
       flash[:success] = 'O perfil foi criado com sucesso'

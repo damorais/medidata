@@ -9,7 +9,7 @@ RSpec.describe ProfilesController, type: :controller do
       email: 'joao@example.org',
       firstname: 'João',
       lastname: 'Silva',
-      birthdate: '2000-12-15'
+      birthdate: '2000-12-15',
     }
   end
 
@@ -34,7 +34,7 @@ RSpec.describe ProfilesController, type: :controller do
     before do
       @user = FactoryBot.create :user, email: 'joao@example.org'
       sign_in @user
-      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org', user: @user
     end
 
     after do
@@ -67,7 +67,7 @@ RSpec.describe ProfilesController, type: :controller do
     before do
       @user = FactoryBot.create :user, email: 'joao@example.org'
       sign_in @user
-      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org', user: @user
     end
 
     after do
@@ -119,7 +119,7 @@ RSpec.describe ProfilesController, type: :controller do
 
     context 'with a profile with the same email address' do
       before do
-        @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+        @existing_profile = FactoryBot.create :profile, email: 'joao@example.org', user: @user
       end
 
       it "doesn't creates a new Profile" do
@@ -139,7 +139,7 @@ RSpec.describe ProfilesController, type: :controller do
     before do
       @user = FactoryBot.create :user, email: 'joao@example.org'
       sign_in @user
-      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org', user: @user
       @original_email = @existing_profile.email
       @original_firstname = @existing_profile.firstname
       @original_lastname = @existing_profile.lastname

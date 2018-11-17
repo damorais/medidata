@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
+  it { should belong_to :user }
+
   it { should have_many :allergies }
   it { should have_many :contacts }
   it { should have_many :hdls }
@@ -18,10 +20,10 @@ RSpec.describe Profile, type: :model do
 
   describe 'Validations' do
     it 'Is valid with valid attributes' do
-      profile = Profile.new(email: 'joao_silva@example.org',
-                            firstname: 'João',
-                            lastname: 'Silva',
-                            birthdate: Date.new(2000, 5, 5))
+      profile = FactoryBot.build :profile, email: 'joao_silva@example.org',
+                                           firstname: 'João',
+                                           lastname: 'Silva',
+                                           birthdate: Date.new(2000, 5, 5)
 
       expect(profile).to be_valid
     end
@@ -32,14 +34,17 @@ RSpec.describe Profile, type: :model do
     end
 
     it 'Is not valid if the email is not unique' do
-      Profile.create(email: 'joao_silva@example.org',
-                     firstname: 'João',
-                     lastname: 'Silva',
-                     birthdate: Date.new(2000, 5, 5))
-      profile = Profile.new(email: 'joao_silva@example.org',
+      existing_profile = FactoryBot.create :profile, email: 'joao_silva@example.org',
+                                                  firstname: 'João',
+                                                  lastname: 'Silva',
+                                                  birthdate: Date.new(2000, 5, 5)
+
+      profile = Profile.new(email: existing_profile.email,
                             firstname: 'João',
                             lastname: 'Silva',
-                            birthdate: Date.new(2000, 5, 5))
+                            birthdate: Date.new(2000, 5, 5),
+                            user: existing_profile.user)
+
       expect(profile).to_not be_valid
     end
 
