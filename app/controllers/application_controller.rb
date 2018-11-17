@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  def after_sign_in_path_for(_resource)
-    profile_path(email: current_user.email)
+  def after_sign_in_path_for(resource)
+    profile_path(email: resource.email)
   end
 
   def recover_profile
