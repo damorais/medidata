@@ -1,4 +1,6 @@
-<h2>Register your Non-HDL</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">New Non-HDL Cholesterol</h2>
+<% end %>
 
 <%= form_with scope: :non_hdl, local: true, url: profile_nonhdls_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">

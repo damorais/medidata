@@ -14,7 +14,7 @@ Background:
 
     Scenario: A registered user want to view the new glucose measure page
         Given I am on glucose measures page
-        When I click on "Add"
+        When I click on "Add Glucose Measure"
         Then The Add glucose measure page should be displayed
 
     Scenario: A registered user want to add a new glucose measure

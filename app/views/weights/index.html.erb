@@ -1,5 +1,7 @@
-<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
-<h1>Weights | <%= link_to 'Add weight', new_profile_weight_path(profile_email: @profile.email),  class: "btn btn-success"  %></h1>
+<% content_for :titlebar do %>
+  <h2 style="color:white">Weights</h2>
+<% end %>
+
 
 <% if flash[:success] %>
   <div class="alert alert-success" role="alert">
@@ -21,12 +23,12 @@
       <td><%= weight.value %></td>
       <td><%= weight.date %></td>
       <td>
-        <%= link_to "Edit", edit_profile_weight_path(profile_email: @profile.email, id: weight.id), class: "btn btn-primary" %> |  
+        <%= link_to "Edit", edit_profile_weight_path(profile_email: @profile.email, id: weight.id), class: "btn btn-sm btn-primary" %> |  
         <%= link_to "Delete", profile_weight_path(profile_email: @profile.email, id: weight.id), 
-            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %> 
         </td>
     </tr>
   <% end %>
   
 </table>
-<%= link_to 'Back', profile_path(email: @profile.email),  class: "btn btn-success" %>
+<%= link_to 'Add Weight', new_profile_weight_path(profile_email: @profile.email),  class: "btn btn-sm btn-success"  %>

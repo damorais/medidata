@@ -1,4 +1,7 @@
-<h2>New Glucose Measure</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">New Glucose Measure</h2>
+<% end %>
+
 
 <% if flash[:success] %>
       <div class="alert alert-success" role="alert">
@@ -36,9 +39,8 @@
     <% end %>
     <%= form.datetime_select :date, class: "form-control" %>
 </div>
-
-  <p>
-    <%= form.submit "Save", class: "btn btn-success"  %>
-    <%= link_to 'Cancel', profile_glucose_measures_path(profile_email: @profile.email), class: "btn btn-danger" %>
-  </p>
+<p>
+  <%= form.submit "Save", class: "btn btn-success"  %>
+  <%= link_to 'Cancel', profile_glucose_measures_path(profile_email: @profile.email), class: "btn btn-danger" %>
+</p>
 <% end %>

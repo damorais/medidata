@@ -1,4 +1,6 @@
-<h2>Register your VLDL</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">New VLDL Cholesterol</h2>
+<% end %>
 
 <%= form_with scope: :vldl, local: true, url: profile_vldls_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">

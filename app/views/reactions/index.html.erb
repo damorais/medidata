@@ -1,5 +1,7 @@
 <!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
-<h1>Adverse Reactions | <%= link_to 'Add Adverse Reaction', new_profile_reaction_path(profile_email: @profile.email),  class: "btn btn-success"  %></h1>
+<% content_for :titlebar do %>
+  <h2 style="color:white">Adverse Reactions</h2>
+<% end %>
 
 <% if flash[:success] %>
   <div class="alert alert-success" role="alert">
@@ -27,12 +29,12 @@
       <td><%= reaction.start %></td>
       <td><%= reaction.finish %></td>
       <td>
-        <%= link_to "Edit", edit_profile_reaction_path(profile_email: @profile.email, id: reaction.id), class: "btn btn-primary" %> |  
+        <%= link_to "Edit", edit_profile_reaction_path(profile_email: @profile.email, id: reaction.id), class: "btn btn-sm btn-primary" %> |  
         <%= link_to "Delete", profile_reaction_path(profile_email: @profile.email, id: reaction.id), 
-            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %> 
         </td>
     </tr>
   <% end %>
   
 </table>
-<%= link_to 'Back', profile_path(email: @profile.email),  class: "btn btn-success" %>
+<%= link_to 'Add Adverse Reaction', new_profile_reaction_path(profile_email: @profile.email),  class: "btn btn-sm btn-success"  %>

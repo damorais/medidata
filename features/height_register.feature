@@ -14,7 +14,7 @@ Feature: Allows an user to manager your height data
 
   Scenario: A registered user want to view the new height page
     Given I am on heights page
-    When I click on "Add height"
+    When I click on "Add Height"
     Then The Add height page should be displayed
 
   Scenario: A registered user want to add a new height

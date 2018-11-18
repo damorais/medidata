@@ -1,4 +1,6 @@
-<h1>Edit your Allergy</h1>
+<% content_for :titlebar do %>
+  <h2 style="color:white">Allergy - <%= @allergy.name %></h2>
+<% end %>
 
 <% if flash[:success] %>
       <div class="alert alert-success" role="alert">

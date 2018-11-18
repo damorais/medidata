@@ -1,4 +1,6 @@
-<h2>Edit your Weight</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">Height - <%= @height.value %></h2>
+<% end %>
 
 <%= form_with model: @height, local: true, url: profile_height_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">

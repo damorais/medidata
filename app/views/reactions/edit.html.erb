@@ -1,4 +1,6 @@
-<h2>Edit your Adverse Reaction</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">Adverse Reaction - <%= @reaction.name %></h2>
+<% end %>
 
 <%= form_with model: @reaction, local: true, url: profile_reaction_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">

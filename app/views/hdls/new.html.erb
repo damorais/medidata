@@ -1,4 +1,6 @@
-<h2>Register your HDL</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">New HDL Cholesterol</h2>
+<% end %>
 
 <%= form_with scope: :hdl, local: true, url: profile_hdls_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">

@@ -1,4 +1,6 @@
-<h2>Edit</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">Pressure - <%= @pressure.date %></h2>
+<% end %>
 
 <%= form_with model: @pressure, local: true, url: profile_pressure_path  do |form| %>
 

@@ -9,12 +9,12 @@ Feature: Allows an user to manager your VLDL Cholesterol data
 
   Scenario: A registered user want to navigate to VLDL register page
     Given I am on My profile page
-    When I click on "VLDL"
+    When I click on "VLDL Cholesterol"
     Then I should be redirected to the VLDL page
 
   Scenario: A registered user want to view the new VLDL page
     Given I am on VLDL page
-    When I click on "Add VLDL"
+    When I click on "Add VLDL Cholesterol"
     Then The Add VLDL page should be displayed
 
   Scenario: A registered user want to add a new VLDL

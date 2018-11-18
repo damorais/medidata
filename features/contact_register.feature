@@ -14,7 +14,7 @@ Feature: Allows an user to manager your emergency contacts
 
   Scenario: A registered user want to view the new contact page
     Given I am on contacts page
-    When I click on "Add contact"
+    When I click on "Add Emergency Contact"
     Then The Add contact page should be displayed
 
   Scenario: A registered user want to add a new contact
