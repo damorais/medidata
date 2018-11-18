@@ -86,6 +86,19 @@ ActiveRecord::Schema.define(version: 2018_11_20_202108) do
     t.index ["profile_id"], name: "index_ldls_on_profile_id"
   end
 
+  create_table "medical_appointments", force: :cascade do |t|
+    t.string "specialty"
+    t.text "address"
+    t.datetime "date"
+    t.string "professional"
+    t.string "type_appointment"
+    t.text "note"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medical_appointments_on_profile_id"
+  end
+
   create_table "medications", force: :cascade do |t|
     t.string "name"
     t.string "categorize"
@@ -189,6 +202,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_202108) do
   add_foreign_key "health_insurances", "profiles"
   add_foreign_key "heights", "profiles"
   add_foreign_key "ldls", "profiles"
+  add_foreign_key "medical_appointments", "profiles"
   add_foreign_key "medications", "profiles"
   add_foreign_key "non_hdls", "profiles"
   add_foreign_key "pressures", "profiles"

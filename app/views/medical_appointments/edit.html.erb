@@ -1,0 +1,73 @@
+<% content_for :titlebar do %>
+  <h2 style="color:white">Medical Appointment - <%= @medical_appointment.specialty %></h2>
+<% end %>
+
+<%= form_with model: @medical_appointment, local: true, url: profile_medical_appointment_path(profile_email: @profile.email) do |form| %>
+<div class="form-horizontal">
+
+  <div class="form-group">
+      <%= form.label :Specialty %>
+<% if @medical_appointment and @medical_appointment.errors.messages[:specialty] %>
+      <div class="text-danger small">
+          <%= @medical_appointment.errors.messages[:specialty].to_sentence %>
+      </div>
+<% end %>
+<%= form.text_field :specialty, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+      <%= form.label :Date %>
+      <% if @medical_appointment and @medical_appointment.errors.messages[:date] %>
+      <div class="text-danger small">
+          <%= @medical_appointment.errors.messages[:date].to_sentence %>
+      </div>
+<% end %>
+      <%= form.datetime_select :date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+      <%= form.label :Address %>
+<% if @medical_appointment and @medical_appointment.errors.messages[:address] %>
+      <div class="text-danger small">
+          <%= @medical_appointment.errors.messages[:address].to_sentence %>
+      </div>
+<% end %>
+<%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+      <%= form.label :"Responsible Professional" %>
+  <% if @medical_appointment and @medical_appointment.errors.messages[:professional] %>
+      <div class="text-danger small">
+          <%= @medical_appointment.errors.messages[:professional].to_sentence %>
+      </div>
+  <% end %>
+  <%= form.text_field :professional, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+      <%= form.label :Type %>
+  <% if @medical_appointment and @medical_appointment.errors.messages[:type_appointment] %>
+      <div class="text-danger small">
+          <%= @medical_appointment.errors.messages[:type_appointment].to_sentence %>
+      </div>
+  <% end %>
+  <%= form.select :type_appointment, ["Clinic","Emergency"], class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+      <%= form.label :"Additional Note" %>
+  <% if @medical_appointment and @medical_appointment.errors.messages[:note] %>
+      <div class="text-danger small">
+          <%= @medical_appointment.errors.messages[:note].to_sentence %>
+      </div>
+  <% end %>
+  <%= form.text_area :note, class: "form-control" %>
+  </div>
+
+  <%= form.submit "Save Medical Appointment", class: "btn btn-success" %>
+	<%= link_to 'Cancel', profile_medical_appointments_path(profile_email: @profile.email), class: "btn btn-danger" %>
+
+</div>
+
+<% end %>
