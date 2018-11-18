@@ -10,6 +10,6 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe VldlsHelper, type: :helper do
 
+RSpec.describe VldlsHelper, type: :helper do
 end

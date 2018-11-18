@@ -26,7 +26,7 @@ class GlucoseMeasuresController < ApplicationController
     else
       render 'new'
     end
-end
+  end
 
   def update
     @glucose_measure = GlucoseMeasure.find_by(id: params[:id])

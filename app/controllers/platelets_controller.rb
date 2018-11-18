@@ -1,12 +1,17 @@
+# frozen_string_literal: true
+
 class PlateletsController < ApplicationController
+  layout 'internal'
+
+  before_action :authenticate_user!
+  before_action :block_crossprofile_access
   before_action :recover_profile
 
   def index
     @platelets = @profile.platelets
   end
 
-  def new
-  end
+  def new; end
 
   def edit
     @platelet = Platelet.find(params[:id])
@@ -18,10 +23,10 @@ class PlateletsController < ApplicationController
     @platelet.profile = @profile
 
     if @platelet.save
-      flash[:success] = "Platelet registered sucessfully"
+      flash[:success] = 'Platelet registered sucessfully'
       redirect_to profile_platelets_path(profile_email: @profile.email)
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -29,10 +34,10 @@ class PlateletsController < ApplicationController
     @platelet = Platelet.find(params[:id])
 
     if @platelet.update(platelet_params)
-      flash[:success] = "Platelet updated sucessfully"
+      flash[:success] = 'Platelet updated sucessfully'
       redirect_to profile_platelets_path(profile_email: @platelet.profile.email)
     else
-      render "edit"
+      render 'edit'
     end
   end
 
