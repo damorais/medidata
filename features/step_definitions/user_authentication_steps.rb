@@ -19,9 +19,9 @@ end
 When('I fill the new account form') do
   @user = FactoryBot.build :user, email: 'joao@example.org'
 
-  fill_in 'Email', with: @user.email
-  fill_in 'Password', with: @user.password
-  fill_in 'Password confirmation', with: @user.password
+  fill_in 'user[email]', with: @user.email
+  fill_in 'user[password]', with: @user.password
+  fill_in 'user[password_confirmation]', with: @user.password
 end
 
 Then('My new account should be created') do
@@ -32,9 +32,9 @@ When('I fill the new account form with an already registered email') do
   @user_already_registered = FactoryBot.create :user, email: 'joana@example.org'
   @user_already_registered.save
 
-  fill_in 'Email', with: @user_already_registered.email
-  fill_in 'Password', with: @user_already_registered.password
-  fill_in 'Password confirmation', with: @user_already_registered.password
+  fill_in 'user[email]', with: @user_already_registered.email
+  fill_in 'user[password]', with: @user_already_registered.password
+  fill_in 'user[password_confirmation]', with: @user_already_registered.password
 end
 
 Then('I should stay at Sign Up page') do
@@ -46,8 +46,8 @@ Given('I am on the Sign In page') do
 end
 
 When('I fill my Email and Password') do
-  fill_in 'Email', with: @user.email
-  fill_in 'Password', with: @user.password
+  fill_in 'user[email]', with: @user.email
+  fill_in 'user[password]', with: @user.password
 end
 
 Given('I have an account with {string} email address') do |email|

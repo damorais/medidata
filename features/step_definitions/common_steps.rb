@@ -42,8 +42,8 @@ Given('I am an registered user with {string} email address') do |email|
   @user.save
 
   visit new_user_session_path
-  fill_in 'Email', with: @user.email
-  fill_in 'Password', with: @user.password
+  fill_in 'user[email]', with: @user.email
+  fill_in 'user[password]', with: @user.password
   click_button 'Log in'
   # expect(page).to have_current_path(new_profile_path(email: @user.email))
   expect(User.exists?(email: email)).to be(true)
