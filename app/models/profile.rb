@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  
+
   has_many :weights
   has_many :heights
   has_many :medications
@@ -13,7 +13,8 @@ class Profile < ApplicationRecord
   has_many :vldls
   has_many :totals
   has_many :reactions
-  has_many :glucose_measures 
+  has_many :glucose_measures
+  has_many :medical_appointments
 
 
   validates :email, uniqueness: { case_sensitive: false,

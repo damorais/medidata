@@ -1,0 +1,42 @@
+<% content_for :titlebar do %>
+  <h2 style="color:white">Medical Appointments</h2>
+<% end %>
+
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">Specialty</th>
+    <th scope="col">Date</th>
+    <th scope="col">Address</th>
+    <th scope="col">Professional</th>
+    <th scope="col">Type</th>
+    <th scope="col">Additional Note</th>
+    <th scope="col"></th>
+  </tr>
+
+  <% @medical_appointments.each do |medical_appointment| %>
+    <tr>
+      <td><%= medical_appointment.specialty %></td>
+      <td><%= medical_appointment.date %></td>
+      <td><%= medical_appointment.address %></td>
+      <td><%= medical_appointment.professional %></td>
+      <td><%= medical_appointment.type_appointment %></td>
+      <td><%= medical_appointment.note %></td>
+      <td>
+        <%= link_to "Edit", edit_profile_medical_appointment_path(profile_email: @profile.email, id: medical_appointment.id), class: "btn btn-sm btn-primary" %> |
+        <%= link_to "Delete", profile_medical_appointment_path(profile_email: @profile.email, id: medical_appointment.id),
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+        </td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+<%= link_to 'Add Medical Appointment', new_profile_medical_appointment_path(profile_email: @profile.email),  class: "btn btn-sm btn-success"  %>

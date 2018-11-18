@@ -42,5 +42,6 @@
 
   <p>
     <%= form.submit "Save", class: "btn btn-success"  %>
+    <%= link_to 'Cancel', profile_pressures_path(profile_email: @profile.email), class: "btn btn-danger" %>
   </p>
 <% end %>
