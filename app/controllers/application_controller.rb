@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   def block_crossprofile_access
     authorized = current_user.email == (params[:profile_email] || params[:email])
 
-    render file: 'public/401.html', status: :unauthorized unless authorized
+    render file: 'public/401.html', layout: false, status: :unauthorized unless authorized
   end
 end

@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  layout 'internal'
+
   before_action :authenticate_user!, except: [:index]
   before_action :block_crossprofile_access, except: [:index, :new, :create]
   before_action :recover_profile, except: [:index, :new, :create]

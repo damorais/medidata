@@ -14,7 +14,7 @@ Feature: Allows an user to manager your medication data
 
   Scenario: A registered user want to view the new medication page
     Given I am on medications page
-    When I click on "Add medication"
+    When I click on "Add Medication"
     Then The Add medication page should be displayed
 
   Scenario: A registered user want to add a new medication

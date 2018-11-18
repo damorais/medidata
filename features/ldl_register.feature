@@ -9,12 +9,12 @@ Feature: Allows an user to manager your LDL Cholesterol data
 
   Scenario: A registered user want to navigate to LDL register page
     Given I am on My profile page
-    When I click on "LDL"
+    When I click on "LDL Cholesterol"
     Then I should be redirected to the LDL page
 
   Scenario: A registered user want to view the new LDL page
     Given I am on LDL page
-    When I click on "Add LDL"
+    When I click on "Add LDL Cholesterol"
     Then The Add LDL page should be displayed
 
   Scenario: A registered user want to add a new LDL

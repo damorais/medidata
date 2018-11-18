@@ -1,4 +1,6 @@
-<h1>Edit your Emergency Contact</h1>
+<% content_for :titlebar do %>
+  <h2 style="color:white">Emergency Contact - <%= @contact.name %></h2>
+<% end %>
 
 <% if flash[:success] %>
       <div class="alert alert-success" role="alert">

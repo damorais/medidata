@@ -14,7 +14,7 @@ Feature: Allows an user to manager your weight data
 
   Scenario: A registered user want to view the new weight page
     Given I am on weights page
-    When I click on "Add weight"
+    When I click on "Add Weight"
     Then The Add weight page should be displayed
 
   Scenario: A registered user want to add a new weight

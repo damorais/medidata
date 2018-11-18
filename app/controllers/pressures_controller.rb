@@ -1,4 +1,6 @@
 class PressuresController < ApplicationController
+  layout 'internal'
+  
   before_action :authenticate_user!
   before_action :block_crossprofile_access
   before_action :recover_profile

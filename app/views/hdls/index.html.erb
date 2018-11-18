@@ -1,5 +1,6 @@
-<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
-<h1>HDL Cholesterol | <%= link_to 'Add HDL', new_profile_hdl_path(profile_email: @profile.email),  class: "btn btn-success"  %></h1>
+<% content_for :titlebar do %>
+  <h2 style="color:white">HDL Cholesterol</h2>
+<% end %>
 
 <% if flash[:success] %>
   <div class="alert alert-success" role="alert">
@@ -21,12 +22,12 @@
       <td><%= hdl.value %></td>
       <td><%= hdl.date %></td>
       <td>
-        <%= link_to "Edit", edit_profile_hdl_path(profile_email: @profile.email, id: hdl.id), class: "btn btn-primary" %> |  
+        <%= link_to "Edit", edit_profile_hdl_path(profile_email: @profile.email, id: hdl.id), class: "btn btn-sm btn-primary" %> |  
         <%= link_to "Delete", profile_hdl_path(profile_email: @profile.email, id: hdl.id), 
-            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %> 
         </td>
     </tr>
   <% end %>
   
 </table>
-<%= link_to 'Back', profile_path(email: @profile.email),  class: "btn btn-success" %>
+<%= link_to 'Add HDL Cholesterol', new_profile_hdl_path(profile_email: @profile.email),  class: "btn btn-sm btn-success"  %>

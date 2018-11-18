@@ -1,4 +1,6 @@
-<h2>Edit glucose measure</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">Glucose Measure - <%= @glucose_measure.date %></h2>
+<% end %>
 
 <%= form_with model: @glucose_measure, local: true, url: profile_glucose_measure_path  do |form| %>
 

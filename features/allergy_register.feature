@@ -14,7 +14,7 @@ Feature: Allows an user to manager your allergies
 
   Scenario: A registered user want to view the new allergy page
     Given I am on allergies page
-    When I click on "Add allergy"
+    When I click on "Add Allergy"
     Then The Add allergy page should be displayed
 
   Scenario: A registered user want to add a new allergy

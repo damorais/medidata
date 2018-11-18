@@ -9,12 +9,12 @@ Feature: Allows an user to manager your HDL Cholesterol data
 
   Scenario: A registered user want to navigate to HDL register page
     Given I am on My profile page
-    When I click on "HDL"
+    When I click on "HDL Cholesterol"
     Then I should be redirected to the HDL page
 
   Scenario: A registered user want to view the new HDL page
     Given I am on HDL page
-    When I click on "Add HDL"
+    When I click on "Add HDL Cholesterol"
     Then The Add HDL page should be displayed
 
   Scenario: A registered user want to add a new HDL

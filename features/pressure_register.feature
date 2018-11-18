@@ -14,7 +14,7 @@ Feature: Allows an user to manager your pressure data
 
   Scenario: A registered user want to view the new pressure page
     Given I am on pressures page
-    When I click on "Add"
+    When I click on "Add Pressure"
     Then The Add pressure page should be displayed
 
   Scenario: A registered user want to add a new pressure

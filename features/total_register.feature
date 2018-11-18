@@ -9,12 +9,12 @@ Feature: Allows an user to manager your Total Cholesterol data
 
   Scenario: A registered user want to navigate to Total register page
     Given I am on My profile page
-    When I click on "Total"
+    When I click on "Total Cholesterol"
     Then I should be redirected to the Total page
 
   Scenario: A registered user want to view the new Total page
     Given I am on Total page
-    When I click on "Add Total"
+    When I click on "Add Total Cholesterol"
     Then The Add Total page should be displayed
 
   Scenario: A registered user want to add a new Total

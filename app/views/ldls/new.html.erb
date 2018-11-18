@@ -1,4 +1,6 @@
-<h2>Register your LDL</h2>
+<% content_for :titlebar do %>
+  <h2 style="color:white">New LDL Cholesterol</h2>
+<% end %>
 
 <%= form_with scope: :ldl, local: true, url: profile_ldls_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">
