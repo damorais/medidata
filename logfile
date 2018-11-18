@@ -32,3 +32,5 @@
 2018-10-21 15:58:08.992 -03 [1114] DETAIL:  Permissions should be u=rwx (0700).
 2018-11-15 15:15:43.024 -02 [25224] FATAL:  data directory "/Users/danielmorais/Desktop/rails/medidata/pgsql/pgdata" has group or world access
 2018-11-15 15:15:43.024 -02 [25224] DETAIL:  Permissions should be u=rwx (0700).
+2018-11-18 20:19:11.564 -02 [1481] FATAL:  data directory "/Users/marcelopavanellomartins/Desktop/medidata/pgsql/pgdata" has group or world access
+2018-11-18 20:19:11.564 -02 [1481] DETAIL:  Permissions should be u=rwx (0700).
