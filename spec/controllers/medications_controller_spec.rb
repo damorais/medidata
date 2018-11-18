@@ -113,7 +113,10 @@ RSpec.describe MedicationsController, type: :controller do
                           medication: invalid_attributes,
                         }
         }.to_not change(@existing_profile.medications, :count)
+<<<<<<< HEAD
 >>>>>>> Inclusao dos testes unitatios rspec
+=======
+>>>>>>> dddc9b5ad46f8865c828df9a860837eefefd8205
       end
 
       it 'stay in the new medication' do

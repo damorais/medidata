@@ -94,8 +94,6 @@ ActiveRecord::Schema.define(version: 2018_11_17_185420) do
     t.index ["profile_id"], name: "index_non_hdls_on_profile_id"
   end
 
-<<<<<<< HEAD
-=======
   create_table "platelets", force: :cascade do |t|
     t.decimal "erythrocyte"
     t.decimal "hemoglobin"
@@ -123,7 +121,6 @@ ActiveRecord::Schema.define(version: 2018_11_17_185420) do
     t.index ["profile_id"], name: "index_platelets_on_profile_id"
   end
 
->>>>>>> ajustes na funcionalidade registro de plaquetas
   create_table "pressures", force: :cascade do |t|
     t.integer "systolic"
     t.integer "diastolic"
@@ -206,6 +203,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_185420) do
   add_foreign_key "ldls", "profiles"
   add_foreign_key "medications", "profiles"
   add_foreign_key "non_hdls", "profiles"
+  add_foreign_key "platelets", "profiles"
   add_foreign_key "pressures", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "reactions", "profiles"

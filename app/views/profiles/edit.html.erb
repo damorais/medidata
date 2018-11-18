@@ -22,6 +22,7 @@
       </div>
   </div>
 
+<<<<<<< HEAD
   <div class="form-group">
       <%= form.label :birthdate %>
       <% if @profile and @profile.errors.messages[:birthdate] %>
@@ -50,6 +51,48 @@
   </div>
 
   <%= form.submit "Salvar meu perfil", class: "btn btn-success" %>	
+=======
+    <div class="form-group">
+        <div class="row">
+            <%= form.label :email %>: <%= @profile.email %>
+        </div>
+        <div class="row">
+            <%= form.label :firstname %>:<%= @profile.firstname %>
+        </div>
+        <div class="row">
+            <%= form.label :lastname %>: <%= @profile.lastname %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :birthdate %>
+        <% if @profile and @profile.errors.messages[:birthdate] %>
+	      <div class="text-danger small">
+	          <%= @profile.errors.messages[:birthdate].to_sentence %>
+	      </div>
+	<% end %>
+        <%= form.date_field :birthdate, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :sex %>
+        <div class="form-check form-check-inline">
+            <%= form.radio_button :sex, "Female", class:  "form-check-input" %>
+            <%= form.label :sex_female, "Feminino", class: "form-check-label" %>
+        </div>
+        <div class="form-check form-check-inline">
+            <%= form.radio_button :sex, "Male", class: "form-check-input" %>
+            <%= form.label :sex_male, "Masculino", class: "form-check-label" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :gender %>
+        <%= form.text_field :gender, class: "form-control" %>
+    </div>
+
+    <%= form.submit "Salvar meu perfil", class: "btn btn-success" %>
+>>>>>>> dddc9b5ad46f8865c828df9a860837eefefd8205
 
 </div>
 
