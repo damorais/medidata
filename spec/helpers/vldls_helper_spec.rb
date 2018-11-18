@@ -10,10 +10,6 @@ require 'rails_helper'
 #     end
 #   end
 # end
-<<<<<<< HEAD:spec/helpers/vldls_helper_spec.rb
-RSpec.describe VldlsHelper, type: :helper do
 
-=======
-RSpec.describe PlateletsHelper, type: :helper do
->>>>>>> Inclusao dos testes unitatios rspec:spec/helpers/platelets_helper_spec.rb
+RSpec.describe VldlsHelper, type: :helper do
 end

@@ -103,20 +103,10 @@ RSpec.describe MedicationsController, type: :controller do
       it "doesn't creates a new medication" do
         expect do
           post :create, params: {
-<<<<<<< HEAD
             profile_email: @existing_profile.email,
             medication: invalid_attributes
           }
-        end.to_not change(@existing_profile.heights, :count)
-=======
-                          profile_email: @existing_profile.email,
-                          medication: invalid_attributes,
-                        }
-        }.to_not change(@existing_profile.medications, :count)
-<<<<<<< HEAD
->>>>>>> Inclusao dos testes unitatios rspec
-=======
->>>>>>> dddc9b5ad46f8865c828df9a860837eefefd8205
+        end.to_not change(@existing_profile.medications, :count)
       end
 
       it 'stay in the new medication' do
