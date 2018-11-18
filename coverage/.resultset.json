@@ -1,67 +1,67 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/allergies_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/allergies_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/application_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/contacts_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/contacts_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/hdls_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/hdls_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/heights_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/heights_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/ldls_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/ldls_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/medications_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/medications_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/nonhdls_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/nonhdls_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/platelets_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/platelets_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/pressures_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/pressures_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/profiles_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/profiles_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/totals_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/totals_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/vldls_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/vldls_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/weights_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/weights_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/helpers/welcome_helper.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/helpers/welcome_helper.rb": [
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/allergies_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/allergies_controller.rb": [
         1,
         null,
         1,
@@ -118,7 +118,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/application_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/application_controller.rb": [
         1,
         null,
         1,
@@ -132,7 +132,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/contacts_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/contacts_controller.rb": [
         1,
         null,
         1,
@@ -189,7 +189,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/hdls_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/hdls_controller.rb": [
         1,
         null,
         1,
@@ -246,7 +246,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/heights_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/heights_controller.rb": [
         1,
         null,
         1,
@@ -303,7 +303,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/ldls_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/ldls_controller.rb": [
         1,
         null,
         1,
@@ -360,7 +360,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/medications_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/medications_controller.rb": [
         1,
         null,
         1,
@@ -417,7 +417,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/nonhdls_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/nonhdls_controller.rb": [
         1,
         null,
         1,
@@ -474,7 +474,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/platelets_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/platelets_controller.rb": [
         1,
         1,
         null,
@@ -533,7 +533,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/pressures_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/pressures_controller.rb": [
         1,
         null,
         1,
@@ -596,7 +596,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/profiles_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/profiles_controller.rb": [
         1,
         null,
         1,
@@ -656,7 +656,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/totals_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/totals_controller.rb": [
         1,
         null,
         1,
@@ -713,7 +713,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/vldls_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/vldls_controller.rb": [
         1,
         null,
         1,
@@ -770,7 +770,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/weights_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/weights_controller.rb": [
         1,
         null,
         1,
@@ -827,13 +827,13 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/controllers/welcome_controller.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/allergy.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/allergy.rb": [
         1,
         1,
         null,
@@ -841,12 +841,12 @@
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/application_record.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/body_mass_index.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/body_mass_index.rb": [
         1,
         null,
         1,
@@ -856,7 +856,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/contact.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/contact.rb": [
         1,
         1,
         null,
@@ -866,7 +866,7 @@
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/hdl.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/hdl.rb": [
         1,
         1,
         1,
@@ -882,7 +882,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/height.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/height.rb": [
         1,
         1,
         1,
@@ -896,7 +896,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/ldl.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/ldl.rb": [
         1,
         1,
         1,
@@ -912,7 +912,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/medication.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/medication.rb": [
         1,
         1,
         1,
@@ -922,7 +922,7 @@
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/non_hdl.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/non_hdl.rb": [
         1,
         1,
         1,
@@ -938,7 +938,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/platelet.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/platelet.rb": [
         1,
         1,
         1,
@@ -966,7 +966,7 @@
         1,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/pressure.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/pressure.rb": [
         1,
         1,
         null,
@@ -978,7 +978,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/profile.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/profile.rb": [
         1,
         1,
         1,
@@ -1018,7 +1018,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/total.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/total.rb": [
         1,
         1,
         1,
@@ -1034,7 +1034,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/vldl.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/vldl.rb": [
         1,
         1,
         1,
@@ -1050,7 +1050,7 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/models/weight.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/models/weight.rb": [
         1,
         1,
         1,
@@ -1066,29 +1066,29 @@
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/mailers/application_mailer.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/mailers/application_mailer.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/jobs/application_job.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/jobs/application_job.rb": [
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/channels/application_cable/connection.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/channels/application_cable/connection.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/marcelopavanellomartins/Desktop/medidata/app/channels/application_cable/channel.rb": [
+      "/Users/danielmorais/Desktop/rails/medidata/app/channels/application_cable/channel.rb": [
         null,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1542297975
+    "timestamp": 1542570676
   }
 }
