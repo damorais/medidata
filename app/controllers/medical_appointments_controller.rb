@@ -22,7 +22,7 @@ class MedicalAppointmentsController < ApplicationController
     @medical_appointment.profile = @profile
 
     if @medical_appointment.save
-      flash[:success] = 'Medical Appointment registered sucessfully'
+      flash[:success] = 'Medical Appointment registered successfully'
       redirect_to profile_medical_appointments_path(profile_email: @profile.email)
     else
       render 'new'
@@ -53,6 +53,6 @@ class MedicalAppointmentsController < ApplicationController
 
   private
   def medical_appointment_params
-    params.require(:medical_appointment).permit(:specialty, :address, :professional, :type_appointment, :note)
+    params.require(:medical_appointment).permit(:specialty, :address, :professional, :date, :type_appointment, :note)
   end
 end
