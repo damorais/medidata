@@ -26,6 +26,7 @@
   <% end %>
   <%= form.text_field :hemoglobin, class: "form-control" %>
     </div>
+
     <div class="form-group">
         <%= form.label :hematocrit %>
     <% if @platelet and @platelet.errors.messages[:hematocrit] %>
@@ -35,8 +36,6 @@
     <% end %>
     <%= form.text_field :hematocrit, class: "form-control" %>
     </div>
-
-  </div>
 
   <div class="form-group">
       <%= form.label :vcm %>
@@ -57,7 +56,6 @@
   <% end %>
   <%= form.text_field :hcm, class: "form-control" %>
 
-  </div>
   <div class="form-group">
       <%= form.label :Chcm %>
   <% if @platelet and @platelet.errors.messages[:chcm] %>
@@ -68,7 +66,6 @@
   <%= form.text_field :chcm, class: "form-control" %>
   </div>
 
-</div>
 <div class="form-group">
     <%= form.label :Rdw %>
 <% if @platelet and @platelet.errors.messages[:rdw] %>
@@ -81,7 +78,6 @@
 
 <h3>White Series</h3>
 
-</div>
 <div class="form-group">
     <%= form.label :Percent_leukocyte %>
 <% if @platelet and @platelet.errors.messages[:leukocytep] %>
@@ -92,7 +88,6 @@
 <%= form.text_field :leukocytep, class: "form-control" %>
 </div>
 
-</div>
 <div class="form-group">
     <%= form.label :Ul_leukocyte %>
 <% if @platelet and @platelet.errors.messages[:leukocyteul] %>
@@ -103,7 +98,6 @@
 <%= form.text_field :leukocyteul, class: "form-control" %>
 </div>
 
-</div>
 <div class="form-group">
     <%= form.label :Percent_Neutrophil %>
 <% if @platelet and @platelet.errors.messages[:neutrophilp] %>
@@ -113,7 +107,7 @@
 <% end %>
 <%= form.text_field :neutrophilp, class: "form-control" %>
 </div>
-</div>
+
 <div class="form-group">
     <%= form.label :Ul_neutrophil %>
 <% if @platelet and @platelet.errors.messages[:neutrophilul] %>
@@ -123,7 +117,7 @@
 <% end %>
 <%= form.text_field :neutrophilul, class: "form-control" %>
 </div>
-</div>
+
 <div class="form-group">
     <%= form.label :Percent_eosinophilp %>
 <% if @platelet and @platelet.errors.messages[:eosinophilp] %>
@@ -133,7 +127,7 @@
 <% end %>
 <%= form.text_field :eosinophilp, class: "form-control" %>
 </div>
-</div>
+
 <div class="form-group">
     <%= form.label :Ul_eosinophil %>
 <% if @platelet and @platelet.errors.messages[:eosinophilul] %>
@@ -144,7 +138,7 @@
 <%= form.text_field :eosinophilul, class: "form-control" %>
 </div>
 
-</div>
+
 <div class="form-group">
     <%= form.label :Percent_basophilp %>
 <% if @platelet and @platelet.errors.messages[:basophilp] %>
@@ -154,7 +148,7 @@
 <% end %>
 <%= form.text_field :basophilp, class: "form-control" %>
 </div>
-</div>
+
 <div class="form-group">
     <%= form.label :Ul_basophil %>
 <% if @platelet and @platelet.errors.messages[:basophilul] %>
@@ -165,7 +159,6 @@
 <%= form.text_field :basophilul, class: "form-control" %>
 </div>
 
-</div>
 <div class="form-group">
     <%= form.label :Percent_lymphocytep %>
 <% if @platelet and @platelet.errors.messages[:lymphocytep] %>
@@ -175,7 +168,7 @@
 <% end %>
 <%= form.text_field :lymphocytep, class: "form-control" %>
 </div>
-</div>
+
 <div class="form-group">
     <%= form.label :Ul_lymphocyte %>
 <% if @platelet and @platelet.errors.messages[:lymphocyteul] %>
@@ -185,7 +178,7 @@
 <% end %>
 <%= form.text_field :lymphocyteul, class: "form-control" %>
 </div>
-</div>
+
 <div class="form-group">
     <%= form.label :Percent_monocytep %>
 <% if @platelet and @platelet.errors.messages[:monocytep] %>
@@ -195,7 +188,7 @@
 <% end %>
 <%= form.text_field :monocytep, class: "form-control" %>
 </div>
-</div>
+
 <div class="form-group">
     <%= form.label :Ul_monocyteul %>
 <% if @platelet and @platelet.errors.messages[:monocyteul] %>
@@ -206,7 +199,6 @@
 <%= form.text_field :monocyteul, class: "form-control" %>
 </div>
 
-</div>
 <div class="form-group">
     <%= form.label :Total_Platelets %>
 <% if @platelet and @platelet.errors.messages[:total] %>
