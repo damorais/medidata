@@ -1,5 +1,5 @@
 <% content_for :titlebar do %>
-  <h2 style="color:white">Medical Appointment - <%= @medical_appointment.specialty %></h2>
+  <h2 style="color:white">Medical Appointment - <%= @medical_appointment.date.to_formatted_s(:db)  %></h2>
 <% end %>
 
 <%= form_with model: @medical_appointment, local: true, url: profile_medical_appointment_path(profile_email: @profile.email) do |form| %>
