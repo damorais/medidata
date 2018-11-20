@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :totals
     resources :reactions
     resources :glucose_measures
+    resources :health_insurances
   end
 
   root 'welcome#index'
