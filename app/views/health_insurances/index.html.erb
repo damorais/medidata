@@ -1,0 +1,43 @@
+<% content_for :titlebar do %>
+  <h2 style="color:white">Health Insurances</h2>
+<% end %>
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Type</th>
+    <th scope="col">Provider</th>
+    <th scope="col">Plan Name</th>
+    <th scope="col">Plan Number</th>
+    <th scope="col"></th>
+  </tr>
+ 
+  <% @health_insurances.each do |health_insurance| %>
+    <tr>
+      <td><%= health_insurance.id %></td>
+      <td><%= health_insurance.plan_type %></td>
+      <td><%= health_insurance.provider %></td>
+      <td><%= health_insurance.plan_name %></td>
+      <td><%= health_insurance.plan_number %></td>
+      <td> 
+        <%= link_to "Edit", 
+          edit_profile_health_insurance_path(profile_email: @profile.email, id: health_insurance.id), 
+          class: "btn btn-sm btn-primary" %> | 
+        <%= link_to "Delete", 
+          profile_health_insurance_path(profile_email: @profile.email, id: health_insurance.id), 
+          method: :delete, 
+          data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %> 
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Add Health Insurance', 
+  new_profile_health_insurance_path(profile_email: @profile.email), 
+  class: "btn btn-sm btn-succss" %>

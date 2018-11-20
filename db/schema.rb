@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_185420) do
+ActiveRecord::Schema.define(version: 2018_11_20_202108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(version: 2018_11_17_185420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_hdls_on_profile_id"
+  end
+
+  create_table "health_insurances", force: :cascade do |t|
+    t.string "name"
+    t.string "provider"
+    t.string "plan_name"
+    t.string "plan_number"
+    t.string "plan_type"
+    t.date "start_date"
+    t.date "expiration_date"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_health_insurances_on_profile_id"
   end
 
   create_table "heights", force: :cascade do |t|
@@ -172,6 +186,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_185420) do
   add_foreign_key "contacts", "profiles"
   add_foreign_key "glucose_measures", "profiles"
   add_foreign_key "hdls", "profiles"
+  add_foreign_key "health_insurances", "profiles"
   add_foreign_key "heights", "profiles"
   add_foreign_key "ldls", "profiles"
   add_foreign_key "medications", "profiles"
