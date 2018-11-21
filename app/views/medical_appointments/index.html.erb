@@ -11,6 +11,7 @@
 
 <table class="table table-striped">
   <tr>
+    <th scope="col">ID</th>    
     <th scope="col">Specialty</th>
     <th scope="col">Date</th>
     <th scope="col">Address</th>
@@ -22,6 +23,7 @@
 
   <% @medical_appointments.each do |medical_appointment| %>
     <tr>
+      <td><%= medical_appointment.id %></td>      
       <td><%= medical_appointment.specialty %></td>
       <td><%= medical_appointment.date %></td>
       <td><%= medical_appointment.address %></td>
