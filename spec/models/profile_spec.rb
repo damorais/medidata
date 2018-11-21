@@ -12,6 +12,7 @@ RSpec.describe Profile, type: :model do
   it { should have_many :heights }
   it { should have_many :ldls }
   it { should have_many :medications }
+  it { should have_many :medical_appointments }
   it { should have_many :non_hdls }
   it { should have_many :pressures }
   it { should have_many :reactions }
