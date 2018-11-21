@@ -3,6 +3,10 @@ require 'date'
 
 
 RSpec.describe GlucoseMeasure, type: :model do
+  describe 'Associations' do
+    it { should belong_to :profile }
+  end
+  
   describe "Validations" do
 
     before {
