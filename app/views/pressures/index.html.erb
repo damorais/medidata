@@ -10,6 +10,7 @@
 
 <table class="table table-striped">
     <tr>
+        <th scope="col">ID</th>	    
         <th scope="col">Systolic</th>
         <th scope="col">Diastolic</th>
         <th scope="col">Date</th>
@@ -17,6 +18,7 @@
     </tr>
   <% @pressures.each do |pressure| %>
     <tr>
+      <td><%= pressure.id %></td>
       <td><%= pressure.systolic %></td>
       <td><%= pressure.diastolic %></td>
       <td><%= pressure.date %></td>
