@@ -41,3 +41,13 @@ Feature: Allows an user to look at a glance some of your important health data f
     Given I don't have any height registered
     And I am on My profile page
     Then I should see a BMI widget warning that "You don't have enough data to calculate your BMI"
+
+  Scenario: I should be able to see my latest glucose on my main profile page
+    Given I have at least one Glucose registered
+    And I am on My profile page
+    Then I should see a Glucose widget with the most recent register
+    
+  Scenario: I should be warned when I don't have any glucose measure registered
+    Given I don't have any glucose registered
+    And I am on My profile page
+    Then I should see a Glucose widget warning that "You don't have any glucose measure registered"

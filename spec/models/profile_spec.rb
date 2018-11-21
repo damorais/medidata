@@ -91,6 +91,23 @@ RSpec.describe Profile, type: :model do
     end
   end
 
+  context 'Associated Glucose Measures' do
+    before do
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @latest_glucose_measure = FactoryBot.create :glucose_measure, value: 120,
+                                                                    date: Time.now, 
+                                                                    profile: @existing_profile
+
+      @other_glucose_measure = FactoryBot.create :glucose_measure, value: 110,
+                                                                   date: 1.day.ago, 
+                                                                   profile: @existing_profile
+    end
+
+    it 'Should return the latest height of a profile' do
+      expect(@existing_profile.latest_glucose_measure).to eq(@latest_glucose_measure)
+    end
+  end
+
   describe 'BMI' do
     context 'With valid height and weight' do
       before do
