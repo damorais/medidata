@@ -1,4 +1,4 @@
-<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+
 <% content_for :titlebar do %>
   <h2 style="color:white">Platelets</h2>
 <% end %>
@@ -9,62 +9,126 @@
   </div>
 <% end %>
 
-<table class="table table-striped">
-  <tr>
-    <th scope="col">ID</th>
-    <th scope="col">erythrocyte</th>
-    <th scope="col">hemoglobin</th>
-    <th scope="col">hematocrit</th>
-    <th scope="col">vcm</th>
-    <th scope="col">hcm</th>
-    <th scope="col">chcm</th>
-    <th scope="col">rdw</th>
-    <th scope="col">leukocytep</th>
-    <th scope="col">neutrophilp</th>
-    <th scope="col">eosinophilp</th>
-    <th scope="col">basophilp</th>
-    <th scope="col">lymphocytep</th>
-    <th scope="col">monocytep</th>
-    <th scope="col">leukocyteul</th>
-    <th scope="col">neutrophilul</th>
-    <th scope="col">eosinophilul</th>
-    <th scope="col">basophilul</th>
-    <th scope="col">lymphocyteul</th>
-    <th scope="col">monocyteul</th>
-    <th scope="col">total</th>
-  </tr>
+<div class="container">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+       <a class="nav-link active" data-toggle="tab" href="#red">Red Series</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" data-toggle="tab" href="#white">White Series Percentual</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" data-toggle="tab" href="#whiteul">White Series Microliter</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" data-toggle="tab" href="#total">Total</a>
+    </li>
+  </ul>
 
-  <% @platelets.each do |platelet| %>
-    <tr>
-      <td><%= platelet.id %></td>
-      <td><%= platelet.erythrocyte %></td>
-      <td><%= platelet.hemoglobin %></td>
-      <td><%= platelet.hematocrit %></td>
-      <td><%= platelet.vcm %></td>
-      <td><%= platelet.hcm %></td>
-      <td><%= platelet.chcm %></td>
-      <td><%= platelet.rdw %></td>
-      <td><%= platelet.leukocytep %></td>
-      <td><%= platelet.neutrophilp %></td>
-      <td><%= platelet.eosinophilp %></td>
-      <td><%= platelet.basophilp %></td>
-      <td><%= platelet.lymphocytep %></td>
-      <td><%= platelet.monocytep %></td>
-      <td><%= platelet.leukocyteul %></td>
-      <td><%= platelet.neutrophilul %></td>
-      <td><%= platelet.eosinophilul %></td>
-      <td><%= platelet.basophilul %></td>
-      <td><%= platelet.lymphocyteul %></td>
-      <td><%= platelet.monocyteul %></td>
-      <td><%= platelet.total %></td>
-
-    <td>
-        <%= link_to "Edit", edit_profile_platelet_path(profile_email: @profile.email, id: platelet.id), class: "btn btn-sm btn-primary" %> |
-        <%= link_to "Delete", profile_platelet_path(profile_email: @profile.email, id: platelet.id),
-            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
-        </td>
-    </tr>
-  <% end %>
-
-</table>
-<%= link_to 'Add Platelet', new_profile_platelet_path(profile_email: @profile.email),  class: "btn btn-sm btn-success"  %>
+  <div class="tab-content">
+   <div id="red" class="container tab-pane active"><br>
+     <table class="table table-striped">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Erythrocyte</th>
+        <th scope="col">Hemoglobin</th>
+        <th scope="col">Hematocrit</th>
+        <th scope="col">Vcm</th>
+        <th scope="col">Hcm</th>
+        <th scope="col">Chcm</th>
+        <th scope="col">Rdw</th>
+        <% @platelets.each do |platelet| %>
+        <tr>
+          <td><%= platelet.id %></td>
+          <td><%= platelet.erythrocyte %></td>
+          <td><%= platelet.hemoglobin %></td>
+          <td><%= platelet.hematocrit %></td>
+          <td><%= platelet.vcm %></td>
+          <td><%= platelet.hcm %></td>
+          <td><%= platelet.chcm %></td>
+          <td><%= platelet.rdw %></td>
+          <td>
+            <%= link_to "Edit", edit_profile_platelet_path(profile_email: @profile.email, id: platelet.id), class: "btn btn-sm btn-primary" %> |
+            <%= link_to "Delete", profile_platelet_path(profile_email: @profile.email, id: platelet.id),
+                method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+          </td>
+      </tr>
+      <% end %>
+     </table>
+   </div>
+   <div id="white" class="container tab-pane fade"><br>
+     <table class="table table-striped">
+         <tr>
+           <th scope="col">ID</th>
+           <th scope="col">%Leukocyte</th>
+           <th scope="col">%Neutrophil</th>
+           <th scope="col">%Eosinophil</th>
+           <th scope="col">%Basophil</th>
+           <th scope="col">%Lymphocyte</th>
+           <th scope="col">%Monocyte</th>
+           <% @platelets.each do |platelet| %>
+           <tr>
+             <td><%= platelet.id %></td>
+             <td><%= platelet.neutrophilp %></td>
+             <td><%= platelet.eosinophilp %></td>
+             <td><%= platelet.basophilp %></td>
+             <td><%= platelet.lymphocytep %></td>
+             <td><%= platelet.monocytep %></td>
+             <td>
+                  <%= link_to "Edit", edit_profile_platelet_path(profile_email: @profile.email, id: platelet.id), class: "btn btn-sm btn-primary" %> |
+                  <%= link_to "Delete", profile_platelet_path(profile_email: @profile.email, id: platelet.id),
+                      method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+                </td>
+           </tr>
+          <% end %>
+      </table>
+   </div>
+   <div id="whiteul" class="container tab-pane fade"><br>
+     <table class="table table-striped">
+         <tr>
+           <th scope="col">ID</th>
+           <th scope="col">μlLeukocyte</th>
+           <th scope="col">μlNeutrophil</th>
+           <th scope="col">μlEosinophil</th>
+           <th scope="col">μlBasophilul</th>
+           <th scope="col">μlLymphocyte</th>
+           <th scope="col">μlMonocyte</th>
+           <% @platelets.each do |platelet| %>
+           <tr>
+             <td><%= platelet.id %></td>
+             <td><%= platelet.leukocyteul %></td>
+             <td><%= platelet.neutrophilul %></td>
+             <td><%= platelet.eosinophilul %></td>
+             <td><%= platelet.basophilul %></td>
+             <td><%= platelet.lymphocyteul %></td>
+             <td><%= platelet.monocyteul %></td>
+             <td>
+                  <%= link_to "Edit", edit_profile_platelet_path(profile_email: @profile.email, id: platelet.id), class: "btn btn-sm btn-primary" %> |
+                  <%= link_to "Delete", profile_platelet_path(profile_email: @profile.email, id: platelet.id),
+                      method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+                </td>
+           </tr>
+          <% end %>
+      </table>
+   </div>
+   <div id="total" class="container tab-pane fade"><br>
+     <table class="table table-striped">
+         <tr>
+           <th scope="col">ID</th>
+           <th scope="col">Total</th>
+           <% @platelets.each do |platelet| %>
+           <tr>
+             <td><%= platelet.id %></td>
+             <td><%= platelet.total %></td>
+             <td>
+                  <%= link_to "Edit", edit_profile_platelet_path(profile_email: @profile.email, id: platelet.id), class: "btn btn-sm btn-primary" %> |
+                  <%= link_to "Delete", profile_platelet_path(profile_email: @profile.email, id: platelet.id),
+                      method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+                </td>
+           </tr>
+          <% end %>
+      </table>
+   </div>
+  </div>
+  <%= link_to 'Add Platelet', new_profile_platelet_path(profile_email: @profile.email),  class: "btn btn-sm btn-success"  %>
+</div>
