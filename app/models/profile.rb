@@ -18,6 +18,7 @@ class Profile < ApplicationRecord
   has_many :glucose_measures
   has_many :health_insurances
   has_many :medical_appointments
+  has_many :diseases
 
   validates :email, uniqueness: { case_sensitive: false,
                                   message: 'Já existe um perfil com este e-mail' },

@@ -20,6 +20,7 @@ RSpec.describe Profile, type: :model do
   it { should have_many :vldls }
   it { should have_many :weights }
   it { should have_many :health_insurances }
+  it { should have_many :diseases }
 
   describe 'Validations' do
     it 'Is valid with valid attributes' do
