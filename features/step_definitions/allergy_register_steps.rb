@@ -16,5 +16,10 @@ end
 
 When("I fill the new allergy data") do
     fill_in "allergy[name]", with: "Plasil"
+    fill_in "allergy[cause]", with: "Medicamento"
+    fill_in "allergy[allergen]", with: "Metoclopramida"
+    fill_in "allergy[known_reaction]", with: "Sim"		
     fill_in "allergy[description]", with: "Princípio Ativo: Cloridrato de metoclopramida"
+	fill_in "allergy[start]", with: "21/10/2018"
+    fill_in "allergy[finish]", with: "21/10/2018"	
 end

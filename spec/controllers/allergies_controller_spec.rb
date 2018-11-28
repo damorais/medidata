@@ -65,11 +65,11 @@ RSpec.describe AllergiesController, type: :controller do
       expect(response).to render_template(:edit)
     end
   end
-
+  
   describe 'POST #create' do
     context 'with valid params' do
       let(:valid_attributes) do
-        { name: 'Buscopan', description: 'Dipirona Sódica' }
+        { name: 'Buscopan', cause: 'Remédio', allergen: 'Fenazona', known_reaction: 'Sim', description: 'Dipirona Sódica', start: '2018-06-25', finish: 1.day.ago }
       end
 
       it 'creates a new Allergy' do
@@ -94,7 +94,7 @@ RSpec.describe AllergiesController, type: :controller do
 
     context 'with invalid params' do
       let(:invalid_attributes) do
-        { name: '', description: '' }
+        { name: '', cause: '', description: '' }
       end
 
       it 'doesnt creates a new Allergy' do
@@ -115,18 +115,23 @@ RSpec.describe AllergiesController, type: :controller do
         expect(response).to render_template(:new)
       end
     end
-  end
+  end	
 
   describe 'PUT #update' do
     before do
       @existing_allergy = FactoryBot.create :allergy, profile: @existing_profile
       @original_allergy_name = @existing_allergy.name
+	  @original_allergy_cause = @existing_allergy.cause
+	  @original_allergy_allergen = @existing_allergy.allergen
+	  @original_allergy_known_reaction = @existing_allergy.known_reaction
       @original_allergy_description = @existing_allergy.description
+      @original_allergy_start = @existing_allergy.start
+      @original_allergy_finish = @existing_allergy.finish				  
     end
 
     context 'with valid params' do
       let(:new_attributes) do
-        { name: 'Buscopan', description: 'Princípio Ativo: Dipirona Sódica' }
+        { name: 'Buscopan', cause: 'Remédio', allergen: 'Fenazona', known_reaction: 'Sim', description: 'Dipirona Sódica', start: '2018-06-25', finish: 1.day.ago }
       end
 
       it 'updates the requested profile' do
@@ -135,8 +140,13 @@ RSpec.describe AllergiesController, type: :controller do
                                allergy: new_attributes }
         @existing_allergy.reload
 
-        expect(@existing_allergy.name).to eq(new_attributes[:name])
-        expect(@existing_allergy.description).to eq(new_attributes[:description])
+		expect(@existing_allergy.name).to eq(new_attributes[:name])
+		expect(@existing_allergy.cause).to eq(new_attributes[:cause])
+		expect(@existing_allergy.allergen).to eq(new_attributes[:allergen])
+		expect(@existing_allergy.known_reaction).to eq(new_attributes[:known_reaction])
+		expect(@existing_allergy.description).to eq(new_attributes[:description])
+		expect(@existing_allergy.start).to eq(new_attributes[:start].to_date)
+		expect(@existing_allergy.finish).to eq(new_attributes[:finish].to_date)
         expect(@existing_allergy.profile).to eq(@existing_profile)
       end
 
@@ -152,7 +162,7 @@ RSpec.describe AllergiesController, type: :controller do
 
     context 'with invalid params' do
       let(:invalid_attributes) do
-        { name: '', description: '' }
+        { name: '', cause: '', description: '' }
       end
 
       it 'doesnt change the Allergy' do
@@ -163,6 +173,7 @@ RSpec.describe AllergiesController, type: :controller do
         @existing_allergy.reload
 
         expect(@existing_allergy.name).to eq(@original_allergy_name)
+		expect(@existing_allergy.cause).to eq(@original_allergy_cause)
         expect(@existing_allergy.description).to eq(@original_allergy_description)
         expect(@existing_allergy.profile).to eq(@existing_profile)
       end
@@ -175,8 +186,8 @@ RSpec.describe AllergiesController, type: :controller do
         expect(response).to render_template(:edit)
       end
     end
-  end
-
+  end  
+  
   describe 'DELETE #destroy' do
     before do
       @existing_allergy = FactoryBot.create :allergy, profile: @existing_profile

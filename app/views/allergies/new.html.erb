@@ -21,6 +21,36 @@
 	<%= form.text_field :name, class: "form-control" %>
     </div>
 
+	<div class="form-group">
+        <%= form.label :Cause %>
+	<% if @allergy and @allergy.errors.messages[:cause] %>
+	      <div class="text-danger small">
+	          <%= @allergy.errors.messages[:cause].to_sentence %>
+	      </div>
+	<% end %>
+	<%= form.text_field :cause, class: "form-control" %>
+    </div>
+
+	<div class="form-group">
+        <%= form.label :Allergen %>
+	<% if @allergy and @allergy.errors.messages[:allergen] %>
+	      <div class="text-danger small">
+	          <%= @allergy.errors.messages[:allergen].to_sentence %>
+	      </div>
+	<% end %>
+	<%= form.text_field :allergen, class: "form-control" %>
+    </div>
+	
+	<div class="form-group">
+        <%= form.label :known_reaction %>
+	<% if @allergy and @allergy.errors.messages[:known_reaction] %>
+	      <div class="text-danger small">
+	          <%= @allergy.errors.messages[:known_reaction].to_sentence %>
+	      </div>
+	<% end %>
+	<%= form.text_field :known_reaction, class: "form-control" %>
+    </div>
+	
     <div class="form-group">
         <%= form.label :Description %>
         <% if @allergy and @allergy.errors.messages[:description] %>
@@ -30,7 +60,27 @@
 	<% end %>
 	<%= form.text_area :description, class: "form-control" %>
     </div>
-      
+	
+    <div class="form-group">
+        <%= form.label :start %>
+    <% if @allergy and @allergy.errors.messages[:start] %>
+	      <div class="text-danger small">
+	          <%= @allergy.errors.messages[:start].to_sentence %>
+	      </div>
+	<% end %>
+    <%= form.date_field :start, class: "form-control" %>
+    </div>
+	
+    <div class="form-group">
+        <%= form.label :finish %>
+    <% if @allergy and @allergy.errors.messages[:finish] %>
+	      <div class="text-danger small">
+	          <%= @allergy.errors.messages[:finish].to_sentence %>
+	      </div>
+	<% end %>
+    <%= form.date_field :finish, class: "form-control" %>
+    </div>
+	 
     <%= form.submit "Save Allergy", class: "btn btn-success" %>
 	<%= link_to 'Cancel', profile_allergies_path(profile_email: @profile.email), class: "btn btn-danger" %>
 
