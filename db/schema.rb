@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2018_11_27_140730) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,7 +35,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
     t.index ["profile_id"], name: "index_contacts_on_profile_id"
   end
 
- create_table "diseases", force: :cascade do |t|
+  create_table "diseases", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.date "start"
@@ -43,8 +44,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_diseases_on_profile_id"
-  end 
-  
+  end
+
   create_table "glucose_measures", force: :cascade do |t|
     t.float "value"
     t.datetime "date"
@@ -234,7 +235,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
 
   add_foreign_key "allergies", "profiles"
   add_foreign_key "contacts", "profiles"
-  add_foreign_key "diseases", "profiles"  
+  add_foreign_key "diseases", "profiles"
   add_foreign_key "glucose_measures", "profiles"
   add_foreign_key "hdls", "profiles"
   add_foreign_key "health_insurances", "profiles"
@@ -243,6 +244,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
   add_foreign_key "medical_appointments", "profiles"
   add_foreign_key "medications", "profiles"
   add_foreign_key "non_hdls", "profiles"
+  add_foreign_key "platelets", "profiles"
   add_foreign_key "pressures", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "reactions", "profiles"

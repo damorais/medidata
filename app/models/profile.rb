@@ -35,7 +35,6 @@ class Profile < ApplicationRecord
 
   def latest_height
     heights.order(:date).reverse_order.take
-    self.weights.order(:date).reverse_order().take
   end
 
   def bmi
