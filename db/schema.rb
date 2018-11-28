@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
     t.index ["profile_id"], name: "index_contacts_on_profile_id"
   end
 
- create_table "diseases", force: :cascade do |t|
+  create_table "diseases", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.date "start"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_diseases_on_profile_id"
-  end 
-  
+  end
+
   create_table "glucose_measures", force: :cascade do |t|
     t.float "value"
     t.datetime "date"
@@ -132,6 +132,33 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
     t.index ["profile_id"], name: "index_non_hdls_on_profile_id"
   end
 
+  create_table "platelets", force: :cascade do |t|
+    t.decimal "erythrocyte"
+    t.decimal "hemoglobin"
+    t.decimal "hematocrit"
+    t.decimal "vcm"
+    t.decimal "hcm"
+    t.decimal "chcm"
+    t.decimal "rdw"
+    t.decimal "leukocytep"
+    t.decimal "neutrophilp"
+    t.decimal "eosinophilp"
+    t.decimal "basophilp"
+    t.decimal "lymphocytep"
+    t.decimal "monocytep"
+    t.integer "leukocyteul"
+    t.integer "neutrophilul"
+    t.integer "eosinophilul"
+    t.integer "basophilul"
+    t.integer "lymphocyteul"
+    t.integer "monocyteul"
+    t.integer "total"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_platelets_on_profile_id"
+  end
+
   create_table "pressures", force: :cascade do |t|
     t.integer "systolic"
     t.integer "diastolic"
@@ -208,7 +235,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
 
   add_foreign_key "allergies", "profiles"
   add_foreign_key "contacts", "profiles"
-  add_foreign_key "diseases", "profiles"  
+  add_foreign_key "diseases", "profiles"
   add_foreign_key "glucose_measures", "profiles"
   add_foreign_key "hdls", "profiles"
   add_foreign_key "health_insurances", "profiles"
@@ -217,6 +244,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_140730) do
   add_foreign_key "medical_appointments", "profiles"
   add_foreign_key "medications", "profiles"
   add_foreign_key "non_hdls", "profiles"
+  add_foreign_key "platelets", "profiles"
   add_foreign_key "pressures", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "reactions", "profiles"

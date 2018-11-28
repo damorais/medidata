@@ -21,7 +21,8 @@ Rails.application.routes.draw do
     resources :glucose_measures
     resources :health_insurances
     resources :medical_appointments
-	resources :diseases		
+	  resources :diseases		
+    resources :platelets
   end
 
   root 'welcome#index'
