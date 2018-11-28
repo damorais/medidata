@@ -15,10 +15,10 @@ Background:
     Scenario: A registered user want to view the new platelet page
         Given I am on platelets page
         When I click on "Add Platelet"
-        Then The Add platelets page should be displayed
+        Then The Add platelet page should be displayed
 
     Scenario: A registered user want to add a new platelet
-        Given I am on Add platelet page
+        Given I am on Add Platelet page
         When I fill the new platelet data
         And I click on "Save platelet" button
         Then I should be redirected to the platelets page

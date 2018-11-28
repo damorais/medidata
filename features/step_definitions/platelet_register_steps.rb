@@ -1,4 +1,4 @@
-Given("I am on Add platelet page") do
+Given("I am on Add Platelet page") do
     visit new_profile_platelet_path(profile_email: @my_profile.email)
 end
 
@@ -10,7 +10,7 @@ Given("I am on platelets page") do
     visit profile_platelets_path(profile_email: @my_profile.email)
 end
 
-Then("The Add platelets page should be displayed") do
+Then("The Add platelet page should be displayed") do
     expect(page).to have_current_path(new_profile_platelet_path(profile_email: @my_profile.email))
 end
 
