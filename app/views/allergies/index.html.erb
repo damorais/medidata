@@ -32,9 +32,9 @@
       <td><%= allergy.start %></td>
       <td><%= allergy.finish %></td>	  
       <td nowrap>
-	    <%= link_to "Edit", edit_profile_allergy_path(profile_email: @profile.email, id: allergy.id), class: "btn btn-primary" %> | 
+	    <%= link_to "Edit", edit_profile_allergy_path(profile_email: @profile.email, id: allergy.id), class: "btn btn-sm btn-primary" %> | 
 	    <%= link_to "Delete", profile_allergy_path(profile_email: @profile.email, id: allergy.id), 
-	    method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+	    method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
 	  </td>
   </tr>
   <% end %>
