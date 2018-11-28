@@ -1,0 +1,39 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<% content_for :titlebar do %>
+  <h2 style="color:white">Diseases</h2>
+<% end %>
+
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Start Date</th>
+    <th scope="col">Finish Date</th>
+    <th scope="col"></th>
+  </tr>
+ 
+  <% @diseases.each do |disease| %>
+    <tr>
+      <td><%= disease.id %></td>
+      <td><%= disease.name %></td>
+      <td><%= disease.description %></td>
+      <td><%= disease.start %></td>
+      <td><%= disease.finish %></td>
+      <td>
+        <%= link_to "Edit", edit_profile_disease_path(profile_email: @profile.email, id: disease.id), class: "btn btn-sm btn-primary" %> |  
+        <%= link_to "Delete", profile_disease_path(profile_email: @profile.email, id: disease.id), 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %> 
+        </td>
+    </tr>
+  <% end %>
+  
+</table>
+<%= link_to 'Add Disease', new_profile_disease_path(profile_email: @profile.email),  class: "btn btn-sm btn-success"  %>
