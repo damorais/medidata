@@ -27,12 +27,6 @@ RSpec.describe DiseasesController, type: :controller do
             get :index, params: { profile_email: @existing_profile.email }
             expect(response).to render_template(:index)
         end
-
-        it "returns an error when trying to access based on inexisting user" do
-            expect{
-                get :index, params: { profile_email: "inexisting_user@example.org" }
-            }.to raise_error(ActionController::RoutingError)
-        end
     end
 
     describe "GET #new" do
@@ -46,11 +40,6 @@ RSpec.describe DiseasesController, type: :controller do
             expect(response).to render_template(:new)
         end
 
-        it "returns an error when trying to access based on inexisting user" do
-            expect{
-                get :new, params: { profile_email: "inexisting_user@example.org" }
-            }.to raise_error(ActionController::RoutingError)
-        end
     end
 
     describe "GET #edit" do
@@ -73,24 +62,9 @@ RSpec.describe DiseasesController, type: :controller do
             expect(response).to render_template(:edit)
         end
 
-        it "returns an error when trying to access based on inexisting user" do
-            expect{
-                get :edit, params: { profile_email: "inexisting_user@example.org", id: @existing_disease.id }
-            }.to raise_error(ActionController::RoutingError)
-        end
     end
 
     describe "POST #create" do
-
-        it "returns an error when trying to access based on inexisting user" do
-            expect{
-                post :create, params: { 
-                    profile_email: "inexisting_user@example.org", 
-                    disease: {}
-                } 
-                
-            }.to raise_error(ActionController::RoutingError)
-        end
 
         context "with valid params" do
             let(:valid_attributes) { 
@@ -151,12 +125,6 @@ RSpec.describe DiseasesController, type: :controller do
             @original_disease_start = @existing_disease.start
             @original_disease_finish = @existing_disease.finish
         }
-
-        it "returns an error when trying to access based on inexisting user" do
-            expect{
-                put :update, params: {profile_email: "inexisting_user@example.org", id: @existing_disease.id, disease: {}}
-            }.to raise_error(ActionController::RoutingError)
-        end
         
         context "with valid params" do
             let(:new_attributes) {
@@ -218,10 +186,5 @@ RSpec.describe DiseasesController, type: :controller do
             expect(response).to redirect_to(profile_diseases_path(profile_email: @existing_profile.email))
         end
 
-        it "returns an error when trying to access based on inexisting user" do
-            expect{
-                delete :destroy, params: {profile_email: "inexisting_user@example.org", id: @existing_disease.to_param}
-            }.to raise_error(ActionController::RoutingError)
-        end
     end
 end
