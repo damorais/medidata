@@ -2,9 +2,15 @@ require 'rails_helper'
 
 RSpec.describe DiseasesController, type: :controller do
    # Todo registro de doença depende de um perfil válido existente
-    before { 
-        @existing_profile = FactoryBot.create :profile, :email => "joao@example.org"
-    } 
+    before do
+      @user = FactoryBot.create :user, email: 'joao@example.org'
+      sign_in @user
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org', user: @user
+    end
+
+    after do
+      sign_out @user
+    end
 
     describe "GET #index" do
         it "returns a success response" do
