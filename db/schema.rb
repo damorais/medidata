@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 2018_11_28_135951) do
     t.bigint "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cause"
+    t.string "allergen"
+    t.string "known_reaction"
+    t.date "start"
+    t.date "finish"
     t.index ["profile_id"], name: "index_allergies_on_profile_id"
   end
 
