@@ -4,13 +4,13 @@ class AllergiesController < ApplicationController
   before_action :authenticate_user!
   before_action :block_crossprofile_access
   before_action :recover_profile
-  
+
   def index
     @allergies = @profile.allergies
   end
-
+   
   def new; end
-
+   
   def edit
     @allergy = Allergy.find(params[:id])
   end
@@ -38,7 +38,7 @@ class AllergiesController < ApplicationController
       render 'edit'
     end
   end
-
+  
   def destroy
     @allergy = Allergy.find(params[:id])
 
@@ -48,10 +48,10 @@ class AllergiesController < ApplicationController
 
     redirect_to profile_allergies_path(profile_email: profile_email)
   end
-
+	  
   private
 
   def allergy_params
-    params.require(:allergy).permit(:name,:description)
+    params.require(:allergy).permit(:name, :cause, :allergen, :known_reaction, :description, :start, :finish)
   end
 end

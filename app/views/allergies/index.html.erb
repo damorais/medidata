@@ -12,21 +12,32 @@
   <tr>
     <th scope="col">ID</th>
     <th scope="col">Name</th>
+    <th scope="col">Cause</th>
+    <th scope="col">Allergen</th>
+    <th scope="col">Known Reaction</th>	
     <th scope="col">Description</th>
-    <th scope="col" class="center"></th>
+    <th scope="col">Start Date</th>
+    <th scope="col">Finish Date</th>	
+    <th scope="col"></th>
   </tr>
  
   <% @allergies.each do |allergy| %>
     <tr>
 	  <td><%= allergy.id %></td>
       <td><%= allergy.name %></td>
+      <td><%= allergy.cause %></td>
+      <td><%= allergy.allergen %></td>
+      <td><%= allergy.known_reaction %></td>	  
       <td><%= allergy.description %></td>
+      <td><%= allergy.start %></td>
+      <td><%= allergy.finish %></td>	  
       <td nowrap>
-	    <%= link_to "Edit", edit_profile_allergy_path(profile_email: @profile.email, id: allergy.id), class: "btn btn-sm btn-primary" %> | 
+	    <%= link_to "Edit", edit_profile_allergy_path(profile_email: @profile.email, id: allergy.id), class: "btn btn-primary" %> | 
 	    <%= link_to "Delete", profile_allergy_path(profile_email: @profile.email, id: allergy.id), 
-	    method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
-	    </td>
+	    method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+	  </td>
   </tr>
-  <% end %>  
+  <% end %>
+  
 </table>
 <%= link_to "Add Allergy", new_profile_allergy_path(profile_email: @profile.email), class: "btn btn-sm btn-success" %>
