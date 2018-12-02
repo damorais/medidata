@@ -20,7 +20,7 @@ When("I fill the new medical appointment data") do
   fill_in "medical_appointment[professional]", with: "Joao"
   select DateTime.now.strftime("%Y"),  from: "medical_appointment_date_1i"
   select DateTime.now.strftime("%B"),  from: "medical_appointment_date_2i"
-  select DateTime.now.strftime("%d"),  from: "medical_appointment_date_3i"
+  select "10",  from: "medical_appointment_date_3i"
   select DateTime.now.strftime("%H"),  from: "medical_appointment_date_4i"
   select DateTime.now.strftime("%M"),  from: "medical_appointment_date_5i"
   fill_in "medical_appointment[note]", with: "phone number: (11) 2222-3333"
