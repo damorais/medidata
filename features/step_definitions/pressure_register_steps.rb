@@ -19,7 +19,7 @@ When("I fill the new pressure data") do
     fill_in "pressure[diastolic]", with: "10"
     select DateTime.now.strftime("%Y"),  from: "pressure_date_1i"
     select DateTime.now.strftime("%B"),  from: "pressure_date_2i"
-    select DateTime.now.strftime("%d"),  from: "pressure_date_3i"
+    select "10",  from: "pressure_date_3i"
     select DateTime.now.strftime("%H"),  from: "pressure_date_4i"
     select DateTime.now.strftime("%M"),  from: "pressure_date_5i"
 end
