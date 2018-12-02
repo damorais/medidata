@@ -19,7 +19,7 @@ When("I fill the new glucose measure data") do
   check "glucose_measure[fasting]"
   select DateTime.now.strftime("%Y"),  from: "glucose_measure_date_1i"
   select DateTime.now.strftime("%B"),  from: "glucose_measure_date_2i"
-  select "10",  from: "pressure_date_3i"
+  select "10",  from: "glucose_measure_date_3i"
   select DateTime.now.strftime("%H"),  from: "glucose_measure_date_4i"
   select DateTime.now.strftime("%M"),  from: "glucose_measure_date_5i"
 end
