@@ -15,12 +15,4 @@ script:
 - bin/rake cucumber
 after_script:
 - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-deploy:
-  provider: heroku
-  api_key:
-    secure: lVSer/BPzisWpevj17BsOhQt149NyseXfIxew6WROOsAhux8E6rsg4JFGNrzNj71zwV6D103dGM2h2dhNF2FMBLfifUWzSgKi/qpqYwE/bhhC4q56xiHkV4SwNOGh4c3k9D/g4HDGuyX5KcX2ZHcAdO4TMJd86aBn7OgIf7CveZN2JrQZlX3q3FFyNT40R6kOwc5u7rkJiYCSPZV4jyFmg28SXzKxTuwwJbWteXjj0peoC1UHUEWIk5JEFpj2Us0n3HHt1pJu8ZN9lbvruLIZysv93I7AT3uMvT40Ogp2lbLizbiHlIR5PhV0uGKiG680Bebb3RaQfe7Sfy/roeFzDEA9jKNwXNgVXxwP1h5xibknUSInTiwHqtCIoR9VfcnCPOP/RH0D9BgZG5SLfZt5orxmLqP4X7F+wljUST0jYGzjv4Tfu+9OJEsJNwowxw+xT+cjQMWaQMat5tWSa3HTHWLLHP8OcZkcB21ZB6NpoyKkeLo/iKg3JAtmDjjIQ3FHA0uQQ2PpS0sdax/pi61y47Anldwtv7Ynt7EjqMCF7aBcyuPdBMV4vcNm3mCArbMzvWPnp4LduereVlVL3tWsDTgB/MahnT/29sWkpBAADYGjyo8xCK/EXDQlUMU5m9u74cjguBIdDjmKfKRH1L4qtJ2IJpScGdGqa5xm0jQNCI=
-  app: limitless-sands-47730
-  run:
-    - "bin/rake db:migrate"
-  on:
-    repo: damorais/medidata
+
