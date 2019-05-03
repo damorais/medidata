@@ -7,3 +7,4 @@ Atualmente existe um problema em relação ao armazenamento de informações mé
 # Disclaimer
 
 Este é apenas um projeto usado para testes de técnicas de desenvolvimento.
+-- TESTE DE COMMIT - Deve ser revertido!!! -- 
