@@ -94,10 +94,13 @@ RSpec.describe Profile, type: :model do
     context 'Associated Glucose' do
       before do
         @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
-        @latest_height = FactoryBot.create :height, date: Time.now, profile: @existing_profile
-        @other_height = FactoryBot.create :height, date: 1.day.ago, profile: @existing_profile
+        @other_glucose = FactoryBot.create value: 1.6 , date: 1.day.ago ,profile: @existing_profile
+        @latest_glucose = FactoryBot.create value: 1.7, date: Time.now  ,profile: @existing_profile
       end
-      
+      it 'Should return the latest glucose mensure of a profile' do
+        expect(@existing_profile.latest_glucose).to eq(@latest_glucose)
+
+      end  
 
     end 
   end
