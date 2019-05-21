@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   def show; end
 
   def edit
-    @profile = Profile.find_by(email: params[:email])
+    #@profile = Profile.find_by(email: params[:email])
   end
 
   def create
