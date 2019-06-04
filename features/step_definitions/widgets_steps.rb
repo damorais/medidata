@@ -1,18 +1,18 @@
 Given("I have at least one Weight registered") do
-    @expected_weight = FactoryBot.create :weight, :date => Time.now, :profile => @my_profile, :value => 65.0 
-    @another_weight = FactoryBot.create :weight, :date => 1.day.ago, :profile => @my_profile, :value => 60.0
+  @expected_weight = FactoryBot.create :weight, :date => Time.now, :profile => @my_profile, :value => 65.0 
+  @another_weight = FactoryBot.create :weight, :date => 1.day.ago, :profile => @my_profile, :value => 60.0
 
-    expect(@my_profile.weights.size).to be(2)
+  expect(@my_profile.weights.size).to be(2)
 end
 
 Given("I don't have any weight registered") do
-    expect(@my_profile.weights.size).to be(0)
+  expect(@my_profile.weights.size).to be(0)
 end
   
 Then("I should see a Weight widget with the most recent register") do
-    widget = find("#widget_lastest_weight")
+  widget = find("#widget_lastest_weight")
 
-    expect(widget).to have_content(@expected_weight.value)
+  expect(widget).to have_content(@expected_weight.value)
 end
 
 Then("I should see a Weight widget warning that {string}") do |message|

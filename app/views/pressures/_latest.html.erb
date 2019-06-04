@@ -1,0 +1,16 @@
+<div id="widget_latest_pressure" class="col-md-3">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h3 class="card-title">
+                Blood Pressure:
+            </h3>
+            <h3 class="">Systolic: <%= latest_pressure.systolic %> mmHg</h2>
+            <h3 class="">Diastolic: <%= latest_pressure.diastolic %> mmHg</h2>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Registered: <%= latest_pressure.date.to_date() %></small>
+            </div>
+        </div>
+    </div>
+</div>
