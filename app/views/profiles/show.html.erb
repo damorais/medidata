@@ -12,5 +12,9 @@
   <%= render :partial => "weights/latest", :locals => { :latest_weight => @profile.latest_weight } %>
   <%= render :partial => "heights/latest", :locals => { :latest_height => @profile.latest_height } %>
   <%= render :partial => "glucose_measures/latest", :locals => { :latest_glucose => @profile.latest_glucose} %>
+  
+  <% if @profile.latest_pressure %>
+  <%= render :partial => "pressures/latest", :locals => { :latest_pressure => @profile.latest_pressure } %>
+  <% end %>
   <%= render :partial => "widgets/bmi", :locals => { :bmi => @profile.bmi } %>
 </div>

@@ -40,6 +40,10 @@ class Profile < ApplicationRecord
   def latest_glucose
     glucose_measures.order(:date).reverse_order.take
   end   
+  
+  def latest_pressure
+    pressures.order(:date).reverse_order.take
+  end
 
   def bmi
     if latest_height && latest_weight

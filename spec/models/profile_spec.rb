@@ -90,6 +90,31 @@ RSpec.describe Profile, type: :model do
       it 'Should return the latest height of a profile' do
         expect(@existing_profile.latest_height).to eq(@latest_height)
       end
+  context 'Associated Pressures' do
+    before do
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @latest_pressure = FactoryBot.create :pressure, date: Time.now,
+                                                      profile: @existing_profile,
+                                                      systolic: 18,
+                                                      diastolic: 9
+
+      @other_pressure = FactoryBot.create :pressure, date: 1.day.ago,
+                                                     profile: @existing_profile,
+                                                     systolic: 12,
+                                                     diastolic: 8
+    end
+
+    it 'Should return the latest pressure of a profile' do
+      expect(@existing_profile.latest_pressure).to eq(@latest_pressure)
+    end
+
+  end
+
+  context 'Associated Heights' do
+    before do
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @latest_height = FactoryBot.create :height, date: Time.now, profile: @existing_profile
+      @other_height = FactoryBot.create :height, date: 1.day.ago, profile: @existing_profile
     end
     context 'Associated Glucose' do
       before do
