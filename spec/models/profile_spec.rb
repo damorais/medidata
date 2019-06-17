@@ -28,6 +28,7 @@ RSpec.describe Profile, type: :model do
                                            firstname: 'João',
                                            lastname: 'Silva',
                                            birthdate: Date.new(2000, 5, 5)
+                                           
 
       expect(profile).to be_valid
     end
@@ -36,6 +37,16 @@ RSpec.describe Profile, type: :model do
       profile = Profile.new(email: nil)
       expect(profile).to_not be_valid
     end
+
+    it 'Is not valid without an user' do
+      profile = Profile.new(email: 'joao_silva@example.org',
+                            firstname: 'João',
+                            lastname: 'Silva',
+                            birthdate: Date.new(2000, 5, 5),
+                            user: nil)
+      expect(profile).to_not be_valid
+    end
+
 
     it 'Is not valid if the email is not unique' do
       existing_profile = FactoryBot.create :profile, email: 'joao_silva@example.org',
