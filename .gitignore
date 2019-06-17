@@ -37,3 +37,7 @@ log
 /config/master.key
 coverage
 /coverage
+
+# For the best visualization of the Routes Page
+routes.txt
+
