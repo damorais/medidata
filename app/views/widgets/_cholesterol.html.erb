@@ -1,0 +1,61 @@
+<div id="widget_latest_cholesterol" class="col-md-3">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+
+            <h3 class="card-title">
+                Cholesterol Values:
+            </h3>
+
+            <% if latest_HDL %>
+            
+                <h2 class="">HDL: <%= latest_HDL.value %> mg/dl</h2>
+                <small class="text-muted border d-flex justify-content-between">Registered: <%= latest_HDL.date.to_date() %></small>
+            <% else %>
+            
+                <small>You don't have any HDL-Cholesterol registered</small> 
+            
+            <% end %>
+        
+            <% if latest_NON_HDL %>
+            
+                <h2 class="">NON-HDL: <%= latest_NON_HDL.value %> mg/dl</h2>
+                <small class="text-muted border d-flex justify-content-between">Registered: <%= latest_NON_HDL.date.to_date() %></small>
+            <% else %>
+            
+                <small>You don't have any NON-HDL-Cholesterol registered</small> 
+            
+            <% end %>
+            
+            <% if latest_LDL %>
+            
+                <h2 class="">LDL: <%= latest_LDL.value %> mg/dl</h2>
+                <small class="text-muted border d-flex justify-content-between">Registered: <%= latest_LDL.date.to_date() %></small>
+            <% else %>
+            
+                <small>You don't have any LDL-Cholesterol registered</small> 
+            
+            <% end %>
+
+            <% if latest_VLDL %>
+            
+                <h2 class="">VLDL: <%= latest_VLDL.value %> mg/dl</h2>
+                <small class="text-muted border d-flex justify-content-between">Registered: <%= latest_VLDL.date.to_date() %></small>
+            <% else %>
+            
+                <small>You don't have any VLDL-Cholesterol registered</small> 
+            
+            <% end %>
+            
+            <% if latest_total %>
+            
+                <h2 class="">total: <%= latest_total.value %> mg/dl</h2>
+                <small class="text-muted border d-flex justify-content-between">Registered: <%= latest_total.date.to_date() %></small>
+            <% else %>
+            
+                <small>You don't have any Total-Cholesterol registered</small> 
+            
+            <% end %>
+            
+        </div>
+    </div>
+</div>
