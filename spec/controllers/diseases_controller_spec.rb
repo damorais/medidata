@@ -33,7 +33,7 @@ RSpec.describe DiseasesController, type: :controller do
         it "returns a success response" do
             get :new, params: { profile_email: @existing_profile.email }
             expect(response).to be_successful
-        end,0
+        end
         
 
         it "render a new disease page" do
