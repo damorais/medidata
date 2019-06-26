@@ -69,7 +69,7 @@ RSpec.describe RelativesController, type: :controller do
 
         context "with valid params" do
             let(:valid_attributes) { 
-                { name: "João", description: "Pressão Alta" }
+                { name: "João", description: "Pressão Alta", kinship: "Filho" }
             }
 
             it "creates a new Relative " do
@@ -123,11 +123,12 @@ RSpec.describe RelativesController, type: :controller do
             @existing_relative = FactoryBot.create :relative, :profile => @existing_profile
             @original_relative_name = @existing_relative.name
             @original_relative_description = @existing_relative.description
+            @original_relative_kinship = @existing_relative.kinship
         }
 
         context "with valid params" do
             let(:new_attributes) {
-               	{ name: "João", description: "Pressão Alta" }	
+               	{ name: "João", description: "Pressão Alta", kinship: "Filho" }	
             }
 
             it "updates the requested profile" do
@@ -136,6 +137,7 @@ RSpec.describe RelativesController, type: :controller do
                 
                 expect(@existing_relative.name).to eq(new_attributes[:name])
 				expect(@existing_relative.description).to eq(new_attributes[:description])
+				expect(@existing_relative.kinship).to eq(@original_relative_kinship)	
                 expect(@existing_relative.profile).to eq(@existing_profile)
             end
 
@@ -156,6 +158,7 @@ RSpec.describe RelativesController, type: :controller do
                 @existing_relative.reload
                 expect(@existing_relative.name).to eq(@original_relative_name)
 				expect(@existing_relative.description).to eq(@original_relative_description)
+				expect(@existing_relative.kinship).to eq(@original_relative_kinship)
                 expect(@existing_relative.profile).to eq(@existing_profile)
             end
 
@@ -184,6 +187,4 @@ RSpec.describe RelativesController, type: :controller do
         end
 
     end
-
-
 end

@@ -19,7 +19,8 @@ Feature: Allows an user to manager your relatives
 		
 	Scenario: A registered user want to add a new  disease
         Given I am on Add Relative page
-        When I fill the Relative name and description
+        When I fill the Relative name, description and kinship
         And I click on "Save Relative" button
         Then I should be redirected to the Relatives Historic page
         And A "success" message saying "Relative registered sucessfully" should be exibited
+        

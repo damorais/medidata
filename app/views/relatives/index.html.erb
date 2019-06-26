@@ -1,0 +1,37 @@
+<!-- TODO: Esta página é apenas temporária: quando a autenticação estiver implementada, será removida -->
+<% content_for :titlebar do %>
+  <h2 style="color:white">Relatives</h2>
+<% end %>
+
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Kinship</th>
+    <th scope="col"></th>
+  </tr>
+ 
+  <% @relatives.each do |relatives| %>
+    <tr>
+      <td><%= relative.id %></td>
+      <td><%= relative.name %></td>
+      <td><%= relative.description %></td>
+      <td><%= relative.kinship %></td>
+      <td>
+        <%= link_to "Edit", edit_profile_relative_path(profile_email: @profile.email, id: relative.id), class: "btn btn-sm btn-primary" %> |  
+        <%= link_to "Delete", profile_relative_path(profile_email: @profile.email, id: relative.id), 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %> 
+        </td>
+    </tr>
+  <% end %>
+  
+</table>
+<%= link_to 'Add Relative', new_profile_relative_path(profile_email: @profile.email),  class: "btn btn-sm btn-success"  %>

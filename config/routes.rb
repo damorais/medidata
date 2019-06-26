@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :medical_appointments
 	  resources :diseases		
     resources :platelets
-    resources :historic_relatives
+    resources :relatives
   end
 
   root 'welcome#index'

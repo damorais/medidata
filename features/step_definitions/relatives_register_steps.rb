@@ -17,4 +17,5 @@ end
 When("I fill the Relative name and description") do
     fill_in "relative[name]", with: "Joao"
     fill_in "relative[description]", with: "Pressão Alta"
+    fill_in "relative[kinship]", with: "Filho"
 end
