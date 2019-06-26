@@ -13,7 +13,7 @@ Feature: Allows an user to manager your relatives
 		Then I should be redirected to the relatives historic page
 		
 	 Scenario: A registered user want to view the new relatives historic page
-        Given I am on diseases page
+        Given I am on relatives page
         When I click on "Add Relative"
         Then The Add Relative page should be displayed
 		

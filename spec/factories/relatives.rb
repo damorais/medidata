@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :relative do
-    name { "MyString" }
-    description { "MyString" }
+    name { "João" }
+    description { "Pressão Alta" }
     profile { nil }
   end
 end
