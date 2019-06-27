@@ -53,6 +53,6 @@ class RelativesController < ApplicationController
 	
     private
     def relative_params
-        params.require(:relative).permit(:name, :description, )
+        params.require(:relative).permit(:name, :description, :)
     end
 end

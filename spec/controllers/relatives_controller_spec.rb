@@ -94,7 +94,7 @@ RSpec.describe RelativesController, type: :controller do
 
         context "with invalid params" do
             let(:invalid_attributes) { 
-                { name: "", description: "" }
+                { name: "", description: "", kinship: "" }
             }
 
             it "doesn't creates a new Relative" do
