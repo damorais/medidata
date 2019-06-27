@@ -10,17 +10,17 @@ Feature: Allows an user to manager your relatives
 	Scenario: A registered user want to navigate to diseases page
 		Given I am on My profile page
 		When I click on "Relatives Historic"
-		Then I should be redirected to the relatives historic page
+		Then I should be redirected to the relatives page
 		
-	 Scenario: A registered user want to view the new relatives historic page
+	 Scenario: A registered user want to view the new relatives page
         Given I am on relatives page
         When I click on "Add Relative"
         Then The Add Relative page should be displayed
 		
-	Scenario: A registered user want to add a new  disease
+	Scenario: A registered user want to add a new relative
         Given I am on Add Relative page
         When I fill the Relative name, description and kinship
         And I click on "Save Relative" button
-        Then I should be redirected to the Relatives Historic page
+        Then I should be redirected to the relatives page
         And A "success" message saying "Relative registered sucessfully" should be exibited
         
