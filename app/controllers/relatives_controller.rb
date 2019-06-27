@@ -13,7 +13,7 @@ class RelativesController < ApplicationController
     end
    
     def edit
-        @relatives = Relative.find(params[:id])
+        @relative = Relative.find(params[:id])
     end
 
 	def create
@@ -53,6 +53,6 @@ class RelativesController < ApplicationController
 	
     private
     def relative_params
-        params.require(:relative).permit(:name, :description, :)
+        params.require(:relative).permit(:name, :description, :kinship )
     end
 end
