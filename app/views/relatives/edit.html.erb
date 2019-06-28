@@ -2,7 +2,7 @@
   <h2 style="color:white">Relative - <%= @relative.name %></h2>
 <% end %>
 
-<%= form_with model: @relative, local: true, url: profile_relatives_path(profile_email: @profile.email) do |form| %>
+<%= form_with model: @relative, local: true, url: profile_relative_path(profile_email: @profile.email) do |form| %>
 <div class="form-horizontal">
 
     <div class="form-group">
@@ -27,14 +27,14 @@
 
     <div class="form-group">
         <%= form.label :kinship %>
-        <% if @relative and @relative.errors.messages[:kinship] %>
+	<% if @relative and @relative.errors.messages[:kinship] %>
 	      <div class="text-danger small">
 	          <%= @relative.errors.messages[:kinship].to_sentence %>
 	      </div>
 	<% end %>
-        <%= form.date_field :kinship, class: "form-control" %>
-    </div>	
-	
+	<%= form.text_field :kinship, class: "form-control" %>
+    </div>
+
     <%= form.submit "Save Relative", class: "btn btn-success" %>	
 	<%= link_to 'Cancel', profile_relatives_path(profile_email: @profile.email), class: "btn btn-danger" %>
 
