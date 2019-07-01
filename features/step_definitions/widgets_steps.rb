@@ -31,15 +31,15 @@ Given("I have at least one Height registered") do
 
     expect(@my_profile.heights.size).to be(2)
 end
-  
+
 Then("I should see a Height widget with the most recent register") do
-    widget = find("#widget_lastest_height")
+    widget = find("#widget_latest_height")
 
     expect(widget).to have_content(@expected_height.value)
 end
 
 Then("I should see a Height widget warning that {string}") do |message|
-    widget = find("#widget_lastest_height")
+    widget = find("#widget_latest_height")
 
     expect(widget).to have_content(message)
 end

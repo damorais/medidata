@@ -28,6 +28,7 @@ RSpec.describe Profile, type: :model do
                                            firstname: 'João',
                                            lastname: 'Silva',
                                            birthdate: Date.new(2000, 5, 5)
+                                           
 
       expect(profile).to be_valid
     end
@@ -36,6 +37,16 @@ RSpec.describe Profile, type: :model do
       profile = Profile.new(email: nil)
       expect(profile).to_not be_valid
     end
+
+    it 'Is not valid without an user' do
+      profile = Profile.new(email: 'joao_silva@example.org',
+                            firstname: 'João',
+                            lastname: 'Silva',
+                            birthdate: Date.new(2000, 5, 5),
+                            user: nil)
+      expect(profile).to_not be_valid
+    end
+
 
     it 'Is not valid if the email is not unique' do
       existing_profile = FactoryBot.create :profile, email: 'joao_silva@example.org',
@@ -67,28 +78,99 @@ RSpec.describe Profile, type: :model do
       expect(profile).to_not be_valid
     end
   end
+  describe 'Associated values with profile' do 
+    context 'Associated Weights' do
+      before do
+        @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+        @latest_weight = FactoryBot.create :weight, date: Time.now, profile: @existing_profile
+        @other_weight = FactoryBot.create :weight, date: 1.day.ago, profile: @existing_profile
+      end
 
-  context 'Associated Weights' do
-    before do
-      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
-      @latest_weight = FactoryBot.create :weight, date: Time.now, profile: @existing_profile
-      @other_weight = FactoryBot.create :weight, date: 1.day.ago, profile: @existing_profile
+      it 'Should return the latest weight of a profile' do
+        expect(@existing_profile.latest_weight).to eq(@latest_weight)
+      end
     end
 
-    it 'Should return the latest weight of a profile' do
-      expect(@existing_profile.latest_weight).to eq(@latest_weight)
+    context 'Associated Heights' do
+      before do
+        @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+        @latest_height = FactoryBot.create :height, date: Time.now, profile: @existing_profile
+        @other_height = FactoryBot.create :height, date: 1.day.ago, profile: @existing_profile
+      end
+
+      it 'Should return the latest height of a profile' do
+        expect(@existing_profile.latest_height).to eq(@latest_height)
+      end
+    end
+    context 'Associated Glucose' do
+      before do
+        @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+        @latest_glucose = FactoryBot.create :glucose_measure, date: Time.now  ,profile: @existing_profile
+        @other_glucose = FactoryBot.create :glucose_measure, date: 1.day.ago ,profile: @existing_profile
+      end
+      it 'Should return the latest glucose mensure of a profile' do
+        expect(@existing_profile.latest_glucose).to eq(@latest_glucose)
+      end  
+
+    end 
+  end
+
+  context 'Associated HDL Cholesterol' do
+    before do
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @latest_HDL = FactoryBot.create :hdl, date: Time.now, profile: @existing_profile
+      @other_HDL = FactoryBot.create :hdl, date: 1.day.ago, profile: @existing_profile
+    end
+
+    it 'Should return the latest HDL Cholesterol of a profile' do
+      expect(@existing_profile.latest_HDL).to eq(@latest_HDL)
     end
   end
 
-  context 'Associated Heights' do
+  context 'Associated NON-HDL Cholesterol' do
     before do
       @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
-      @latest_height = FactoryBot.create :height, date: Time.now, profile: @existing_profile
-      @other_height = FactoryBot.create :height, date: 1.day.ago, profile: @existing_profile
+      @latest_NON_HDL = FactoryBot.create :non_hdl, date: Time.now, profile: @existing_profile
+      @other_NON_HDL = FactoryBot.create :non_hdl, date: 1.day.ago, profile: @existing_profile
     end
 
-    it 'Should return the latest height of a profile' do
-      expect(@existing_profile.latest_height).to eq(@latest_height)
+    it 'Should return the latest NON-HDL Cholesterol of a profile' do
+      expect(@existing_profile.latest_NON_HDL).to eq(@latest_NON_HDL)
+    end
+  end
+
+  context 'Associated LDL Cholesterol' do
+    before do
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @latest_LDL = FactoryBot.create :ldl, date: Time.now, profile: @existing_profile
+      @other_LDL = FactoryBot.create :ldl, date: 1.day.ago, profile: @existing_profile
+    end
+
+    it 'Should return the latest LDL Cholesterol of a profile' do
+      expect(@existing_profile.latest_LDL).to eq(@latest_LDL)
+    end
+  end
+
+  context 'Associated VLDL Cholesterol' do
+    before do
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @latest_VLDL = FactoryBot.create :vldl, date: Time.now, profile: @existing_profile
+      @other_VLDL = FactoryBot.create :vldl, date: 1.day.ago, profile: @existing_profile
+    end
+
+    it 'Should return the latest VLDL Cholesterol of a profile' do
+      expect(@existing_profile.latest_VLDL).to eq(@latest_VLDL)
+    end
+  end
+  context 'Associated Totals Cholesterol' do
+    before do
+      @existing_profile = FactoryBot.create :profile, email: 'joao@example.org'
+      @latest_total = FactoryBot.create :total, date: Time.now, profile: @existing_profile
+      @other_total = FactoryBot.create :total, date: 1.day.ago, profile: @existing_profile
+    end
+
+    it 'Should return the latest Totals Cholesterol of a profile' do
+      expect(@existing_profile.latest_total).to eq(@latest_total)
     end
   end
 

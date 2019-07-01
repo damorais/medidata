@@ -11,5 +11,11 @@
 <div class="row">
   <%= render :partial => "weights/latest", :locals => { :latest_weight => @profile.latest_weight } %>
   <%= render :partial => "heights/latest", :locals => { :latest_height => @profile.latest_height } %>
+  <%= render :partial => "glucose_measures/latest", :locals => { :latest_glucose => @profile.latest_glucose} %>
   <%= render :partial => "widgets/bmi", :locals => { :bmi => @profile.bmi } %>
+  <%= render :partial => "widgets/cholesterol", :locals => { :latest_HDL => @profile.latest_HDL,
+                                                             :latest_NON_HDL => @profile.latest_NON_HDL,
+                                                             :latest_LDL => @profile.latest_LDL,
+                                                             :latest_VLDL => @profile.latest_VLDL, 
+                                                             :latest_total=> @profile.latest_total} %>
 </div>
